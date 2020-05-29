@@ -1,0 +1,261 @@
+.header{
+    background-color: $headerBg;
+    box-shadow: 0 4px 10px 0 rgba(175, 175, 175, 0.1);
+
+    @media all and (max-width: $mediaMD){
+        padding: 10px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 7;
+    }
+
+    .wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+    }
+
+    &-logo{
+        margin-right: 32px;
+        margin-top: -5px;
+
+        @media all and (max-width: $mediaMD){
+            margin-right: 0;
+            margin-top: 0;
+        }
+
+        &-link{
+            display: block;
+        }
+    }
+
+    &-auth{
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        &-list{
+            @include reset-list;
+            @include horizontal-list;
+
+            margin-right: 28px;
+            
+            @media all and (max-width: $mediaMD){
+                margin-right: 16px;
+            }
+        }
+
+        &-link{
+            display: block;
+            height: 36px;
+            width: 36px;
+            
+            img{
+                max-width: 100%;
+                height: auto;
+            }
+            
+        }
+
+        &-item{
+            &:not(:last-child){
+                margin-right: 12px;
+
+                @media all and (max-width: $mediaMD){
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+
+    &-menu{
+        @include reset-list;
+        @include horizontal-list;
+
+        @media all and (max-width: $mediaMD){
+            // display: none;
+            position: fixed;
+            top: 56px;
+            left: -240px;
+            height: 100vh;
+            background: #fff;
+            width: 240px;
+            box-shadow: 0 6px 10px 0 rgba(183, 183, 183, 0.2), inset 0 4px 10px 0 rgba(175, 175, 175, 0.1);
+            z-index: 6;
+            display: block;
+            padding: 24px 20px 20px;
+            transform: translateX(0);
+            transition: transform .3s ease;
+
+            &.opened{
+                // display: block;
+                transform: translateX(240px);
+            }
+        }
+
+        &-item{
+            &:not(:last-child){
+                @media all and (min-width: $mediaMD){
+                    margin-right: 15px;
+                }
+                @media all and (min-width: $mediaLG){
+                    margin-right: 28px;
+                }
+            }
+        }
+
+        &-link{
+            padding: 20px 0;
+            font-family: $OpenSans;
+            font-weight: 600;
+            color: $mainTextColor;
+            text-decoration: none;
+            display: block;
+            position: relative;
+
+            &.current{
+                &:before{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    border-top-left-radius: 4px;
+                    border-top-right-radius: 4px;
+                    background: linear-gradient(to right, $gradientColor1, $gradientColor2);
+                    height: 3px;
+                    width: 100%;
+                }
+            }
+
+            &:hover,
+            &:active{
+                &:not(.current){
+                    opacity: .7;
+                }
+            }
+
+            @media all and (max-width: $mediaMD){
+                font-size: 18px;
+                font-family: $Roboto;
+                padding: 0;
+                margin-bottom: 12px;
+                font-weight: 400;
+
+                &::before{
+                    display: none !important;
+                }
+            }
+        }
+    }
+
+    &-user{
+        @include horizontal-list;
+
+        &-logo{
+            border-radius: 100%;
+            width: 36px;
+            height: 36px;
+            margin-right: 4px;
+
+            img{
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            @media all and (max-width: $mediaMD){
+                margin-right: 0;
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        &-name{
+            display: block;
+            font-weight: bold;
+        }
+
+        &-stat{
+            border-radius: 4px;
+            background-color: $statBg;
+            color: $white;
+            font-size: 11px;
+            padding: 1px 1px 1px 4px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        &-rate{
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 4px;
+            padding: 1px 2px 1px 4px;
+            display: inline-block;
+
+            img{
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+
+        &-info{
+            @media all and (max-width: $mediaMD){
+                display: none;
+            }
+        }
+    }
+}
+
+.burger{
+    display: block;
+    width: 26px;
+    height: 20px;
+    margin-right: 15px;
+    position: relative;
+    cursor: pointer;
+
+    span{
+        display: block;
+        height: 4px;
+        width: 100%;
+        background-color: $mainTextColor;
+        border-radius: 4px;
+        transform-origin: 50% 50%;
+        transition: all .3s ease;
+        position: absolute;
+        left: 0;
+
+        &:first-child{
+            top: 0;
+        }
+        &:nth-child(2){
+            top: 8px;
+        }
+        &:last-child{
+            top: 16px;
+        }
+
+    }
+
+    &.opened{
+        span{
+            top: 50%;
+            left: 0;
+            margin-top: -2px;
+
+            &:first-child{
+                transform: rotate(45deg);
+            }
+            &:nth-child(2){
+                width: 0;
+            }
+            &:last-child{
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

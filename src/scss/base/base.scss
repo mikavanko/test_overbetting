@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body{
+    background-color: $bodyBg;
+    font-family: $OpenSans;
+    line-height: 1.2;
+    font-size: 16px;
+    color: $mainTextColor;
+    position: relative;
+
+    @media all and (max-width: $mediaLG){
+        font-size: 12px;
+    }
+}
+
+.wrapper{
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 48px;
+    font-family: $Roboto;
+
+    @media all and (max-width: $mediaXL){
+        max-width: 100%;
+    }
+
+    @media all and (max-width: $mediaMD){
+        padding: 0 6px;
+    }
+}
+
+.page-content{
+    margin: 24px 0 48px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @media all and (max-width: $mediaMD){
+        margin: 56px 0 0;
+    }
+}
+p{
+    margin: 0 0 10px 0;
+}
+
+.h1{
+    font-family: $FedraSansPro;
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 500;
+    margin: 8px 0;
+
+    &-sub{
+        font-size: 14px;
+        font-family: $FedraSansPro;
+        font-style: italic;
+        font-weight: 500;
+        color: $infoColor;
+
+        @media all and (max-width: $mediaLG){
+            font-size: 12px;
+        }
+
+        @media all and (max-width: $mediaMD){
+            margin-bottom: 0;
+        }
+    }
+
+    @media all and (max-width: $mediaLG){
+        font-size: 22px;
+    }
+}
+.h2{
+    font-family: $Roboto;
+    font-size: 28px;
+    line-height: 1;
+    font-weight: bold;
+    margin: 0 0 16px;
+
+    @media all and (max-width: $mediaLG){
+        font-size: 22px;
+    }
+}
+.h3{
+    font-family: $OpenSans;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: bold;
+    margin: 8px 0;
+
+    @media all and (max-width: $mediaLG){
+        font-size: 16px;
+    }
+}
+.mob-bg{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $mobBg;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+
+    @media all and (max-width: $mediaMD){
+        display: block;
+
+        &.opened{
+            opacity: .7;
+            visibility: visible;
+        }
+    }
+}

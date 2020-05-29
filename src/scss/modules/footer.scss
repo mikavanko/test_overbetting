@@ -1,0 +1,136 @@
+.footer{
+    border-top: 1px solid $tableBorderColor;
+    font-family: $FedraSansPro;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 300;
+    color: $footerTextColor;
+
+    &-top{
+        display: flex;
+        justify-content: flex-start;
+        align-self: center;
+        padding: 18px 0;
+
+        &-menu{
+            @include reset-list;
+            @include horizontal-list;
+
+            &-item{
+                &:not(:last-child){
+                    margin-right: 36px;
+                }
+            }
+
+            &-link{
+                font-size: inherit;
+                color: inherit;
+                text-decoration: none;
+                font-weight: 400;
+
+                &:hover{
+                    opacity: .7;
+                }
+            }
+
+            @media all and (max-width: $mediaMD){
+                display: none;
+            }
+        }
+    }
+
+    .soc{
+        margin-left: auto;
+
+        @media all and (max-width: $mediaMD){
+            margin-left: unset;
+        }
+    }
+
+    &-middle{
+        display: flex;
+        justify-content: space-between;
+        align-self: flex-start;
+        padding: 16px 0 24px;
+        border-top: 1px solid $tableBorderColor;
+        border-bottom: 1px solid $tableBorderColor;
+
+        &-row{
+            &:not(:last-child){
+                margin-bottom: 34px;
+            }
+        }
+
+        @media all and (max-width: $mediaMD){
+            display: none;
+        }
+    }
+
+    &-title{
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0 0 12px;
+    }
+
+    &-link{
+        font-size: inherit;
+        color: inherit;
+        text-decoration: none;
+        font-weight: 300;
+        display: block;
+
+        &:hover{
+            opacity: .7;
+        }
+
+        &:not(:last-child){
+            margin-bottom: 12px;
+        }
+    }
+
+    &-bk{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:not(:last-child){
+            margin-bottom: 16px;
+        }
+
+        &-logo{
+            width: 100px;
+
+            img{
+                max-width: 100%;
+            }
+        }
+
+        &-btn{
+            @include reset-btn;
+            font-size: 13px;
+            padding: 5px 14px;
+        }
+    }
+}
+.soc{
+    @include reset-list;
+    @include horizontal-list;
+
+    &-item{
+        &:not(:last-child){
+            margin-right: 14px;
+        }
+    }
+
+    &-link{
+        &:hover{
+            opacity: .7;
+        }
+    }
+
+    @media all and (max-width: $mediaMD){
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}

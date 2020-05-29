@@ -1,0 +1,34 @@
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin horizontal-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@mixin reset-btn {
+    padding: 0;
+    margin: 0;
+    outline: none;
+
+    border: 1px solid $btnBorderColor;
+    border-color: $btnBorderColor;
+    background-color: $btnBg;
+    border-radius: 6px;
+    box-shadow: inset 0 -2px 0 0 $btnBorderColor;
+    color: $footerTextColor;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: $OpenSans;
+    font-weight: bold;
+
+    &:active{
+        box-shadow: inset 0 1px 0 0 $btnBorderColorHover;
+        border: solid 1px $btnBorderColorHover;
+        background-color: $btnBgHover;
+    }
+}

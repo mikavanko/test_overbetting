@@ -1,0 +1,29 @@
+$mediaXS: 0 ;
+$mediaSM: 563px;
+$mediaMD: 959px;
+$mediaLG: 1199px;
+$mediaXL: 1439px;
+$mediaMAX: 99999px;
+
+.hidden-lg-down{
+    @media all and (max-width: $mediaLG){
+        display: none !important;
+    }
+}
+.hidden-lg-up{
+    display: none !important;
+    @media all and (max-width: $mediaLG){
+        display: block !important;
+    }
+}
+.hidden-md-down{
+    @media all and (max-width: $mediaMD){
+        display: none !important;
+    }
+}
+.hidden-md-up{
+    display: none !important;
+    @media all and (max-width: $mediaMD){
+        display: block !important;
+    }
+}

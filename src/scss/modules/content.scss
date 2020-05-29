@@ -1,0 +1,368 @@
+.content{
+    width: 100%;
+    margin-left: 24px;
+    padding: 10px 0;
+    align-self: stretch;
+    
+    @media all and (max-width: $mediaMD){
+        margin-left: 0;
+    }
+}
+
+.contest{
+    background-color: $white;
+    padding: 24px;
+    border-radius: 6px;
+
+    @media all and (max-width: $mediaMD){
+        padding: 0;
+        margin-bottom: 28px;
+        background-color: transparent;
+    }
+
+    &:not(:last-child){
+        margin-bottom: 24px;
+    }
+
+    &-tab{
+        display: none;
+
+        &.active{
+            display: block;
+        }
+    }
+
+    &-menu{
+        @include reset-list;
+        @include horizontal-list;
+        background-color: $sidebarHeadBg;
+        padding: 12px;
+        display: inline-flex;
+        border-radius: 6px;
+        margin: 10px 0 24px;
+
+        @media all and (max-width: $mediaLG){
+            padding: 10px 6px;
+        }
+
+        @media all and (max-width: $mediaSM){
+            overflow: auto;
+            width: calc(100% + 12px);
+            border-radius: 0;
+            margin: 16px 0 16px -6px;
+        }
+
+        &-item{
+            &:not(:last-child){
+                margin-right: 4px;
+
+                @media all and (max-width: $mediaLG){
+                    margin-right: 0
+                }
+            }
+            
+        }
+        &-link{
+            display: inline-block;
+            padding: 8px 16px;
+            font-size: 14px;
+            text-decoration: none;
+            font-family: $Roboto;
+            color: $mainTextColor;
+            border-radius: 6px;
+            white-space: nowrap;
+            
+            &.active{
+                background-color: $white;
+            }
+
+            @media all and (max-width: $mediaLG){
+                font-size: 12px;
+                padding: 5px 8px;
+            }
+        }
+    }
+
+    &-table{
+        display: table;
+        border-collapse: collapse;
+        width: 100%;
+
+        @media all and (max-width: $mediaLG){
+            table-layout: fixed;
+        }
+
+        @media all and (max-width: $mediaMD){
+            background-color: $white;
+        }
+
+        &-wrapper{
+            border: 1px solid $infoColor;
+            border-radius: 6px;
+            overflow: hidden;
+
+            @media all and (max-width: $mediaMD){
+                margin: 0 -6px;
+                border-radius: 0;
+            }
+        }
+
+        &-header{
+            background-color: $tableHeadbg;
+            border-bottom: 1px solid $infoColor;
+        }
+
+        &-row{
+            display: table-row;
+
+            &--bggrey{
+                background-color: $tableRowBg;
+
+                @media all and (max-width: $mediaLG){
+                    background-color: transparent;
+                }
+            }
+
+            &--mob{
+                display: none !important;
+
+                @media all and (max-width: $mediaLG){
+                    display: table-row !important;
+                    height: 40px;
+                    transform: scale(1);
+                    position: relative;
+                }
+            }
+        }
+
+        &-item{
+            display: table-cell;
+            width: auto;
+            vertical-align: middle;
+            font-family: $OpenSans;
+            font-size: 24px;
+            padding: 8px 24px;
+            text-align: center;
+            
+            @media all and (max-width: $mediaXL){
+                padding: 10px;
+            }
+
+            @media all and (max-width: $mediaMD){
+                padding: 10px 6px;
+
+                &:last-child{
+                    width: 54px;
+                }
+            }
+
+            &:not(:last-child){
+                border-right: 1px dashed $tableBorderColor;
+            }
+
+            &:first-child{
+                width: 100%;
+                text-align: left;
+
+                @media all and (max-width: $mediaLG){
+                    width: 100%;
+                    text-align: left;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    padding: 6px;
+                }
+            }
+
+            &--head{
+                font-size: 12px;
+                font-weight: bold;
+                padding: 5px 17px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                &:first-child{
+                    text-align: center;
+
+                    @media all and (max-width: $mediaLG){
+                        display: none;
+                    }
+                }
+                
+                @media all and (max-width: $mediaLG){
+                    padding: 4px 6px;
+                }
+            }
+        }
+    }
+
+    &-logo{
+        width: 58px;
+        height: 58px;
+        margin-right: 8px;
+
+        img{
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+        }
+
+        @media all and (max-width: $mediaLG){
+            min-width: 24px;
+            width: 24px;
+            height: 24px;
+            margin-right: 4px;
+        }
+    }
+
+    &-sub-title{
+        font-size: 14px;
+        color: $infoColor;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        .icon{
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        @media all and (max-width: $mediaLG){
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+    }
+
+    &-title{
+        @media all and (max-width: $mediaLG){
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-right: 4px;
+
+            .h3{
+                margin: 0;
+                margin-right: 6px;
+            }
+        }
+
+        &-wrapper{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            button{
+                margin-left: auto;
+            }
+        }
+    }
+
+    &-data{
+        &-main{
+            font-size: 24px;
+            position: relative;
+            line-height: 1.2;
+            white-space: nowrap;
+
+            &:not(:last-child){
+                margin-bottom: 3px;
+            }
+            
+            @media all and (max-width: $mediaXL){
+                font-size: 20px;
+            }
+
+            @media all and (max-width: $mediaLG){
+                font-size: 16px;
+            }
+        }
+
+        &-up{
+            font-size: 12px;
+            font-weight: 600;
+            position: relative;
+            top: -14px;
+            margin-left: 5px;
+
+            @media all and (max-width: $mediaLG){
+                display: none;
+            }
+        }
+
+        &-sub{
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.2;
+            white-space: nowrap;
+
+            
+            @media all and (max-width: $mediaLG){
+                font-size: 9px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        &-link{
+            display: inline-block;
+            text-decoration: none;
+            color: $mainTextColor;
+
+            $p: &;
+
+            &-val{
+                display: inline-block;
+
+                &--dashed{
+                    border-bottom: 1px dashed $mainTextColor;
+                }
+            }
+
+            &:hover,
+            &:active{
+                color: $dangerColor;
+
+                #{$p}-val--dashed{
+                    border-bottom-color: $dangerColor;
+                }
+            }
+
+            &--ok{
+                padding-right: 24px;
+                background: url(assets/img/ok.svg) no-repeat right center;
+            }
+        }
+    }
+
+    &-button{
+        @include reset-btn;
+        padding: 12px;
+
+        @media all and (max-width: $mediaLG){
+            padding: 6px;
+        }
+    }
+
+    &-leave-btn{
+        @include reset-btn;
+        padding: 9px 10px;
+        font-size: 14px;
+        font-weight: bold;
+
+        @media all and (max-width: $mediaLG){
+            font-size: 13px;
+            padding: 4px 6px;
+        }
+    }
+}
+.green{
+    color: $okColor;
+}
+.grey{
+    color: $infoColor;
+}

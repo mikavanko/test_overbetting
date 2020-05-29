@@ -129,7 +129,7 @@
                 @media all and (max-width: $mediaLG){
                     display: table-row !important;
                     height: 40px;
-                    transform: translateY(1px);
+                    // transform: translateY(1px);
                 }
             }
         }
@@ -167,8 +167,8 @@
                     width: 100%;
                     text-align: left;
                     position: absolute;
-                    left: 0;
-                    top: 0;
+                    // left: 0;
+                    // top: 0;
                     padding: 6px;
                 }
             }

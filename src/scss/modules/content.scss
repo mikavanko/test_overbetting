@@ -129,8 +129,7 @@
                 @media all and (max-width: $mediaLG){
                     display: table-row !important;
                     height: 40px;
-                    transform: scale(1);
-                    position: relative;
+                    transform: translateY(1px);
                 }
             }
         }

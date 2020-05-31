@@ -87,6 +87,7 @@
         display: table;
         border-collapse: collapse;
         width: 100%;
+        position: relative;
 
         @media all and (max-width: $mediaLG){
             table-layout: fixed;

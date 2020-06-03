@@ -377,16 +377,21 @@
             line-height: 1.2;
             white-space: nowrap;
 
+            @media all and (max-width: $mediaLG2){
+                max-width: 80px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
             
+            @media all and (max-width: $mediaMD){
+                max-width: none;
+            }
             @media all and (max-width: $mediaSM){
                 font-size: 9px;
                 text-overflow: ellipsis;
                 overflow: hidden;
             }
 
-            @media all and (max-width: $mediaLG){
-                white-space: unset;
-            }
         }
 
         &-link{

@@ -13,6 +13,15 @@ body{
     font-weight: 400;
 
     @media all and (max-width: $mediaLG){
+        font-size: 15px;
+    }
+    @media all and (max-width: $mediaMD){
+        font-size: 14px;
+    }
+    @media all and (max-width: $mediaSM){
+        font-size: 13px;
+    }
+    @media all and (max-width: $mediaXS){
         font-size: 12px;
     }
 }

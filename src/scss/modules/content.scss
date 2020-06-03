@@ -438,9 +438,17 @@
         font-size: 14px;
         font-weight: bold;
 
+        @media all and (max-width: $mediaLG){
+            padding: 7px 8px;
+        }
+
         @media all and (max-width: $mediaMD){
+            padding: 8px 9px;
+        }
+
+        @media all and (max-width: $mediaSM){
             font-size: 13px;
-            padding: 4px 6px;
+            padding: 5px 6px;
         }
     }
 }

@@ -10,6 +10,26 @@
     align-items: center;
 }
 
+@mixin  dotted-list {
+    li{
+        position: relative;
+        padding-left: 26px;
+
+        &:before{
+            content: '';
+            display: block;
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            border-radius: 2px;
+            border: solid 1px $infoColor;
+            left: 13px;
+            top: 50%;
+            margin-top: -3px;
+        }
+    }
+}
+
 @mixin reset-btn {
     padding: 0;
     margin: 0;
@@ -26,9 +46,12 @@
     font-family: $OpenSans;
     font-weight: bold;
 
-    &:active{
-        box-shadow: inset 0 1px 0 0 $btnBorderColorHover;
+    &:hover{
         border: solid 1px $btnBorderColorHover;
         background-color: $btnBgHover;
+    }
+    &:active{
+        border: solid 1px $btnBorderColorActive;
+        background-color: $btnBgActive;
     }
 }

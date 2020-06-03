@@ -10,6 +10,7 @@ body{
     font-size: 16px;
     color: $mainTextColor;
     position: relative;
+    font-weight: 400;
 
     @media all and (max-width: $mediaLG){
         font-size: 12px;
@@ -26,7 +27,15 @@ body{
         max-width: 100%;
     }
 
+    @media all and (max-width: $mediaLG){
+        padding: 0 24px;
+    }
+
     @media all and (max-width: $mediaMD){
+        padding: 0 24px;
+    }
+
+    @media all and (max-width: $mediaXS){
         padding: 0 6px;
     }
 }
@@ -59,16 +68,22 @@ p{
         font-weight: 500;
         color: $infoColor;
 
-        @media all and (max-width: $mediaLG){
-            font-size: 12px;
-        }
-
         @media all and (max-width: $mediaMD){
+            font-size: 12px;
             margin-bottom: 0;
         }
     }
 
+
     @media all and (max-width: $mediaLG){
+        font-size: 38px;
+    }
+
+    @media all and (max-width: $mediaMD){
+        font-size: 28px;
+    }
+
+    @media all and (max-width: $mediaSM){
         font-size: 22px;
     }
 }
@@ -80,8 +95,13 @@ p{
     margin: 0 0 16px;
 
     @media all and (max-width: $mediaLG){
+        font-size: 24px;
+    }
+
+    @media all and (max-width: $mediaMD){
         font-size: 22px;
     }
+
 }
 .h3{
     font-family: $OpenSans;
@@ -89,8 +109,16 @@ p{
     line-height: 1;
     font-weight: bold;
     margin: 8px 0;
-
+    
     @media all and (max-width: $mediaLG){
+        font-size: 17px;
+    }
+
+    @media all and (max-width: $mediaMD){
+        font-size: 18px;
+    }
+
+    @media all and (max-width: $mediaSM){
         font-size: 16px;
     }
 }
@@ -114,5 +142,24 @@ p{
             opacity: .7;
             visibility: visible;
         }
+    }
+}
+
+a{
+    transition: color .3s ease;
+
+    &:hover,
+    &:active{
+        color: $dangerColor;
+    }
+}
+
+.link-icon{
+    padding-left: 24px;
+    position: relative;
+
+    i.icon{
+        position: absolute;
+        left: 0;
     }
 }

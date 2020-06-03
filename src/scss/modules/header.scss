@@ -1,6 +1,8 @@
 .header{
     background-color: $headerBg;
     box-shadow: 0 4px 10px 0 rgba(175, 175, 175, 0.1);
+    position: relative;
+    z-index: 1;
 
     @media all and (max-width: $mediaMD){
         padding: 10px 0;
@@ -98,13 +100,173 @@
             }
         }
 
+        $headerMenu: &;
+
         &-item{
+            position: relative;
+
             &:not(:last-child){
                 @media all and (min-width: $mediaMD){
                     margin-right: 15px;
                 }
                 @media all and (min-width: $mediaLG){
                     margin-right: 28px;
+                }
+            }
+
+
+
+            &:hover{
+                #{$headerMenu}-sub{
+                    // opacity: 1;
+                    // visibility: visible;
+                    // transition: all .3s ease-in-out;
+                }
+
+                #{$headerMenu}-sub--helper{
+                    max-height: 400px;
+                    animation: showSubMenu .7s ease-in-out;
+                    width: 100%;
+                }
+            }
+        }
+
+        &-sub{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            box-shadow: 0 0 30px 0 $shadowColor;
+            z-index: 2; 
+            overflow: hidden;
+            margin-top: -3px;
+            width: auto;
+
+            &--helper{
+                width: 0;
+                height: 100%;
+                max-height: 3px;
+                padding-top: 3px;
+                position: relative;
+                background-color: $white;
+                transition: max-height .4s ease-in-out,
+                            width .3s .4s ease-in-out;
+
+                &:before{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    background: $subMenuHover;
+                    height: 3px;
+                    width: 100%;
+                    z-index: 1;
+                }
+            }
+
+            @keyframes showSubMenu {
+                0% {
+                    width: 0;
+                    max-height: 3px;
+                }
+                30% {
+                    width: 100%;
+                    max-height: 3px;
+                }
+
+                100% {
+                    max-height: 400px;
+                }
+            }
+            @keyframes hideSubMenu {
+                0% {
+                    max-width: 1000px;
+                }
+
+                100% {
+                    max-width: 0;
+                }
+            }
+
+            &-title{
+                font-size: 16px;
+                padding: 4px 0 14px 0;
+                text-align: center;
+                position: relative;
+                background: linear-gradient(45deg , transparent 8px, $mobBg 8px), 
+                            linear-gradient(-45deg , transparent 8px, $mobBg 8px),
+                            linear-gradient(45deg , transparent 8px, $mobBg 8px), 
+                            linear-gradient(-45deg , transparent 8px, $mobBg 8px);
+                background-size: 10px 100%;
+                background-repeat: repeat;
+                background-position: center;
+            }
+
+            &-list{
+                @include reset-list;
+
+                &--dotted{
+                    @include dotted-list;
+                }
+
+                $p: &;
+
+                &--sub{
+                    #{$p}-item{
+                        padding-right: 0;
+                    }
+                }
+
+                &-item{
+                    line-height: 1.2;
+                    position: relative;
+                    padding: 0 24px 0 12px;
+                }
+
+                &-link{
+                    font-size: 16px;
+                    color: inherit;
+                    text-decoration: none;
+                    white-space: nowrap;
+                    padding-top: 6px;
+                    padding-bottom: 6px;
+                    display: block;
+
+                    &.link-icon{
+                        color: $linkColor;
+
+                        &:hover,
+                        &:active{
+                            color: $dangerColor;
+                        }
+                    }
+                }
+            }
+
+            &-row{
+                display: flex;
+                justify-content: flex-start;
+                align-items: stretch;
+            }
+            &-col{
+                flex: 1;
+                padding-top: 6px;
+                padding-bottom: 6px;
+                position: relative;
+                
+                &:not(:first-child){
+                    &:before{
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: -8px;
+                        left: 0;
+                        bottom: 0;
+                        width: 1px;
+                        height: auto;
+                        background-color: $bodyBg;
+                    }
                 }
             }
         }
@@ -117,6 +279,7 @@
             text-decoration: none;
             display: block;
             position: relative;
+            z-index: 1;
 
             &.current{
                 &:before{
@@ -131,13 +294,6 @@
                     background: linear-gradient(to right, $gradientColor1, $gradientColor2);
                     height: 3px;
                     width: 100%;
-                }
-            }
-
-            &:hover,
-            &:active{
-                &:not(.current){
-                    opacity: .7;
                 }
             }
 

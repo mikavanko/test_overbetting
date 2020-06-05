@@ -30,7 +30,6 @@ body{
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 48px;
-    font-family: $Roboto;
 
     @media all and (max-width: $mediaXL){
         max-width: 100%;
@@ -44,10 +43,30 @@ body{
         padding: 0 24px;
     }
 
+    @media all and (max-width: $mediaSMB){
+        padding: 0 16px;
+    }
+
     @media all and (max-width: $mediaXS){
         padding: 0 6px;
     }
 }
+
+.content{
+    width: 100%;
+    align-self: stretch;
+    overflow: hidden;
+
+    &-contests{
+        padding: 10px 0;
+    }
+    
+    @media all and (max-width: $mediaMD){
+        margin-left: 0;
+        overflow: visible;
+    }
+}
+
 
 .page-content{
     margin: 24px 0 48px;
@@ -57,6 +76,20 @@ body{
 
     @media all and (max-width: $mediaMD){
         margin: 56px 0 0;
+
+        &.main{
+            margin-top: 80px;
+        }
+    }
+    @media all and (max-width: $mediaSMB){
+        &.main{
+            margin-top: 72px;
+        }
+    }
+    @media all and (max-width: $mediaXS){
+        &.main{
+            margin-top: 66px;
+        }
     }
 }
 p{

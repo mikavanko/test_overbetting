@@ -1,8 +1,9 @@
 .sidebar{
     min-width: 318px;
     width: 318px;
-    position: sticky;
-    top: 24px;
+    // position: sticky;
+    // top: 24px;
+    margin-right: 24px;
 
 
     @media all and (max-width: $mediaXL){

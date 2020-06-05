@@ -7,30 +7,6 @@
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('../../assets/fonts/Roboto-Bold.woff2') format('woff2'),
-        url('../../assets/fonts/Roboto-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url('../../assets/fonts/Roboto-Medium.woff2') format('woff2'),
-        url('../../assets/fonts/Roboto-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url('../../assets/fonts/Roboto-Regular.woff2') format('woff2'),
-        url('../../assets/fonts/Roboto-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Open Sans';
     src: url('../../assets/fonts/OpenSans-SemiBold.woff2') format('woff2'),
         url('../../assets/fonts/OpenSans-SemiBold.woff') format('woff');
@@ -43,6 +19,30 @@
     src: url('../../assets/fonts/OpenSans-Light.woff2') format('woff2'),
         url('../../assets/fonts/OpenSans-Light.woff') format('woff');
     font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../../assets/fonts/OpenSans-Italic.woff2') format('woff2'),
+        url('../../assets/fonts/OpenSans-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../../assets/fonts/OpenSans-Bold.woff2') format('woff2'),
+        url('../../assets/fonts/OpenSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../../assets/fonts/OpenSans-ExtraBold.woff2') format('woff2'),
+        url('../../assets/fonts/OpenSans-ExtraBold.woff') format('woff');
+    font-weight: 800;
     font-style: normal;
 }
 
@@ -63,10 +63,26 @@
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    src: url('../../assets/fonts/OpenSans-Bold.woff2') format('woff2'),
-        url('../../assets/fonts/OpenSans-Bold.woff') format('woff');
+    font-family: 'Roboto';
+    src: url('../../assets/fonts/Roboto-Bold.woff2') format('woff2'),
+        url('../../assets/fonts/Roboto-Bold.woff') format('woff');
     font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../assets/fonts/Roboto-Medium.woff2') format('woff2'),
+        url('../../assets/fonts/Roboto-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../assets/fonts/Roboto-Regular.woff2') format('woff2'),
+        url('../../assets/fonts/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
 }
 

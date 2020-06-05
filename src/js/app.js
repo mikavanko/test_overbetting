@@ -3,16 +3,20 @@
 document.addEventListener('click', function (e) {
     e.preventDefault();
     const el = e.target;
-    const className = 'contest-menu-link';
+    const className = 'tab-link';
+    const parrentClassName = 'tab-parrent';
+    const tabClassName = 'tab';
+    const classNameArr = el.className.replace(/\s{2,}/g, ' ').trim().split(' ');
 
-    if (el && el.className === className) {
-        const id = el.attributes.href.value;
+    if (el && classNameArr.indexOf(className) !== -1) {
+        const id = el.attributes.href.value.split('')[1];
+        const parrent = el.closest(`.${parrentClassName}`);
 
-        document.querySelector(`.${className}.active`).classList.remove('active');
-        document.querySelector('.contest-tab.active').classList.remove('active');
+        parrent.querySelector(`.${className}.active`).classList.remove('active');
+        parrent.querySelector(`.${tabClassName}.active`).classList.remove('active');
 
         el.classList.add('active');
-        document.querySelector(id).classList.add('active');
+        parrent.querySelector(`[data-tab='${id}']`).classList.add('active');
     }
 });
 

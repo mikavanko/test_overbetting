@@ -65,12 +65,25 @@
 
         &-row{
             display: table-row;
-
+            
             &--bggrey{
                 background-color: $tableRowBg;
 
+                @media all and (max-width: $mediaMD){
+                    #{$cotentTable}-item{
+                        &:first-child{
+                            background-color: $tableRowBg;
+                        }
+                    }
+                }
                 @media all and (max-width: $mediaSM){
                     background-color: transparent;
+
+                    #{$cotentTable}-item{
+                        &:first-child{
+                            background-color: $white;
+                        }
+                    }
                 }
             }
 
@@ -117,8 +130,12 @@
                 }
             }
 
+            @media all and (max-width: $mediaMD){
+                width: 100%;
+                padding-top: 64px;
+            }
             @media all and (max-width: $mediaSM){
-                padding: 10px 6px;
+                padding: 38px 6px 6px;
             }
 
             &:not(:last-child){
@@ -136,10 +153,14 @@
                     // left: 0;
                     // top: 0;
                     padding: 10px;
+                    height: 58px;
+                    border: none;
+                    background-color: $white;
                 }
                 
                 @media all and (max-width: $mediaSM){
-                    padding: 10px 6px;
+                    padding: 6px;
+                    height: 34px;
                 }
             }
 
@@ -155,7 +176,8 @@
                     text-align: center;
 
                     @media all and (max-width: $mediaMD){
-                        display: none;
+                        opacity: 0;
+                        visibility: hidden;
                     }
                 }
                 
@@ -333,12 +355,12 @@
             }
             
             @media all and (max-width: $mediaMD){
-                max-width: none;
+                max-width: 100%;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
             @media all and (max-width: $mediaSM){
                 font-size: 9px;
-                text-overflow: ellipsis;
-                overflow: hidden;
             }
 
         }

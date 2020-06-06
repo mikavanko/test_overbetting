@@ -135,7 +135,7 @@
                 padding-top: 64px;
             }
             @media all and (max-width: $mediaSM){
-                padding: 38px 6px 6px;
+                padding: 44px 6px 6px;
             }
 
             &:not(:last-child){
@@ -159,8 +159,8 @@
                 }
                 
                 @media all and (max-width: $mediaSM){
-                    padding: 6px;
-                    height: 34px;
+                    padding: 8px 6px;
+                    height: 38px;
                 }
             }
 

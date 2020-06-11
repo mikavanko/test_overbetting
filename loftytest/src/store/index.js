@@ -50,6 +50,9 @@ export default new Vuex.Store({
         state.data.unshift(state.editedRow)
       }
     },
+    deleteDataRow(state, idx){
+      state.data.splice(idx, 1)
+    },
     resetToDefaultRow(state) {
       state.editedRow = Object.assign({}, state.defaultRow)
       state.editedIdx = -1
@@ -71,6 +74,9 @@ export default new Vuex.Store({
     },
     setData(ctx) {
       ctx.commit('setData')
+    },
+    deleteDataRow(ctx, idx) {
+      ctx.commit('deleteDataRow', idx)
     },
     resetToDefaultRow(ctx) {
       ctx.commit('resetToDefaultRow')

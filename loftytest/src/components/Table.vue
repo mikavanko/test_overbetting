@@ -85,7 +85,7 @@ export default {
         },
         deleteRow(item){
             const idx = this.getData.indexOf(item)
-            confirm('Вы уверены что хотите удалить этот товар?') && this.getData.splice(idx, 1)
+            confirm('Вы уверены что хотите удалить этот товар?') && this.$store.dispatch('deleteDataRow', idx)
         }
     }
 }

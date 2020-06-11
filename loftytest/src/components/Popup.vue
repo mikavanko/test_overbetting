@@ -8,22 +8,22 @@
         <v-card-text>
             <v-container>
                 <v-row>
-                    <v-col cols="12" sm="6" md="4">
+                    <v-col class="popup-col" cols="12" sm="6" md="4">
                         <v-text-field v-model="getEditedRow.name" label="Название тотвара"></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="6" md="4">
+                    <v-col class="popup-col" cols="12" sm="6" md="4">
                         <v-text-field v-model="getEditedRow.brand" label="Бренд"></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="6" md="4">
+                    <v-col class="popup-col" cols="12" sm="6" md="4">
                         <v-text-field v-model="getEditedRow.weight" label="Вес"></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="6" md="4">
+                    <v-col class="popup-col" cols="12" sm="6" md="4">
                         <v-text-field v-model="getEditedRow.quantity" label="Фасовка"></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="6" md="4">
+                    <v-col class="popup-col" cols="12" sm="6" md="4">
                         <v-text-field v-model="getEditedRow.price" label="Цена"></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="6" md="4">
+                    <v-col class="popup-col" cols="12" sm="6" md="4">
                         <v-text-field v-model="getEditedRow.stock" label="Наличие"></v-text-field>
                     </v-col>
                 </v-row>
@@ -73,3 +73,11 @@ export default {
     }
 };
 </script>
+
+<style lang="scss" scoped>
+@media all and (max-width: 600px){
+    .popup-col{
+        padding: 0;
+    }
+}
+</style>

@@ -15,7 +15,7 @@
                 <v-btn class="mr-2" icon small @click="editRow(props.item)">
                     <v-icon dark>mdi-pencil</v-icon>
                 </v-btn>
-                <v-btn class="mr-2" icon small @click="deleteRow(props.item)">
+                <v-btn icon small @click="deleteRow(props.item)">
                     <v-icon dark>mdi-delete</v-icon>
                 </v-btn>
             </template>
@@ -90,3 +90,14 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+@media all and (max-width: 600px){
+    .v-data-table{
+        & &__mobile-row{
+            min-height: 35px !important;
+        }
+    }
+}
+
+</style>

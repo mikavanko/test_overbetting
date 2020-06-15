@@ -16,13 +16,6 @@
           multiple
         >
           <template v-slot:selection>
-            <!-- <v-chip
-                    v-bind="data.attrs"
-                    :input-value="data.selected"
-                    close
-                    @click="data.select"
-                    @click:close="remove(data.item)"
-            >{{ data.item.matching_full_name }}</v-chip>-->
           </template>
         </v-autocomplete>
       </v-col>
@@ -30,22 +23,13 @@
         <v-chip
           class="mr-2 mb-2"
           close
+          @click="remove(city)"
           @click:close="remove(city)"
           :key="idx"
           v-for="(city,idx) in cities"
         >{{ city.matching_full_name }}</v-chip>
       </v-col>
     </v-row>
-    <!-- <v-expand-transition>
-        <v-list v-if="model" class="red lighten-3">
-          <v-list-item v-for="(field, i) in fields" :key="i">
-            <v-list-item-content>
-              <v-list-item-title v-text="field.value"></v-list-item-title>
-              <v-list-item-subtitle v-text="field.key"></v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-    </v-expand-transition>-->
     <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn :disabled="!cities.length" color="grey darken-2" @click="removeAll">
@@ -68,9 +52,6 @@ export default {
   components: {},
   data: () => ({
     lengthLimit: 60,
-    entries: [],
-    isLoading: false,
-    model: null,
     search: null
   }),
 

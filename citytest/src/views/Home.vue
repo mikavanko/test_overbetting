@@ -6,14 +6,14 @@
 </template>
 
 <script>
-import Select from '@/components/Select.vue'
-import CittiesInfo from '@/components/CittiesInfo.vue'
+import Select from "@/components/Select.vue";
+import CittiesInfo from "@/components/CittiesInfo.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     Select,
     CittiesInfo
   }
-}
+};
 </script>

@@ -28,20 +28,20 @@ export default new Vuex.Store({
       state.cities = val;
     },
     REMOVE_CITY(state, val) {
-      if(val){
+      if (val) {
         const idx = state.cities.indexOf(val)
         if (idx >= 0) state.cities.splice(idx, 1)
-      }else{
+      } else {
         state.cities = []
       }
     },
     REMOVE_ENTRIES(state) {
       state.entries = [];
     },
-    SET_CITIES_INFO(state, val){
+    SET_CITIES_INFO(state, val) {
       state.citiesInfo = val;
     },
-    REMOVE_CITIES_INFO(state){
+    REMOVE_CITIES_INFO(state) {
       state.citiesInfo = []
     }
   },
@@ -84,21 +84,21 @@ export default new Vuex.Store({
     REMOVE_CITY(ctx, val) {
       ctx.commit('REMOVE_CITY', val);
     },
-    GET_CITIES_INFO(ctx){
+    GET_CITIES_INFO(ctx) {
       const isLoading = this.getters.getLoadingInfo;
 
       if (isLoading) return;
-      
+
       ctx.commit('SET_LOADING_INFO', '#e62e7a');
-      
+
       const cities = this.getters.getCities;
 
       Promise.all(cities.map(city => fetch(city._links['city:item'].href)
         .then(res => res.json())))
-        .then(res=>{ctx.commit('SET_CITIES_INFO', res)})
+        .then(res => { ctx.commit('SET_CITIES_INFO', res) })
         .finally(() => (ctx.commit('SET_LOADING_INFO', false)));
     },
-    REMOVE_CITIES_INFO(ctx){
+    REMOVE_CITIES_INFO(ctx) {
       ctx.commit('REMOVE_CITIES_INFO');
     }
   },

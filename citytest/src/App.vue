@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import Home from '@/views/Home';
+import Home from "@/views/Home";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
     Home
-  },
+  }
 };
 </script>

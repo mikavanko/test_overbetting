@@ -2,7 +2,7 @@
     <v-card color="blue lighten-2" outlined dark>
       <v-card-title class="headline blue lighten-3 ml-n3 mr-n3">Search for Cities</v-card-title>
       <v-row no-gutter>
-        <v-col md="6" sm="12">
+        <v-col cols="12" xs="12" sm="12" md="6">
             <v-autocomplete
                 v-model="cities"
                 :items="items"
@@ -26,7 +26,7 @@
                 </template>
             </v-autocomplete>
         </v-col>
-        <v-col>
+        <v-col cols="12" xs="12" sm="12" md="6">
             <v-chip
                 class="mr-2 mb-2"
                 close

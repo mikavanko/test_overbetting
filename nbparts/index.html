@@ -9,9 +9,14 @@
 <body>
     <div class="page">
         <div class="header-wrapper">
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <header class="header block">
                 <div class="container">
-                    <div class="header-row clearfix">
+                    <div class="header-row sm-hidden clearfix">
                         <div class="header-item">
                             <p class="header-contacts">
                                 <a class="header-tel header-link" href="tel:+73412569791">+7 (3412) 56-97-91</a> 
@@ -33,7 +38,7 @@
                                 <span class="header-logo-sub">Огромный выбор запчастей для ноутбуков</span>
                             </div>
                         </div>
-                        <div class="header-item">
+                        <div class="header-item header-item--search">
                             <form class="header-search">
                                 <div class="header-search-input">
                                     <button class="header-search-submit"><img src="assets/search.png" alt="search"></button>
@@ -53,8 +58,25 @@
             <div class="menu">
                 <div class="container">
                     <ul class="menu-list">
-                        <li class="menu-list-item menu-list-item--catalog">
+                        <li class="menu-list-item menu-list-item--catalog menu-list-item--has-sub-mob">
                             <a href="#" class="menu-list-link">КАТАЛОГ ТОВАРОВ</a>
+                            <ul class="menu-sub-list menu-sub-list--mob">
+                                <li class="menu-sub-list-item">
+                                    <a href="#" class="menu-list-link menu-list-link--back">Назад</a>
+                                </li>
+                                <li class="menu-sub-list-item">
+                                    <a href="#" class="menu-list-link">Lorem ipsum dolor</a>
+                                </li>
+                                <li class="menu-sub-list-item">
+                                    <a href="#" class="menu-list-link">Lorem ipsum dolor</a>
+                                </li>
+                                <li class="menu-sub-list-item">
+                                    <a href="#" class="menu-list-link">Lorem ipsum dolor</a>
+                                </li>
+                                <li class="menu-sub-list-item">
+                                    <a href="#" class="menu-list-link">Lorem ipsum dolor</a>
+                                </li>
+                            </ul>
                         </li>                            
                         <li class="menu-list-item">
                             <a href="#" class="menu-list-link">О КОМПАНИИ</a>
@@ -160,5 +182,6 @@
                 Политика конфиденциальности персональной информации</div>
         </footer>
     </div>
+    <script src="main.js"></script>
 </body>
 </html>

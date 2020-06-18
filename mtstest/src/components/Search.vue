@@ -21,6 +21,11 @@ export default {
         position: relative;
         border-radius: 8px;
         margin-bottom: 50px;
+    
+        @media all and (max-width: $mediaMD){
+            margin-bottom: 15px;
+            height: 52px;
+        }
         
         $search: &;
         
@@ -66,6 +71,10 @@ export default {
             transition: background,border .3s ease;
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
+            
+            @media all and (max-width: $mediaMD){
+                width: 52px;
+            }
 
             &:hover{
                 background: $searchBorder;

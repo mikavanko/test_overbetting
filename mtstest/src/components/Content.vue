@@ -33,7 +33,7 @@ export default {
     },
     methods:{
         more(){
-            this.$store.dispatch('GET_HISTORIES')
+            this.GET_HISTORIES_LOADING || this.$store.dispatch('GET_HISTORIES')
         }
     },
     computed:{

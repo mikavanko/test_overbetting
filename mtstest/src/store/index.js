@@ -47,6 +47,9 @@ export default new Vuex.Store({
           ctx.commit('SET_TOKEN', data.access)
           ctx.dispatch('GET_HISTORIES')
         })
+        .catch((error) => {
+          console.log('error ' + error);
+        });
     },
     GET_HISTORIES(ctx) {
       ctx.state.historiesLoading = true
@@ -56,7 +59,7 @@ export default new Vuex.Store({
           ctx.state.historiesLoading = false
 
           const data = response.data
-          console.log(data)
+          
           ctx.dispatch('SET_NEXT', data.next)
           ctx.dispatch('SET_DATA', data.results)
         })

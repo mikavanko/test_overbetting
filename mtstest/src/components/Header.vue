@@ -42,12 +42,23 @@ export default {
     .header{
         background-color: $headerBg;
 
+            @media all and (max-width: $mediaMD){
+                padding: 10px 0;
+            }
+
         &__logo{
             padding-right: 40px;
             padding-left: 47px;
+
+            @media all and (max-width: $mediaMD){
+                padding: 0;
+            }
         }
 
         &__menu{
+            @media all and (max-width: $mediaMD){
+                display: none;
+            }
 
             &__item{
                 &:not(:last-child){
@@ -94,6 +105,16 @@ export default {
                 border-radius: 100%;
                 overflow: hidden;
                 cursor: pointer;
+            }
+            &__name{
+                @media all and (max-width: $mediaMD){
+                    display: none;
+                }
+            }
+            &__bell{
+                @media all and (max-width: $mediaMD){
+                    display: none;
+                }
             }
         }
     }

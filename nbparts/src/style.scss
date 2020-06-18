@@ -262,6 +262,11 @@ body{
             text-align: center;
             padding: 10px 20px;
             white-space: nowrap;
+
+            &:hover{
+                color: $mainBg1;
+                background-color: $linkHover;
+            }
         }
         
         $list: &;
@@ -312,7 +317,32 @@ body{
     border-right: 1px solid $menuBorderColor;
 
     &-list{
-        &-item{}
+        &-item{
+            &--sub{
+                position: relative;
+
+                & > .sidebar-list-link{
+                    &:before{
+                        content: '\203A';
+                        display: block;
+                        position: absolute;
+                        right: 5px;
+                        top: 50%;
+                        font-size: 20px;
+                        height: 10px;
+                        line-height: 10px;
+                        margin-top: -7px;
+                        color: $menuBorderColor;
+                    }
+                 }
+
+                &:hover{
+                    .sidebar-sub-list{
+                        display: block;
+                    }
+                }
+            }
+        }
         &-link{
             text-decoration: none;
             font-size: 14px;
@@ -320,6 +350,27 @@ body{
             padding: 8px 10px;
             display: block;
             border-bottom: 1px solid $menuBorderColor;
+            background-color: $mainBg1;
+
+            &:hover{
+                color: $mainBg1;
+                background-color: $linkHover;
+            }
+        }
+    }
+
+    &-sub-list{
+        position: absolute;
+        left: 100%;
+        top: -1px;
+        border-top: 1px solid $menuBorderColor;
+        border-right: 1px solid $menuBorderColor;
+        display: none;
+        box-shadow: 0 0 15px rgba(0,0,0,.1);
+        z-index: 1;
+
+        &-link{
+            white-space: nowrap;
         }
     }
 }

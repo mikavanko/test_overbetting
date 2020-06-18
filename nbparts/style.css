@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -303,6 +304,10 @@ body {
   padding: 10px 20px;
   white-space: nowrap;
 }
+.menu-list-link:hover {
+  color: #fff;
+  background-color: #b0e4f2;
+}
 .menu-list-item:not(:first-child) {
   border-right: 1px solid #cdcdcd;
   -webkit-box-flex: 1;
@@ -342,6 +347,24 @@ body {
   border-left: 1px solid #cdcdcd;
   border-right: 1px solid #cdcdcd;
 }
+.sidebar-list-item--sub {
+  position: relative;
+}
+.sidebar-list-item--sub > .sidebar-list-link:before {
+  content: "›";
+  display: block;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  font-size: 20px;
+  height: 10px;
+  line-height: 10px;
+  margin-top: -7px;
+  color: #cdcdcd;
+}
+.sidebar-list-item--sub:hover .sidebar-sub-list {
+  display: block;
+}
 .sidebar-list-link {
   text-decoration: none;
   font-size: 14px;
@@ -349,6 +372,24 @@ body {
   padding: 8px 10px;
   display: block;
   border-bottom: 1px solid #cdcdcd;
+  background-color: #fff;
+}
+.sidebar-list-link:hover {
+  color: #fff;
+  background-color: #b0e4f2;
+}
+.sidebar-sub-list {
+  position: absolute;
+  left: 100%;
+  top: -1px;
+  border-top: 1px solid #cdcdcd;
+  border-right: 1px solid #cdcdcd;
+  display: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+.sidebar-sub-list-link {
+  white-space: nowrap;
 }
 
 .footer {

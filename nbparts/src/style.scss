@@ -422,19 +422,21 @@ body{
             
             &--has-sub-mob{
                 @media all and (max-width: 760px){
-                    position: relative;
-                    
-                    &:before{
-                        content: '\203A';
-                        display: block;
-                        position: absolute;
-                        right: 15px;
-                        top: 50%;
-                        font-size: 30px;
-                        height: 10px;
-                        line-height: 10px;
-                        margin-top: -7px;
-                        color: $menuBorderColor;
+                    & > .menu-list-link{
+                        position: relative;
+                        
+                        &:before{
+                            content: '\203A';
+                            display: block;
+                            position: absolute;
+                            right: 15px;
+                            top: 50%;
+                            font-size: 30px;
+                            height: 10px;
+                            line-height: 10px;
+                            margin-top: -7px;
+                            color: $menuBorderColor;
+                        }
                     }
                 }
             }

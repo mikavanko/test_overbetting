@@ -470,10 +470,10 @@ body {
   height: 36px;
 }
 @media all and (max-width: 760px) {
-  .menu-list-item--has-sub-mob {
+  .menu-list-item--has-sub-mob > .menu-list-link {
     position: relative;
   }
-  .menu-list-item--has-sub-mob:before {
+  .menu-list-item--has-sub-mob > .menu-list-link:before {
     content: "›";
     display: block;
     position: absolute;

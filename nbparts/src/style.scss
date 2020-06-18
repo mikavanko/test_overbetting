@@ -93,8 +93,8 @@ body{
     border-top: 5px solid $color1;
     padding-top: 12px;
     padding-bottom: 10px;
-    background: -webkit-gradient(linear, left top, left bottom, from($mainBg1), to($mainBg2));
     background: -o-linear-gradient(top, $mainBg1, $mainBg2);
+    background: -webkit-gradient(linear, left top, left bottom, from($mainBg1), to($mainBg2));
     background: linear-gradient(to bottom, $mainBg1, $mainBg2);
 
     @media all and (max-width: 760px){
@@ -184,7 +184,9 @@ body{
                 position: absolute;
                 top: 10px;
                 left: 50%;
-                transform: translateX(-50%);
+                -webkit-transform: translateX(-50%);
+                    -ms-transform: translateX(-50%);
+                        transform: translateX(-50%);
             }
         }
 
@@ -323,7 +325,10 @@ body{
         background: #fff;
         border: none;
         display: none;
-        box-shadow: 0 10px 5px rgba(0,0,0,.05);
+        -webkit-box-shadow: 0 10px 5px rgba(0,0,0,.05);
+                box-shadow: 0 10px 5px rgba(0,0,0,.05);
+        -webkit-transition: all .1s ease;
+        -o-transition: all .1s ease;
         transition: all .1s ease;
 
         &.opened{
@@ -331,7 +336,9 @@ body{
         }
 
         &.subopened{
-            transform: translate(-100%);
+            -webkit-transform: translate(-100%);
+                -ms-transform: translate(-100%);
+                    transform: translate(-100%);
         }
     }
 
@@ -362,9 +369,15 @@ body{
             text-align: center;
             padding: 10px 20px;
             white-space: nowrap;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
 
 
             @media all and (max-width: 1200px){
@@ -396,9 +409,15 @@ body{
         $list: &;
 
         &-item{
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: center;
-            align-items: stretch;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: stretch;
+                -ms-flex-align: stretch;
+                    align-items: stretch;
             height: 36px;
             
             &--has-sub-mob{
@@ -475,7 +494,8 @@ body{
             left: 100%;
             top: 0;
             width: 100%;
-            box-shadow: 0 10px 5px rgba(0,0,0,.05);
+            -webkit-box-shadow: 0 10px 5px rgba(0,0,0,.05);
+                    box-shadow: 0 10px 5px rgba(0,0,0,.05);
         }
     }
 }
@@ -563,7 +583,8 @@ body{
         border-top: 1px solid $menuBorderColor;
         border-right: 1px solid $menuBorderColor;
         display: none;
-        box-shadow: 0 0 15px rgba(0,0,0,.1);
+        -webkit-box-shadow: 0 0 15px rgba(0,0,0,.1);
+                box-shadow: 0 0 15px rgba(0,0,0,.1);
         z-index: 1;
 
         &-link{
@@ -640,12 +661,16 @@ body{
         &.opened{
             @media all and (max-width: 760px){
                 span{
-                    transform-origin: 50% 50%;
+                    -webkit-transform-origin: 50% 50%;
+                        -ms-transform-origin: 50% 50%;
+                            transform-origin: 50% 50%;
 
                     &:nth-child(1){
                         top: 50%;
                         margin-top: -3px;
-                        transform: rotate(45deg);
+                        -webkit-transform: rotate(45deg);
+                            -ms-transform: rotate(45deg);
+                                transform: rotate(45deg);
                     }
                     &:nth-child(2){
                         display: none;
@@ -653,7 +678,9 @@ body{
                     &:nth-child(3){
                         top: 50%;
                         margin-top: -3px;
-                        transform: rotate(-45deg);
+                        -webkit-transform: rotate(-45deg);
+                            -ms-transform: rotate(-45deg);
+                                transform: rotate(-45deg);
                     }
                 }
             }

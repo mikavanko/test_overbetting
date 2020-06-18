@@ -1,0 +1,37 @@
+body{
+    background-color: $mainBg;
+    font-size: 14px;
+    line-height: 1.2;
+    font-family: 'MTS Sans', Arial;
+    font-weight: 400;
+    color: $textColor;
+}
+
+.container{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.wrapper{
+    max-width: 830px;
+    margin: 0 auto;
+}
+
+.d-flex{
+    display: flex;
+}
+.justify-fs{
+    justify-content: flex-start;
+}
+.justify-fe{
+    justify-content: flex-end;
+}
+.align-center{
+    align-items: center;
+}
+.align-stretch{
+    align-items: stretch;
+}
+.ml-auto{
+    margin-left: auto;
+}

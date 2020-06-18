@@ -1,72 +1,96 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-import AxiosPlugin from 'vue-axios-cors';
+// import AxiosPlugin from 'vue-axios-cors';
 
 Vue.use(Vuex)
-Vue.use(AxiosPlugin)
+// Vue.use(AxiosPlugin)
 
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 export default new Vuex.Store({
   state: {
-    status: '',
-    token: localStorage.getItem('token') || '',
-    user : {}
+    token: '',
+    historiesLoading: false,
+    authLoading: false,
+    url: 'http://176.118.28.5:8000/',
+    proxy: 'https://thingproxy.freeboard.io/fetch/',
+    next: 'http://176.118.28.5:8000/histories/?limit=3',
+    histories: [],
+    name: ''
   },
   mutations: {
+    SET_TOKEN(state, token) {
+      state.token = token
+    },
+    SET_NEXT(state, url) {
+      state.next = url
+    },
+    SET_DATA(state, data) {
+      state.histories = state.histories.concat(data)
+    },
+    SET_NAME(state, name){
+      state.name = name
+    },
   },
   actions: {
-    LOGIN({commit}, user) {
-      // return new Promise(() => {
-        // commit('auth_request')
-        console.log(user)
-        axios({url: 'http://176.118.28.5:8000/api/token/', data: user, method: 'post', headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-          "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-        }})
+    LOGIN(ctx, user) {
+      ctx.state.authLoading = true
+      ctx.state.historiesLoading = true
+
+      axios({ url: `${this.state.proxy}${this.state.url}api/token/`, data: user, method: 'post' })
         .then(resp => {
-          // const token = resp.data.token
-          // const user = resp.data.user
-          // localStorage.setItem('token', token)
-          // axios.defaults.headers.common['Authorization'] = token
-          // commit('auth_success', token, user)
-          console.log(resp, commit)
-          // resolve(resp)
+          const data = resp.data
+          ctx.state.authLoading = false
+          
+          ctx.dispatch('SET_NAME', data.user)
+          ctx.commit('SET_TOKEN', data.access)
+          ctx.dispatch('GET_HISTORIES')
         })
-        .catch(() => {
-          // commit('auth_error')
-          // localStorage.removeItem('token')
-          // reject(err)
-        })
-      // })
     },
-    GET_ENTRIES(ctx, val) {
-      const isLoading = this.getters.getLoading;
+    GET_HISTORIES(ctx) {
+      ctx.state.historiesLoading = true
+      const AuthStr = `Bearer ${this.state.token}`;
+      axios.get(`${this.state.proxy}${this.state.next}`, { headers: { Authorization: AuthStr } })
+        .then(response => {
+          ctx.state.historiesLoading = false
 
-      if (isLoading) return;
-
-
-      // Lazily load input items
-      if (val.length) {
-        ctx.commit('SET_LOADING', '#e62e7a');
-
-        fetch(`https://api.teleport.org/api/cities/?search=${val}`)
-          .then(res => res.json())
-          .then(res => {
-            const cityEntries = res._embedded['city:search-results'];
-            ctx.commit('SET_ENTRIES', cityEntries);
-
-          })
-          .catch(err => {
-            console.log(err);
-          })
-          .finally(() => (ctx.commit('SET_LOADING', false)));
-      }
+          const data = response.data
+          console.log(data)
+          ctx.dispatch('SET_NEXT', data.next)
+          ctx.dispatch('SET_DATA', data.results)
+        })
+        .catch((error) => {
+          console.log('error ' + error);
+        });
+    },
+    SET_NAME({commit}, name){
+      commit('SET_NAME', name)
+    },
+    SET_NEXT({ commit }, url) {
+      commit('SET_NEXT', url)
+    },
+    SET_DATA({ commit }, data) {
+      commit('SET_DATA', data)
+    }
+  },
+  getters: {
+    GET_AUTH_LOADING(state){
+      return state.authLoading
+    },
+    GET_HISTORIES_LOADING(state){
+      return state.historiesLoading
+    },
+    GET_HISTORIES(state){
+      return state.histories
+    },
+    GET_NAME(state){
+      return state.name
+    },
+    GET_NEXT(state){
+      return state.next
     },
   },
   modules: {
   }
 })
- 

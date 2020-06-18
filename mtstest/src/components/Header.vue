@@ -16,7 +16,7 @@
             </div>
             <div class="header__item header__item--right ml-auto">
                 <div class="header__user d-flex justify-fe align-center">
-                    <span class="header__user__item header__user__name">Захарченко Антон</span>
+                    <span class="header__user__item header__user__name">{{GET_AUTH_LOADING ? 'Загрузка...':GET_NAME}}</span>
                     <a href="#" class="header__user__item header__user__bell"><i class="icon"><img src="@/assets/bell_notify.png" alt="bell_notify"></i></a>
                     <a class="header__user__item header__user__avatar"><img src="@/assets/photo.jpg" alt=""></a>
                 </div>
@@ -26,13 +26,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     name: 'Header',
-    mounted(){
-        this.$store.dispatch('LOGIN', {
-                                        "username": "mishaivanko",
-                                        "password": "bijgaj-vaMbe0-huszyw"
-                                    })
+    computed:{
+        ...mapGetters(['GET_NAME', 'GET_AUTH_LOADING'])
     }
 }
 </script>
@@ -44,7 +43,8 @@ export default {
         background-color: $headerBg;
 
         &__logo{
-            margin-right: 40px;
+            padding-right: 40px;
+            padding-left: 47px;
         }
 
         &__menu{

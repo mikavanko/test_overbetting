@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-// import AxiosPlugin from 'vue-axios-cors';
+import AxiosPlugin from 'vue-axios-cors';
 
 Vue.use(Vuex)
-// Vue.use(AxiosPlugin)
+Vue.use(AxiosPlugin)
 
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 

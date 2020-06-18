@@ -29,7 +29,7 @@ $footerBg2: #888;
 }
 html, body {
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 body{
     color: $textColor;
@@ -38,6 +38,11 @@ body{
     font-family: 'Tahoma', Arial;
     font-weight: 400;
     background-color: $mainBg1;
+
+    @media all and (max-width: 760px){
+        position: fixed;
+        width: 100%;
+    }
 }
 .container{
     width: 1200px;
@@ -333,6 +338,7 @@ body{
 
         &.opened{
             display: block;
+            z-index: 1;
         }
 
         &.subopened{
@@ -394,10 +400,6 @@ body{
                 white-space: nowrap;
                 font-size: 14px;
                 padding: 13px;
-
-                &--back{
-                    background-color: $mainBg2 !important;
-                }
             }
 
             &:hover{
@@ -498,6 +500,7 @@ body{
             width: 100%;
             -webkit-box-shadow: 0 10px 5px rgba(0,0,0,.05);
                     box-shadow: 0 10px 5px rgba(0,0,0,.05);
+                    
         }
     }
 }
@@ -529,10 +532,25 @@ body{
     min-width: 230px;
     border-left: 1px solid $menuBorderColor;
     border-right: 1px solid $menuBorderColor;
+    transition: all .3s ease;
 
 
     @media all and (max-width: 760px){
         display: none;
+        position: absolute;
+        top: 163px;
+        left: 0;
+        right: 0;
+        width: auto;
+        border: none;
+        box-shadow: 0 10px 10px rgba(0,0,0,.05);
+
+        &.opened{
+            display: block;
+        }
+        &.subopened{
+            transform: translateX(-100%);
+        }
     }
 
     &-list{
@@ -560,6 +578,10 @@ body{
                         display: block;
                     }
                 }
+
+                @media all and (max-width: 760px){
+                    position: static;
+                }
             }
         }
         &-link{
@@ -574,6 +596,11 @@ body{
             &:hover{
                 color: $mainBg1;
                 background-color: $linkHover;
+            }
+
+            @media all and (max-width: 760px){
+                border: none;
+                position: relative;
             }
         }
     }
@@ -591,6 +618,19 @@ body{
 
         &-link{
             white-space: nowrap;
+
+            @media all and (max-width: 760px){
+                &--back{
+                    background-color: $mainBg2 !important;
+                }
+            }
+        }
+        &-item{
+        }
+
+        @media all and (max-width: 760px){
+            display: none;
+            width: 100%;
         }
     }
 }
@@ -688,5 +728,20 @@ body{
             }
 
         }
+    }
+}
+.catalog-btn-mob{
+    background-color: #00aae8;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+    margin: 20px -15px 0 -15px;
+    text-transform: uppercase;
+    display: none;
+    width: auto;
+
+    @media all and (max-width: 760px){
+        display: block;
     }
 }

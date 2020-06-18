@@ -83,7 +83,7 @@ table {
 
 html, body {
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -93,6 +93,12 @@ body {
   font-family: "Tahoma", Arial;
   font-weight: 400;
   background-color: #fff;
+}
+@media all and (max-width: 760px) {
+  body {
+    position: fixed;
+    width: 100%;
+  }
 }
 
 .container {
@@ -384,6 +390,7 @@ body {
   }
   .menu.opened {
     display: block;
+    z-index: 1;
   }
   .menu.subopened {
     -webkit-transform: translate(-100%);
@@ -448,9 +455,6 @@ body {
     white-space: nowrap;
     font-size: 14px;
     padding: 13px;
-  }
-  .menu-list-link--back {
-    background-color: #dedede !important;
   }
 }
 .menu-list-link:hover {
@@ -573,10 +577,24 @@ body {
   min-width: 230px;
   border-left: 1px solid #cdcdcd;
   border-right: 1px solid #cdcdcd;
+  transition: all 0.3s ease;
 }
 @media all and (max-width: 760px) {
   .sidebar {
     display: none;
+    position: absolute;
+    top: 163px;
+    left: 0;
+    right: 0;
+    width: auto;
+    border: none;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  }
+  .sidebar.opened {
+    display: block;
+  }
+  .sidebar.subopened {
+    transform: translateX(-100%);
   }
 }
 .sidebar-list-item--sub {
@@ -597,6 +615,11 @@ body {
 .sidebar-list-item--sub:hover .sidebar-sub-list {
   display: block;
 }
+@media all and (max-width: 760px) {
+  .sidebar-list-item--sub {
+    position: static;
+  }
+}
 .sidebar-list-link {
   text-decoration: none;
   font-size: 14px;
@@ -609,6 +632,12 @@ body {
 .sidebar-list-link:hover {
   color: #fff;
   background-color: #b0e4f2;
+}
+@media all and (max-width: 760px) {
+  .sidebar-list-link {
+    border: none;
+    position: relative;
+  }
 }
 .sidebar-sub-list {
   position: absolute;
@@ -623,6 +652,17 @@ body {
 }
 .sidebar-sub-list-link {
   white-space: nowrap;
+}
+@media all and (max-width: 760px) {
+  .sidebar-sub-list-link--back {
+    background-color: #dedede !important;
+  }
+}
+@media all and (max-width: 760px) {
+  .sidebar-sub-list {
+    display: none;
+    width: 100%;
+  }
 }
 
 .footer {
@@ -707,6 +747,23 @@ body {
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
+  }
+}
+
+.catalog-btn-mob {
+  background-color: #00aae8;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+  margin: 20px -15px 0 -15px;
+  text-transform: uppercase;
+  display: none;
+  width: auto;
+}
+@media all and (max-width: 760px) {
+  .catalog-btn-mob {
+    display: block;
   }
 }
 

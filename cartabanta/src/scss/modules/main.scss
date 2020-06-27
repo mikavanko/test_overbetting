@@ -378,7 +378,7 @@
             margin-top: 10px;
         }
     }
-
+    
     &__btn{
         font-weight: 600;
         font-size: 26px;
@@ -389,6 +389,10 @@
         position: relative;
         padding: 17px 32px;
         display: inline-block;
+        -webkit-transition: .1s;
+        -o-transition: .1s;
+        transition: .1s;
+
 
         @media all and (max-width: $mediaMD){
             font-size: 22px;
@@ -402,12 +406,23 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #7200A8;
+            background-color: $color2;
             border-radius: 7px;
             z-index: -1;
             -webkit-transform: skewX(-1deg);
                 -ms-transform: skewX(-1deg);
                     transform: skewX(-1deg);
+            -webkit-transition: .1s;
+            -o-transition: .1s;
+            transition: .1s;
+        }
+
+        &:hover{
+            color: $mainTextColor;
+
+            &::before{
+                background-color: $color1;
+            }
         }
     }
 }

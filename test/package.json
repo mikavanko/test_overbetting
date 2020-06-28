@@ -1,0 +1,42 @@
+{
+  "private": true,
+  "name": "lxjs-chat",
+  "description": "Talk to strangers! (P2P video chat using WebRTC)",
+  "version": "1.1.0",
+  "author": "Feross Aboukhadijeh <feross@feross.org> (http://feross.org/)",
+  "bugs": {
+    "url": "https://github.com/feross/instant.io/issues"
+  },
+  "dependencies": {
+    "custom-error": "^0.2.1",
+    "hat": "0.0.3",
+    "node-static": "^0.7.3",
+    "simple-peer": "^8.1.0",
+    "simple-websocket": "^5.0.2",
+    "ws": "^3.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^14.0.0",
+    "nodemon": "^1.11.0",
+    "standard": "^10.0.2",
+    "watchify": "^3.9.0"
+  },
+  "keywords": [
+    "p2p",
+    "webrtc",
+    "data channel",
+    "video chat"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/feross/instant.io.git"
+  },
+  "scripts": {
+    "build": "browserify public/js/index.js > public/js/bundle.js",
+    "install": "npm run build",
+    "start": "node app.js",
+    "watch": "watchify public/js/index.js -o public/js/bundle.js -dv & nodemon app.js"
+  }
+}

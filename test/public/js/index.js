@@ -38,7 +38,7 @@ function clearChat () {
 }
 
 var peer, stream
-var socket = new Socket({ url: 'ws://' + window.location.host + '/public/' })
+var socket = new Socket({ url: 'ws://' + window.location.host })
 
 socket.on('error', function (err) {
   console.error('[socket error]', err.stack || err.message || err)

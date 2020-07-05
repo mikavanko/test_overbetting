@@ -1,11 +1,21 @@
 body{
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.2;
     font-weight: 400;
+    color: $mainTextColor;
+    background-color: $mainBg;
+}
+*{
+    box-sizing: border-box;
 }
 .container{
     max-width: $mediaXL;
     margin: 0 auto;
     padding: 0 15px;
+}
+
+a{
+    color: $mainTextColor;
+    text-decoration: none;
 }

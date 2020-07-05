@@ -1,4 +1,8 @@
+@import 'reset';
 @import 'fonts';
 @import 'colors';
 @import 'media';
-@import 'main';
+@import '_main';
+@import '_header';
+@import '_banner';
+@import '_about';

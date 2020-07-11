@@ -2,19 +2,19 @@
   <defs>
     <style>
       .a {
-        fill: #5a9270;
+        fill: #ebe3be;
       }
 
       .b {
-        fill: #f7ebc6;
+        fill: #ebe3be;
       }
 
       .c {
-        fill: #e8dcb9;
+        fill: #ebe3be;
       }
 
       .d {
-        fill: #fff2cc;
+        fill: #ebe3be;
       }
 
       .e {
@@ -22,7 +22,7 @@
       }
 
       .f {
-        fill: #e6e5b8;
+        fill: #ebe3be;
       }
     </style>
   </defs>

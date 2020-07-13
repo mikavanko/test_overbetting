@@ -517,8 +517,9 @@ $glow4: #88e948;
     font-weight: 600;
     text-align: center;
     line-height: 1.5;
-    // -webkit-animation: potGlow 1.4s ease-in-out infinite alternate;
-    // animation: potGlow 1.4s ease-in-out infinite alternate;
+    -webkit-animation: potGlow 1.4s ease-in-out infinite alternate;
+    animation: potGlow 1.4s ease-in-out infinite alternate;
+    overflow: hidden;
 
     &__wrapper{
         display: -webkit-box;

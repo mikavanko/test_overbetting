@@ -184,6 +184,32 @@ body {
   height: 100%;
 }
 
+.star {
+  position: absolute;
+  top: 180px;
+  z-index: 7;
+}
+.star--left {
+  left: 40px;
+  transform: rotateY(180deg);
+}
+.star--right {
+  right: 40px;
+}
+.star img {
+  max-width: 100%;
+}
+.star--small {
+  top: 110px;
+  width: 70px;
+}
+.star--small.star--left {
+  left: 10px;
+}
+.star--small.star--right {
+  right: 10px;
+}
+
 .ribbon {
   position: absolute;
   top: 30px;
@@ -320,6 +346,7 @@ body {
   width: 280px;
   margin-right: 100px;
   padding: 20px;
+  overflow: hidden;
 }
 .num__row {
   display: -webkit-box;
@@ -547,8 +574,6 @@ body {
   font-weight: 600;
   text-align: center;
   line-height: 1.5;
-  -webkit-animation: potGlow 1.4s ease-in-out infinite alternate;
-  animation: potGlow 1.4s ease-in-out infinite alternate;
 }
 .pot__wrapper {
   display: -webkit-box;
@@ -667,6 +692,21 @@ body {
   }
 }
 @media all and (max-width: 850px) {
+  .star {
+    width: 60px;
+    top: 150px;
+  }
+  .star--left {
+    left: 25px;
+  }
+  .star--right {
+    right: 25px;
+  }
+  .star--small {
+    top: 110px;
+    width: 40px;
+  }
+
   .pot {
     font-size: 24px;
     height: 180px;
@@ -761,6 +801,27 @@ body {
   }
 }
 @media all and (max-width: 500px) {
+  .star {
+    width: 30px;
+    top: 85px;
+  }
+  .star--left {
+    left: 15px;
+  }
+  .star--right {
+    right: 15px;
+  }
+  .star--small {
+    top: 70px;
+    width: 20px;
+  }
+  .star--small.star--left {
+    left: 10px;
+  }
+  .star--small.star--right {
+    right: 10px;
+  }
+
   .mob {
     display: block;
   }

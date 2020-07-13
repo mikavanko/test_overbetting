@@ -88,6 +88,35 @@ body{
         }
     }
 }
+.star{
+    position: absolute;
+    top: 180px;
+    z-index: 7;
+
+    &--left{
+        left: 40px;
+        transform: rotateY(180deg);
+    }
+    &--right{
+        right: 40px;
+    }
+    
+    img{
+        max-width: 100%;
+    }
+
+    &--small{
+        top: 110px;
+        width: 70px;
+
+        &.star--left{
+            left: 10px;
+        }
+        &.star--right{
+            right: 10px;
+        }
+    }
+}
 .ribbon{
     position: absolute;
     top: 30px;
@@ -235,6 +264,7 @@ body{
     width: 280px;
     margin-right: 100px;
     padding: 20px;
+    overflow: hidden;
 
     &__row{
         display: -webkit-box;
@@ -496,8 +526,8 @@ $glow4: #88e948;
     font-weight: 600;
     text-align: center;
     line-height: 1.5;
-    -webkit-animation: potGlow 1.4s ease-in-out infinite alternate;
-    animation: potGlow 1.4s ease-in-out infinite alternate;
+    // -webkit-animation: potGlow 1.4s ease-in-out infinite alternate;
+    // animation: potGlow 1.4s ease-in-out infinite alternate;
 
     &__wrapper{
         display: -webkit-box;
@@ -629,6 +659,23 @@ $glow4: #88e948;
     }
 }
 @media all and (max-width: 850px){
+    .star{
+        width: 60px;
+        top: 150px;
+
+        &--left{
+            left: 25px;
+        }
+        &--right{
+            right: 25px;
+        }
+
+
+        &--small{
+            top: 110px;
+            width: 40px;
+        }
+    }
     .pot{
         font-size: 24px;
         height: 180px;
@@ -737,6 +784,30 @@ $glow4: #88e948;
 }
 
 @media all and (max-width: 500px){
+    .star{
+        width: 30px;
+        top: 85px;
+
+        &--left{
+            left: 15px;
+        }
+        &--right{
+            right: 15px;
+        }
+
+
+        &--small{
+            top: 70px;
+            width: 20px;
+
+            &.star--left{
+                left: 10px;
+            }
+            &.star--right{
+                right: 10px;
+            }
+        }
+    }
     .mob{
         display: block;
     }

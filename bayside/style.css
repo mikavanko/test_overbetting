@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap&family=DM+Serif+Display&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -204,6 +204,7 @@ img {
   font-weight: 500;
   border-radius: 8px;
   overflow: hidden;
+  border: none;
 }
 .btn span {
   position: absolute;
@@ -251,6 +252,9 @@ img {
   -webkit-transition-delay: 0.1s;
   -o-transition-delay: 0.1s;
   transition-delay: 0.1s;
+}
+.btn:hover {
+  color: #fff;
 }
 .btn:hover .main--cont {
   -webkit-transform: translateY(-100%);
@@ -309,6 +313,53 @@ img {
   width: 630px;
   margin-left: 80px;
 }
+.section--3 {
+  padding-bottom: 120px;
+}
+.section--3 .number {
+  height: 250px;
+}
+.section--4 {
+  padding-bottom: 126px;
+}
+.section--5 {
+  padding-bottom: 42px;
+}
+.section--5 .number {
+  height: 320px;
+}
+.section--6 {
+  padding-bottom: 140px;
+}
+.section--6 .quotes-block {
+  padding-top: 80px;
+}
+.section--7 {
+  padding-bottom: 57px;
+}
+.section--8 {
+  position: relative;
+  margin-bottom: 124px;
+}
+.section--8--bg img {
+  width: 100%;
+}
+.section--8--pa {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.section--9 {
+  padding-bottom: 120px;
+}
+.section--9 .number {
+  height: 300px;
+}
 
 .number {
   width: 146px;
@@ -329,6 +380,124 @@ img {
   position: absolute;
   top: 20px;
   left: 0;
+}
+
+.carousel-pagination {
+  position: absolute;
+  bottom: 0;
+  left: 43%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.carousel-pagination-num {
+  margin: 0 27px;
+  font-size: 12px;
+}
+.carousel-pagination-num-cur {
+  font-size: 14px;
+  opacity: 0.5;
+}
+.carousel-left {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.carousel-arrow {
+  cursor: pointer;
+}
+
+.fs-24 {
+  font-size: 24px;
+}
+
+.mc-3 {
+  color: #002033;
+}
+
+.quotes {
+  font-family: "DM Serif Display", serif;
+  font-size: 100px;
+  line-height: 60px;
+  font-weight: 500;
+}
+
+.face {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+.face-item {
+  margin: 0 21px;
+}
+.face-img {
+  margin-bottom: 33px;
+}
+.face-name {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.project-item {
+  width: 169px;
+  height: 169px;
+  position: relative;
+  margin: 0 9px;
+  overflow: hidden;
+  border-radius: 4px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+}
+.project-item:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+.project-item > img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.project-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

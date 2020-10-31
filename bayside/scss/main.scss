@@ -88,6 +88,7 @@ img{
         margin-left: auto;
         margin-right: 48px;
     }
+
     &--img{
         position: absolute;
         top: 0;
@@ -174,6 +175,7 @@ img{
     font-weight: 500;
     border-radius: 8px;
     overflow: hidden;
+    border: none;
 
     span{
         position: absolute;
@@ -225,6 +227,8 @@ img{
     }
 
     &:hover{
+        color: $main-color1;
+
         .main--cont{
             -webkit-transform: translateY(-100%);
             -ms-transform: translateY(-100%);
@@ -288,7 +292,64 @@ img{
                 margin-left: 80px;
             }
         }
+    }
 
+    &--3{
+        padding-bottom: 120px;
+
+        .number{
+            height: 250px;
+        }
+    }
+    &--4{
+        padding-bottom: 126px;
+    }
+    &--5{
+        padding-bottom: 42px;
+
+        .number{
+            height: 320px;
+        }
+    }
+
+    &--6{
+        padding-bottom: 140px;
+
+        .quotes-block{
+            padding-top: 80px;
+        }
+    }
+
+    &--7{
+        padding-bottom: 57px;
+    }
+
+    &--8{
+        position: relative;
+        margin-bottom: 124px;
+
+        &--bg{
+            img{
+                width: 100%;
+            }
+        }
+        &--pa{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+    }
+    &--9{
+        padding-bottom: 120px;
+
+        .number{
+            height: 300px;
+        }
     }
 }
 .number{
@@ -312,5 +373,136 @@ img{
         position: absolute;
         top: 20px;
         left: 0;
+    }
+}
+
+.carousel{
+    &-pagination{
+        position: absolute;
+        bottom: 0;
+        left: 43%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+
+        &-num{
+            margin: 0 27px;
+            font-size: 12px;
+
+            &-cur{
+                font-size: 14px;
+                opacity: .5;
+            }
+        }
+    }
+
+    &-left{
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+    &-arrow{
+        cursor: pointer;
+    }
+}
+
+.fs{
+    &-24{
+        font-size: 24px;
+    }
+}
+.mc{
+    &-3{
+        color: $main-color3;
+    }
+}
+.quotes{
+    font-family: 'DM Serif Display', serif;
+    font-size: 100px;
+    line-height: 60px;
+    font-weight: 500;
+}
+
+.face{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+
+    &-item{
+        margin: 0 21px;
+    }
+
+    &-img{
+        margin-bottom: 33px;
+    }
+    &-name{
+        font-size: 18px;
+        font-weight: 500;
+    }
+}
+.project{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    &-item{
+        width: 169px;
+        height: 169px;
+        position: relative;
+        margin: 0 9px;
+        overflow: hidden;
+        border-radius: 4px;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        -webkit-transition: all 0.8s ease;
+        -o-transition: all 0.8s ease;
+        transition: all 0.8s ease;
+
+        &:hover{
+            -webkit-filter: grayscale(0);
+            filter: grayscale(0);
+        }
+
+        & > img{
+            height: 100%;
+            width: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+    }
+
+    &-logo{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
     }
 }

@@ -500,4 +500,212 @@ img {
   align-items: center;
 }
 
+#inverted-contain {
+  height: 672px;
+}
+#inverted-contain .panzoom {
+  width: 1216px;
+  height: 100%;
+}
+
+div.buttons {
+  position: absolute;
+  z-index: 1000;
+  margin: 30px;
+}
+
+.full_wraap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.fon {
+  width: 100%;
+  height: 100%;
+  background-size: auto 100%;
+}
+
+.plancontent__svg {
+  position: fixed;
+  height: 100%;
+}
+
+/*SVG*/
+.full_wraap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.zoom {
+  background-color: #fff;
+  text-align: center;
+  width: 43px;
+  position: absolute;
+  top: 170px;
+  left: 50px;
+  border-radius: 5px;
+  z-index: 4;
+}
+
+.zoom .zitem {
+  font-size: 24px;
+  color: #000;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.zoom .zitem:nth-child(1) {
+  border-bottom: 1px #D9D9D9 solid;
+}
+
+/* hover style just for information */
+label:hover:before {
+  border: 1px solid #4778d9 !important;
+}
+
+.plancontent__svg {
+  position: absolute;
+  top: -3% !important;
+  height: 126% !important;
+  zoom: 2;
+}
+
+.part__svg__zone {
+  fill: transparent;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  stroke: transparent;
+}
+
+.part__svg:hover .part__svg__zone {
+  fill: rgba(30, 255, 44, 0.4);
+  stroke: #00FF15;
+}
+
+.part__svg.sall:hover .part__svg__zone {
+  fill: rgba(255, 12, 28, 0.4);
+  stroke: #ff3a3d;
+}
+
+.part__svg.resrv:hover .part__svg__zone {
+  fill: rgba(241, 193, 0, 0.4);
+  stroke: #f19f00;
+}
+
+.part__svg:hover .part__svg__number {
+  fill: #2099fa;
+}
+
+.plancontent__tooltips {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.plancontent__tooltip {
+  padding: 12px 15px 9px;
+  position: absolute;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: white;
+  display: none;
+  z-index: 10001;
+}
+
+.plancontent__tooltip.active {
+  display: block;
+}
+
+.plancontent__tooltip__body {
+  font-size: 14px;
+  line-height: 19px;
+  color: #000;
+}
+
+.plancontent__tooltip__bot {
+  font-size: 22px;
+  line-height: 34px;
+  font-weight: bold;
+  color: #2099FA;
+  margin-top: 1px;
+}
+
+.plancontent__tooltip__top {
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.plancontent__tooltip__number {
+  font-size: 22px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #2099FA;
+  cursor: default;
+}
+
+.plancontent__tooltip__status {
+  font-size: 14px;
+  line-height: 34px;
+  color: #18D305;
+}
+
+.plancontent__tooltip__status.red {
+  color: red;
+}
+
+.plancontent__tooltip__status.yellow {
+  color: #f19f00;
+}
+
+.part__svg__text {
+  text-align: center;
+  font-size: 7px;
+  text-anchor: unset;
+}
+
+.part__svg__number.empty {
+  fill: white !important;
+  stroke: #2099FA !important;
+}
+
+.page p {
+  color: #000;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+#panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.ymaps-layers-pane {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+body .otp-item-view-title {
+  margin-bottom: 0;
+}
+
+body .otp-item-view-pagetitle {
+  min-height: 0;
+  padding: 0;
+}
+
+body .otp-item-view-question table td.question-number {
+  display: none !important;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -84,8 +84,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bayside/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bayside/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bayside/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/bayside/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bayside/scss/colors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bayside/scss/colors.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bayside/scss/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bayside/scss/fonts.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bayside/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bayside/scss/main.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bayside/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/bayside/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bayside/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/bayside/style.css.map" afterDir="false" />
@@ -129,7 +127,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603541061813</updated>
       <workItem from="1603541062856" duration="15728000" />
-      <workItem from="1604161590537" duration="9017000" />
+      <workItem from="1604161590537" duration="20685000" />
     </task>
     <servers />
   </component>
@@ -149,13 +147,21 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="304" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604242237241">
+      <screen x="0" y="23" width="1680" height="986" />
+    </state>
+    <state x="304" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.986@0.23.1680.986" timestamp="1604242237241" />
+    <state x="550" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604240725950">
+      <screen x="0" y="23" width="1680" height="986" />
+    </state>
+    <state x="550" y="325" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.986@0.23.1680.986" timestamp="1604240725950" />
     <state x="638" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604168475970">
       <screen x="0" y="23" width="1680" height="986" />
     </state>
     <state x="638" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.986@0.23.1680.986" timestamp="1604168475970" />
-    <state x="505" y="240" width="670" height="676" key="search.everywhere.popup" timestamp="1604171521026">
+    <state x="505" y="240" width="670" height="676" key="search.everywhere.popup" timestamp="1604250306111">
       <screen x="0" y="23" width="1680" height="986" />
     </state>
-    <state x="505" y="240" width="670" height="676" key="search.everywhere.popup/0.23.1680.986@0.23.1680.986" timestamp="1604171521026" />
+    <state x="505" y="240" width="670" height="676" key="search.everywhere.popup/0.23.1680.986@0.23.1680.986" timestamp="1604250306111" />
   </component>
 </project>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Coworking</title>
+	<!-- <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script> -->
+	<script src="js/jquery.ui.touch-punch.min.js"></script>
+	<script src="js/jquery-migrate-1.4.1.min.js"></script>
+	<script src="js/jquery-ui-datepicker.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+		  $(window).load(function() {
+		    $('#preloader').fadeOut('slow', function() {
+		    	if($('.top_block').hasClass('active_inner')){
+		    		$('.anim_top_block_wrapper>div').addClass('anim');
+		    		$('#contacts').show().find('.active_inner').show();
+		    		// setTimeout(function(){
+		    		// 	$('#contacts').hide().find('.active_inner').hide();
+		    		// },1000);
+		    	}
+		    });
+		  });
+		});
+	</script>
+	<style type="text/css">
+		#preloader {
+		  position: fixed;
+		  left: 0;
+		  top: 0;
+		  z-index: 999;
+		  width: 100%;
+		  height: 100%;
+		  overflow: visible;
+		  background: #fff url('//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.7.0/processing.gif') no-repeat center center;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="css/owlcarousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owlcarousel/owl.theme.default.min.css">
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+	<div id="preloader"></div>
+	<div id="ajaxloader"></div>
+	<nav class="top_nav">
+		<!-- <a href="#" id="main_page_link"><img src="img/main_page.jpg"></a> -->
+		<ul>
+		   <li class="active main_page"><a href="#main_page" id="main_page_link"><img src="img/main_page.svg"></a></li><!--
+		--><li><a href="#coworking">Коворкинг</a></li><!--
+		--><li><a href="#meeting-rooms">Переговорные</a></li><!--
+		--><li><a href="#offices">Офисы</a></li><!--
+		--><li><a href="#virtual-office">Виртуальный офис</a></li><!--
+		--><li><a href="#event-platform">Ивент-площадка</a></li><!--
+		--><li><a href="#contacts">Контакты</a></li>
+		</ul>
+		<!-- <div class="cabinet_wrapper"><div class="cabinet"><div></div></div><div class="hover"><a href="#">личный кабинет</a></div></div> -->
+		<div class="cabinet_wrapper"><div class="hover"><div class="cabinet"><div></div></div><a href="#">личный кабинет</a></div></div>
+	</nav>
+	<nav class="v_nav">
+		<ul>
+		   <li><a href="#services">Услуги</a></li><!--
+		--><li><a href="#space">Пространство</a></li><!--
+		--><li><a href="#park">Парк</a></li><!--
+		--><li><a href="#cafe">Кафе</a></li><!--
+		--><li><a href="#events">Мероприятия</a></li><!--
+		--><li><a href="#faces">Лица</a></li>
+		</ul>
+	</nav>
+	<!-- <nav class="h_nav_dot">
+		<ul>
+		   <li class="active"><a href="#main_page"></a></li>
+			<li><a href="#coworking"></a></li>
+			<li><a href="#meeting-rooms"></a></li>
+			<li><a href="#offices"></a></li>
+			<li><a href="#virtual-office"></a></li>
+			<li><a href="#event-platform"></a></li>
+			<li><a href="#contacts"></a><
+		</ul>
+	</nav> -->
+	<div class="top_gallery">
+		<div class="block_wrapper">
+			<div class="block active_drag" id="main_page">
+				<div class="top_block inner_block active_inner bb br" id="main_page_top">
+					<script type="text/javascript">
+						$(function(){
+							$(document).ready(function(){
+								// $('#owl1').on('initialized.owl.carousel',function(){
+								// 	$('#owl1 .owl-dots').remove();
+								// })
+								$('#owl1').owlCarousel({
+									// lazyLoad: true,
+								    loop:true,
+								    margin:0,
+								    responsiveClass:true,
+								    nav:false,
+								    items: 1,
+								    dots: true,
+								    mouseDrag: false,
+    								touchDrag: false,
+    								callbacks: true
+								})
+							});
+						})
+					</script>
+					<div class="anim_top_block_wrapper" style="z-index: 999;">
+						<div id="anim_block_1">
+							<div></div>
+							<div></div>
+						</div>
+						<div id="anim_block_2">
+							<div>
+								<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+								<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+							</div>
+						</div>
+						<div id="anim_block_3">
+							<div></div>
+							<div></div>
+						</div>
+						<div id="anim_block_4">
+							<svg width="150" height="150">
+								<path stroke="black" fill="white" stroke-width="4" d="M 50,0 L 100,0 100,100 150,100 150,150 0,150 0,100 50,100 z"/>
+								<!-- <path stroke="white" fill="white" stroke-width="4" d="M 54,4 L 96,4 96,104 146,104 146,146 4,146 4,104 54,104 z"/> -->
+								<path stroke="black" fill="black" stroke-width="2" d="M 3,100 v 150" />
+								<path stroke="black" fill="black" stroke-width="2" d="M 147,100 v 150" />
+								<path stroke="black" fill="black" stroke-width="2" d="M 0,147 h 150" />
+								<path stroke="black" fill="black" stroke-width="2" d="M 50,3 h 50" />
+								<path stroke="black" fill="white" fill-opacity="0" stroke-width="4" d="M 25,150 L 0,125 25,100 M 50,150 L 25,125 50,100 M 75,150 L 50,125 75,100 50,75 75,50, 50,25 75,0 M 100,150 L 75,125 100,100 75,75 100,50, 75,25 100,0 M 125,150 L 100,125 125,100 M 150,150 L 125,125 150,100"/>
+							</svg>
+						</div>
+						<div id="anim_block_5">
+							<svg width="50" height="50">
+								<path stroke="black" fill="white" stroke-width="8" d="M 0,0 L 0,0 50,0 50,50 0,50 z" />
+								<path stroke="black" stroke-width="4" d="M 0,50 L 50,0" />
+							</svg>
+						</div>
+						<div id="anim_block_6">
+							<svg width="150" height="150">
+								<path stroke="black" fill="white" stroke-width="4" d="M 0,50 L 100,50 100,0 150,0 150,150 100,150 100,100 0,100 z" />
+								<path stroke="black" stroke-width="4" d="M 2,50 L 2,100" />
+								<path stroke="black" stroke-width="4" d="M 148,0 L 148,150" />
+								<path stroke="black" stroke-width="4" d="M 148,0 L 148,150" />
+								<path stroke="black" stroke-width="4" d="M 100,2 L 150,2" />
+								<path stroke="black" stroke-width="4" d="M 100,148 L 150,148" />
+								<path stroke="black" fill="none" stroke-width="4" d="M 0,75 C 0,75 25,75 25,100 M 0,50 C 0,50 50,50 50,100 M 0,50 C 0,50 50,50 50,100 M 50,50 C 50,50 50,100 100,100 100,100 146,100 146,48 146,48 146,2 100,2 M 100,25 C 100,25 125,25 125,50 125,50 125,75 100,75 100,75 75,75 75,50 M 100,150 C 100,150 100,100 150,100 M 125,150 C 125,150 125,125 150,125" />
+							</svg>
+						</div>
+						<div id="anim_block_7">
+							<svg width="150" height="150">
+								<path stroke="black" fill="white" stroke-width="4" d="M 0,0 L 50,0 50,50 150,50 150,100 50,100 50,150 0,150 z" />
+								<path stroke="black" fill="none" stroke-width="4" d="M 0,0 L 0,0 50,50 0,100 50,150 M 0,50 L 0,50 50,50 M 100,50 L 100,50 150,100 M 150,50 L 150,50 125,75" />
+								<path stroke="black" fill="none" stroke-width="4" d="M 50,2 L 2,2 2,148 50,148 M 148,50 L 148,100"/>
+							</svg>
+						</div>
+						<div id="anim_block_8">
+							<svg width="100" height="100">
+								<path stroke="black" fill="white" stroke-width="8" d="M 0,0 L 0,0 100,0 100,100 0,100 z" />
+								<path stroke="black" fill="none" stroke-width="4" d=" M 0,100 L 100,0" />
+							</svg>
+						</div>
+						<div id="anim_block_9">
+							<svg width="150" height="150">
+								<path stroke="black" fill="white" stroke-width="4" d="M 50,0 L 100,0 100,100 150,100 150,150 0,150 0,100 50,100 z" />
+								<path stroke="black" fill="black" stroke-width="2" d="M 3,100 v 150 M 147,100 v 150 M 0,147 h 150 M 50,3 h 50" />
+								<!-- <path stroke="black" fill="none" stroke-width="4" d="M -75,12 q 25,16 50,0 25,-16 50,0 25,16 50,0 25,-16 50,0 M -75,28 q 25,16 50,0 25,-16 50,0 25,16 50,0 25,-16 50,0 M -75,44 q 25,16 50,0 25,-16 50,0 25,16 50,0 25,-16 50,0 M -75,60 q 25,16 50,0 25,-16 50,0 25,16 50,0 25,-16 50,0 M -75,76 q 25,16 50,0 25,-16 50,0 25,16 50,0 25,-16 50,0 M -75,92 q 25,16 50,0 25,-16 50,0 25,16 50,0 25,-16 50,0 M -75,108 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0 M -75,124 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0 M -75,140 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0" /> -->
+								<path stroke="black" fill="none" stroke-width="4" d="M 50,18 q 13,1 25,-6 13,-7 25,-6 M 50,35 q 13,1 25,-6 13,-7 25,-6 M 50,52 q 13,1 25,-6 13,-7 25,-6 M 50,68 q 13,1 25,-6 13,-7 25,-6 M 50,84 q 13,1 25,-6 13,-7 25,-6 M 50,100 q 13,1 25,-6 13,-7 25,-6 M -75,108 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0 M -75,124 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0 M -75,140 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0" />
+							</svg>
+						</div>
+						<div id="anim_block_10">
+							<svg width="50" height="50">
+								<path stroke="black" fill="white" stroke-width="8" d="M 0,0 L 0,0 50,0 50,50 0,50 z" />
+								<path stroke="black" stroke-width="4" d="M 0,50 L 50,0" />
+							</svg>
+						</div>
+					</div>
+					<div class="top_block_center" style="z-index: 999;">
+						<div class="tob_block_text">
+							<div class="top_block_title"><img src="img/logo.svg"></div>
+							<p>новое рабочее пространство в центре Москвы, созданное с тщательным подходом к оформлению и планировкам</p>
+							<p>это новый уровень офиса, где хочется создавать, работать и развиваться</p>
+						</div>
+					</div>
+					<div class="owl-carousel" id="owl1">
+						<div class="img"><img src="img/main_image.jpg"></div>
+						<div class="img"><img src="img/main_image.jpg"></div>
+						<div class="img"><img src="img/main_image.jpg"></div>
+						<div class="img"><img src="img/main_image.jpg"></div>
+					</div>
+				</div>
+				<div id="services" class="inner_block next_inner_item" data-to-load="1.html"></div>
+				<div id="space" class="inner_block" data-to-load="1_dop.html">
+				</div>
+				<div id="park" class="inner_block overflow_hidden" data-to-load="2.html">
+				</div>
+				<div id="cafe" class="inner_block overflow_hidden" data-to-load="3.html">
+				</div>
+				<div id="events" class="inner_block" data-to-load="4.html">
+				</div>
+				<div id="faces" class="inner_block" data-to-load="5.html">
+				</div>
+			</div>
+			<div class="block next_item" id="coworking">
+				<div class="top_block inner_block active_inner">
+					<div class="full_page dotted_bg">
+						<div class="big_img_wrapper">
+							<!-- <img src="img/02-coworking-01/1.jpg">	 -->
+							<div class="right_title_block">
+								<script type="text/javascript">
+									$(function(){
+										$(document).ready(function(){
+											$('#owl2').owlCarousel({
+												lazyLoad: true,
+											    loop:true,
+											    margin:0,
+											    responsiveClass:true,
+											    nav:false,
+											    items: 1,
+											    dots: true,
+											    mouseDrag: false,
+			    								touchDrag: false
+											})
+										});
+									})
+								</script>
+								<div class="owl_wrapper">
+									<div class="owl-carousel" id="owl2">
+										<div class="img"><img src="img/main_image.jpg"></div>
+										<div class="img"><img src="img/main_image.jpg"></div>
+										<div class="img"><img src="img/main_image.jpg"></div>
+										<div class="img"><img src="img/main_image.jpg"></div>
+									</div>
+								</div>
+								<div class="top_block_center">
+									<div class="no_anim_top_block_wrapper">
+										<div id="anim_block_cow_1">
+											<div></div>
+										</div>
+										<div id="anim_block_cow_2">
+											<svg width="100" height="150">
+												<path  stroke="black" fill="white" stroke-width="4" d="M 2,50 l 46,0 0,-48 50,0 0,146 -50,0 0,-50 -46,0 0,-46 24,24 m -26,23 l 49,-49 M 46,0 l 52,52 -51,46 52,50 -52,0 m 0,-50 l 50,0 m -49,0 l 0,-50"/>
+											</svg>
+										</div>
+										<div id="aim_block_cow_3">
+											<svg width="150" height="150">
+												<path  stroke="black" fill="white" stroke-width="4" d="M 2,2 l 146,0 0,50 -50,0 0,96 -50,0 0,-96 -46,0 0,-50 m 0,25 l 48,0 m -2,-25 l 0,50 50,0 -50,0 m 25,0 l 0,50 m -25,0 l 50,0 M 123,0 l 0,50"/>
+											</svg>
+										</div>
+										<div id="aim_block_cow_4">
+											<svg width="150" height="150">
+												<path stroke="black" fill="white" stroke-width="4" d="M 0,50 L 100,50 100,0 150,0 150,150 100,150 100,100 0,100 z" />
+												<path stroke="black" stroke-width="4" d="M 2,50 L 2,100" />
+												<path stroke="black" stroke-width="4" d="M 148,0 L 148,150" />
+												<path stroke="black" stroke-width="4" d="M 148,0 L 148,150" />
+												<path stroke="black" stroke-width="4" d="M 100,2 L 150,2" />
+												<path stroke="black" stroke-width="4" d="M 100,148 L 150,148" />
+												<path stroke="black" fill="none" stroke-width="4" d="M 0,75 C 0,75 25,75 25,100 M 0,50 C 0,50 50,50 50,100 M 0,50 C 0,50 50,50 50,100 M 50,50 C 50,50 50,100 100,100 100,100 146,100 146,48 146,48 146,2 100,2 M 100,25 C 100,25 125,25 125,50 125,50 125,75 100,75 100,75 75,75 75,50 M 100,150 C 100,150 100,100 150,100 M 125,150 C 125,150 125,125 150,125" />
+											</svg>
+										</div>
+										<div id="aim_block_cow_5">
+											<svg width="100" height="100">
+												<path stroke="black" fill="white" stroke-width="4" d="M 2,2 l 96,0 0,96 -48,0 0,-48 -46,0 0,-46 46,46 50,-50 -50,50 0,-50 0,50 -46,-46 46,46 50,50" />
+											</svg>
+										</div>
+										<div id="aim_block_cow_6">
+											<img src="img/02-coworking-01/1.svg">
+										</div>
+									</div>
+									<div class="tob_block_text">
+										<div class="top_block_title"><img src="img/logo.svg"></div>
+										<div class="top_block_small_title"><h2>коворкинг</h2></div>
+										<p>это комфортный опенспейс с современным дизайном</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="inner_block next_inner_item" data-to-load="7.html">
+				</div>
+			</div>
+			<div class="block" id="meeting-rooms">
+				<div class="top_block inner_block active_inner">
+					<div class="full_page dotted_bg">
+						<div class="big_img_wrapper">
+							<!-- <img src="img/03-meeting-01/1.jpg"> -->
+							<div class="right_title_block center_blocks">
+								<script type="text/javascript">
+									$(function(){
+										$(document).ready(function(){
+											$('#owl3').owlCarousel({
+												lazyLoad: true,
+											    loop:true,
+											    margin:0,
+											    responsiveClass:true,
+											    nav:false,
+											    items: 1,
+											    dots: true,
+											    mouseDrag: false,
+			    								touchDrag: false
+											})
+										});
+									})
+								</script>
+								<div class="owl_wrapper">
+									<div class="owl-carousel" id="owl3">
+										<div class="img"><img src="img/03-meeting-01/1.jpg"></div>
+										<div class="img"><img src="img/03-meeting-01/1.jpg"></div>
+										<div class="img"><img src="img/03-meeting-01/1.jpg"></div>
+										<div class="img"><img src="img/03-meeting-01/1.jpg"></div>
+									</div>
+								</div>
+								<div class="top_block_center">
+									<div class="no_anim_top_block_wrapper">
+										<div id="anim_block_met_1">
+											<div></div>
+										</div>
+										<div id="anim_block_met_2">
+											<svg width="200" height="100">
+												<path  stroke="black" fill="white" stroke-width="4" d="M 0,50 l 100,0 0,-48 50,0 0,48 48,0 0,46 -196,0 0,-48"/>
+												<path  stroke="black" fill="none" stroke-width="4" d="M 0,96 l 50,-44 50,44 50,-44 50,44 m -50,0 l 0,-46 -50,0 m -50,0 l 0,46 m 50,-46 l 50,-50 -50,0 l 25,25"/>
+											</svg>
+										</div>
+										<div id="aim_block_met_3">
+											<svg width="150" height="150">
+												<path stroke="black" fill="white" stroke-width="4" d="M 2,2 l 146,0 0,50 -50,0 0,96 -50,0 0,-96 -46,0 0,-52"></path>
+												<path stroke="black" fill="none" stroke-width="4" d="M 0,2 l 25,25 -25,25 m 25,0 l 25,-25 -25,-25 m 24,0 l 25,25 -25,25 25,25 -25,25 25,25 -25,25 m 24,0 l 25,-25 -25,-25 25,-25 -25,-25 25,-25 -25,-25 m 24,0 l 25,25 -25,25 m 25,0 l 25,-25 -25,-25 m 25,0 l 25,25 -25,25"></path>
+											</svg>
+										</div>
+										<div id="anim_block_met_5">
+											<svg width="100" height="100">
+												<path stroke="black" fill="white" stroke-width="4" d="M 2,2 l 96,0 0,96 -48,0 0,-48 -46,0 0,-46 46,46 50,-50 -50,50 0,-50 0,50 -46,-46 46,46 50,50" />
+											</svg>
+										</div>
+										<div id="anim_block_met_6">
+											<div></div>
+										</div>
+										<div id="anim_block_met_7">
+											<svg width="150" height="150">
+												<path stroke="black" fill="white" stroke-width="4" d="M 50,2 L 100,2 100,100 148,100 148,148 2,148 2,100 50,100 z"></path>
+												
+												
+												<path stroke="black" fill="none" stroke-width="4" d="M 50,18 q 13,1 25,-6 13,-7 25,-6 M 50,35 q 13,1 25,-6 13,-7 25,-6 M 50,52 q 13,1 25,-6 13,-7 25,-6 M 50,68 q 13,1 25,-6 13,-7 25,-6 M 50,84 q 13,1 25,-6 13,-7 25,-6 M 50,100 q 13,1 25,-6 13,-7 25,-6 M -75,108 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0 M -75,124 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0 M -75,140 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0"></path>
+											</svg>
+										</div>
+									</div>
+									<div class="tob_block_text">
+										<div class="top_block_title"><img src="img/logo.svg"></div>
+										<div class="top_block_small_title"><h2>переговорные</h2></div>
+										<p>уникальный дизайн каждой переговорной комнаты</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="inner_block next_inner_item" data-to-load="8.html">
+				</div>
+			</div>
+			<div class="block" id="offices">
+				<div class="top_block inner_block active_inner">
+					<div class="full_page dotted_bg">
+						<div class="big_img_wrapper">
+							<!-- <img src="img/04-office-01/1.jpg"> -->
+							<div class="right_title_block center_blocks">
+								<script type="text/javascript">
+									$(function(){
+										$(document).ready(function(){
+											$('#owl4').owlCarousel({
+												lazyLoad: true,
+											    loop:true,
+											    margin:0,
+											    responsiveClass:true,
+											    nav:false,
+											    items: 1,
+											    dots: true,
+											    mouseDrag: false,
+			    								touchDrag: false
+											})
+										});
+									})
+								</script>
+								<div class="owl_wrapper">
+									<div class="owl-carousel" id="owl4">
+										<div class="img"><img src="img/04-office-01/1.jpg"></div>
+										<div class="img"><img src="img/04-office-01/1.jpg"></div>
+										<div class="img"><img src="img/04-office-01/1.jpg"></div>
+										<div class="img"><img src="img/04-office-01/1.jpg"></div>
+									</div>
+								</div>
+								<div class="top_block_center">
+									<div class="no_anim_top_block_wrapper">
+										<div id="anim_block_off_1">
+											<svg width="150" height="150">
+												<path stroke="black" fill="white" stroke-width="4" d="M 50,0 L 100,0 100,100 150,100 150,150 0,150 0,100 50,100 z"></path>
+												<path stroke="black" fill="black" stroke-width="2" d="M 3,100 v 150 M 147,100 v 150 M 0,147 h 150 M 50,3 h 50"></path>
+												
+												<path stroke="black" fill="none" stroke-width="4" d="M 50,18 q 13,1 25,-6 13,-7 25,-6 M 50,35 q 13,1 25,-6 13,-7 25,-6 M 50,52 q 13,1 25,-6 13,-7 25,-6 M 50,68 q 13,1 25,-6 13,-7 25,-6 M 50,84 q 13,1 25,-6 13,-7 25,-6 M 50,100 q 13,1 25,-6 13,-7 25,-6 M -75,108 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0 M -75,124 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0 M -75,140 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0"></path>
+											</svg>
+										</div>
+										<div id="anim_block_off_2">
+											<svg width="150" height="150">
+												<path stroke="black" fill="white" stroke-width="4" d="M 2,2 l 146,0 0,50 -50,0 0,96 -50,0 0,-96 -46,0 0,-52"></path>
+												<path stroke="black" fill="none" stroke-width="4" d="M 0,2 l 25,25 -25,25 m 25,0 l 25,-25 -25,-25 m 24,0 l 25,25 -25,25 25,25 -25,25 25,25 -25,25 m 24,0 l 25,-25 -25,-25 25,-25 -25,-25 25,-25 -25,-25 m 24,0 l 25,25 -25,25 m 25,0 l 25,-25 -25,-25 m 25,0 l 25,25 -25,25"></path>
+											</svg>
+										</div>
+										<div id="anim_block_off_3">
+											<div></div>
+										</div>
+										<div id="anim_block_off_4">
+											<div></div>
+										</div>
+										<div id="anim_block_off_5">
+											<svg width="200" height="150">
+												<path stroke="black" fill="white" stroke-width="4" d="M 0,100 l 100,0 0,-48 50,0 0,48 48,0 0,48 -196,0 0,-50 m 148,-48 l 0,-48 48,0 0,50 -50,0"></path>
+												<path stroke="black" fill="none" stroke-width="4" d="M 0,146 l 50,-44 50,44 50,-44 50,44 m -50,0 l 0,-46 -50,0 m -50,0 l 0,46 m 50,-46 l 48,-48 -46,0 l 24,24 m 26,-72 l 48,48 m -26,-26 l 23,-23"></path>
+											</svg>
+										</div>
+										<div id="anim_block_off_6">
+											<img src="img/04-office-01/1.svg">
+										</div>
+										<div id="anim_block_off_7">
+											<svg width="100" height="100">
+												<path stroke="black" fill="white" stroke-width="4" d="M 2,2 l 96,0 0,96 -48,0 0,-48 -46,0 0,-46 46,46 50,-50 -50,50 0,-50 0,50 -46,-46 46,46 50,50"></path>
+											</svg>
+										</div>
+									</div>
+									<div class="tob_block_text">
+										<div class="top_block_title"><img src="img/logo.svg"></div>
+										<div class="top_block_small_title"><h2>офисы</h2></div>
+										<p>изолированное пространство для вашей компании</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="inner_block next_inner_item" data-to-load="9.html">
+				</div>
+			</div>
+			<div class="block" id="virtual-office">
+				<div class="top_block inner_block active_inner">
+					<div class="full_page dotted_bg">
+						<div class="big_img_wrapper">
+							<!-- <img src="img/05-virt-office-01/1.jpg"> -->
+							<div class="right_title_block center_blocks">
+								<script type="text/javascript">
+									$(function(){
+										$(document).ready(function(){
+											$('#owl5').owlCarousel({
+												lazyLoad: true,
+											    loop:true,
+											    margin:0,
+											    responsiveClass:true,
+											    nav:false,
+											    items: 1,
+											    dots: true,
+											    mouseDrag: false,
+			    								touchDrag: false
+											})
+										});
+									})
+								</script>
+								<div class="owl_wrapper">
+									<div class="owl-carousel" id="owl5">
+										<div class="img"><img src="img/05-virt-office-01/1.jpg"></div>
+										<div class="img"><img src="img/05-virt-office-01/1.jpg"></div>
+										<div class="img"><img src="img/05-virt-office-01/1.jpg"></div>
+										<div class="img"><img src="img/05-virt-office-01/1.jpg"></div>
+									</div>
+								</div>
+								<div class="top_block_center">
+									<div class="no_anim_top_block_wrapper">
+										<div id="anim_block_virt_5">
+											<svg width="150" height="150">
+												<path stroke="black" fill="white" stroke-width="4" d="M 50,0 L 100,0 100,100 150,100 150,150 0,150 0,100 50,100 z"></path>
+												<path stroke="black" fill="black" stroke-width="2" d="M 3,100 v 150 M 147,100 v 150 M 0,147 h 150 M 50,3 h 50"></path>
+												
+												<path stroke="black" fill="none" stroke-width="4" d="M 50,18 q 13,1 25,-6 13,-7 25,-6 M 50,35 q 13,1 25,-6 13,-7 25,-6 M 50,52 q 13,1 25,-6 13,-7 25,-6 M 50,68 q 13,1 25,-6 13,-7 25,-6 M 50,84 q 13,1 25,-6 13,-7 25,-6 M 50,100 q 13,1 25,-6 13,-7 25,-6 M -75,108 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0 M -75,124 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0 M -75,140 q 25,12 50,0 25,-12 50,0 25,12 50,0 25,-12 50,0 25,12 50,0"></path>
+											</svg>
+										</div>
+										<div id="anim_block_virt_4">
+											<svg width="150" height="150">
+												<path stroke="black" fill="white" stroke-width="4" d="M 2,2 l 146,0 0,50 -50,0 0,96 -50,0 0,-96 -46,0 0,-52"></path>
+												<path stroke="black" fill="none" stroke-width="4" d="M 24,2 l 0,50 m 24,0 l 0,-50 m 24,0 l 0,146 m -24,-46 l 50,0 m 0,-50 l -50,0 m 50,0 0,-50 m 25,0 l 0,50"></path>
+											</svg>
+										</div>
+										<div id="anim_block_virt_1">
+											<div></div>
+										</div>
+										<div id="anim_block_virt_2">
+											<svg width="200" height="150">
+												<path stroke="black" fill="white" stroke-width="4" d="M 0,100 l 100,0 0,-48 50,0 0,48 48,0 0,46 -196,0 0,-48 m 0,0 l 0,-48 48,0 0,50 -50,0"></path>
+												<path stroke="black" fill="none" stroke-width="4" d="M 0,146 l 50,-44 50,44 50,-44 50,44 m -50,0 l 0,-46 -50,0 m -50,0 l 0,46 m 50,-46 l 48,-48 -46,0 l 24,24 m -124,-24 l 48,48 m -26,-26 l 23,-23"></path>
+											</svg>
+										</div>
+										<div id="anim_block_virt_3">
+											<svg width="100" height="100">
+												<path stroke="black" fill="white" stroke-width="4" d="M 2,2 l 96,0 0,96 -48,0 0,-48 -46,0 0,-46 46,46 50,-50 -50,50 0,-50 0,50 -46,-46 46,46 50,50"></path>
+											</svg>
+										</div>
+									</div>
+									<div class="tob_block_text">
+										<div class="top_block_title"><img src="img/logo.svg"></div>
+										<div class="top_block_small_title"><h2>вирутальный<br>офис</h2></div>
+										<p>льготный коворкинг и включенные в пакет часы переговорных для встреч с клиентом </p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="inner_block next_inner_item" data-to-load="11.html">
+				</div>
+			</div>
+			<div class="block" id="event-platform">
+				<div class="top_block inner_block active_inner">
+					<div class="full_page dotted_bg">
+						<div class="big_img_wrapper">
+							<!-- <img src="img/06-events-01/1.jpg"> -->
+							<div class="right_title_block center_blocks">
+								<script type="text/javascript">
+									$(function(){
+										$(document).ready(function(){
+											$('#owl6').owlCarousel({
+												lazyLoad: true,
+											    loop:true,
+											    margin:0,
+											    responsiveClass:true,
+											    nav:false,
+											    items: 1,
+											    dots: true,
+											    mouseDrag: false,
+			    								touchDrag: false
+											})
+										});
+									})
+								</script>
+								<div class="owl_wrapper">
+									<div class="owl-carousel" id="owl6">
+										<div class="img"><img src="img/06-events-01/1.jpg"></div>
+										<div class="img"><img src="img/06-events-01/1.jpg"></div>
+										<div class="img"><img src="img/06-events-01/1.jpg"></div>
+										<div class="img"><img src="img/06-events-01/1.jpg"></div>
+									</div>
+								</div>
+								<div class="top_block_center">
+									<div class="no_anim_top_block_wrapper">
+										<div id="anim_block_event_1">
+											<svg width="150" height="150">
+												<path stroke="black" fill="white" stroke-width="4" d="M 2,2 l 146,0 0,50 -50,0 0,96 -50,0 0,-96 -46,0 0,-52"></path>
+												<path stroke="black" fill="none" stroke-width="4" d="M 24,2 c 0,35 48,35 48,0 M 2,28 q 24,0 24,24 M 124,2 q 0,24 24,24 M 122,52 c 0,-35 -48,-35 -48,0 q 3,20 24,22 M 50,75 c 35,0 35,48 0,48 M 100,125 q -24,0 -24,24"></path>
+											</svg>
+										</div>
+										<div id="anim_block_event_2">
+											<div></div>
+										</div>
+										<div id="anim_block_event_5">
+											<div></div>
+										</div>
+										<div id="anim_block_event_3">
+											<svg width="100" height="100">
+												<path stroke="black" fill="white" stroke-width="4" d="M 2,2 l 96,0 0,96 -48,0 0,-48 -46,0 0,-46 46,46 50,-50 -50,50 0,-50 0,50 -46,-46 46,46 50,50"></path>
+											</svg>
+										</div>
+										<div id="anim_block_event_4">
+											<svg width="200" height="150">
+												<path stroke="black" fill="white" stroke-width="4" d="M 0,100 l 100,0 0,-48 50,0 0,48 48,0 0,46 -196,0 0,-48 m 148,-48 l 0,-48 48,0 0,50 -50,0"></path>
+												<path stroke="black" fill="none" stroke-width="4" d="M 0,146 l 50,-44 50,44 50,-44 50,44 m -50,0 l 0,-46 -50,0 m -50,0 l 0,46 m 50,-46 l 48,-48 -46,0 l 24,24 m 26,-72 l 48,48 m -26,-26 l 23,-23"></path>
+											</svg>
+										</div>
+										<div id="anim_block_event_6">
+											<svg width="150" height="50">
+												<path stroke="black" fill="white" stroke-width="4" d="M 2,2 l 146,0 0,46 -146,0 z"></path>
+												<path stroke="black" fill="none" stroke-width="4" d="M 26,2 l -24,24 24,24 m 24,-48 l -24,24 24,24 m 24,-48 l -24,24 24,24 m 24,-48 l -24,24 24,24 m 24,-48 l -24,24 24,24 m 24,-48 l -24,24 24,24"></path>
+											</svg>											
+										</div>
+									</div>
+									<div class="tob_block_text">
+										<div class="top_block_title"><img src="img/logo.svg"></div>
+										<div class="top_block_small_title"><h2>ивент-площадка</h2></div>
+										<p>оборудованный конференц зал вместимостью на 100 человек</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="inner_block next_inner_item" data-to-load="12.html">
+				</div>
+				<div class="inner_block next_inner_item" data-to-load="13.html">
+				</div>
+				<div class="inner_block next_inner_item" data-to-load="14.html">
+				</div>
+			</div>
+			<div class="block" id="contacts">
+				<div class="inner_block active_inner">
+					<script type="text/javascript">
+						ymaps.ready(function () {
+						    var myMap = new ymaps.Map('contact_map_1', {
+						            center: [55.781512, 37.599227],
+						            zoom: 16
+						        }, {
+						            searchControlProvider: 'yandex#search'
+						        }),
+
+						        // Creating a content layout.
+						        MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+						            '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+						        ),
+
+						        myPlacemark = new ymaps.Placemark(myMap.getCenter(), null, {
+						            /**
+						             * Options.
+						             * You must specify this type of layout.
+						             */
+						            iconLayout: 'default#image',
+						            // Custom image for the placemark icon.
+						            iconImageHref: 'img/tag.svg',
+						            // The size of the placemark.
+						            iconImageSize: [222, 66],
+						            /**
+						             * The offset of the upper left corner of the icon relative
+						             * to its "tail" (the anchor point).
+						             */
+						            iconImageOffset: [-10, -120]
+						        });
+
+						        // myPlacemarkWithContent = new ymaps.Placemark([55.781512, 37.599227], {
+						        //     hintContent: 'A custom placemark icon with contents',
+						        //     balloonContent: 'This one — for Christmas',
+						        //     iconContent: '12'
+						        // }, {
+						        //     /**
+						        //      * Options.
+						        //      * You must specify this type of layout.
+						        //      */
+						        //     iconLayout: 'default#imageWithContent',
+						        //     // Custom image for the placemark icon.
+						        //     iconImageHref: 'images/ball.png',
+						        //     // The size of the placemark.
+						        //     iconImageSize: [48, 48],
+						        //     /**
+						        //      * The offset of the upper left corner of the icon relative
+						        //      * to its "tail" (the anchor point).
+						        //      */
+						        //     iconImageOffset: [-24, -24],
+						        //     // Offset of the layer with content relative to the layer with the image.
+						        //     iconContentOffset: [15, 15],
+						        //     // Content layout.
+						        //     iconContentLayout: MyIconContentLayout
+						        // });
+
+						    myMap.geoObjects
+						        .add(myPlacemark);
+						});
+					</script>
+					<div class="white_page overflow_auto dotted_bg footer_page">
+						<center><h2 class="white_bg_title">Где мы находимся</h2></center>
+						<div class="contact_map" id="contact_map_1">
+							
+						</div>
+						<div class="contact_bottom">
+							<div class="contact_bottom_inner">
+								<h4>Адрес</h4>
+								<p>110123, Москва,<br>
+								ул. Новослободская, 16</p>
+								<p>10 шагов от метро<br>«Менделеевская»</p>
+							</div><!--
+							--><div class="contact_bottom_inner">
+								<h4>Ресепшн</h4>
+								<p>+7 495 324-34-53<br>hello@tablica.work</p>
+								<div class="contact_soc">
+									<a href="#"><img src="img/01-contact-07/z.jpg"></a>
+									<a href="#"><img src="img/01-contact-07/telega.jpg"></a>
+								</div>
+							</div><!--
+							--><div class="contact_bottom_inner">
+								<h4>Коворкинг и офисы</h4>
+								<p>+7 495 324-34-54<br>join@tablica.work</p>
+							</div><!--
+							--><div class="contact_bottom_inner">
+								<h4>Ивенты</h4>
+								<p>+7 495 324-34-55<br>event@tablica.work</p>
+							</div><!--
+							--><div class="contact_bottom_inner">
+								<h4>Партнёрство</h4>
+								<p>+7 495 324-34-56<br>ar@tablica.work</p>
+							</div>
+						</div>
+						<footer>
+							<div class="footer_col">
+								<form class="subscribe_footer_form">
+									<input type="text" name="text" placeholder="электронная почта">
+									<a href="#" class="more_space white"><div class="more_space_inner">подписаться</div><div class="more_space_arrow"></div></a>
+								</form>
+							</div>
+							<div class="footer_col">
+								<p class="footer_addr">110123, Москва,<br>ул. Новослободская, 16</p>
+								<div class="footer_soc">
+									<a href="#"><img src="img/01-contact-07/1.svg"></a>
+									<a href="#"><img src="img/01-contact-07/2.svg"></a>
+									<a href="#"><img src="img/01-contact-07/3.svg"></a>
+								</div>
+							</div>
+							<div class="footer_col">
+								<a href="tel:+74953243453">+7 495 324-34-53</a>
+								<a href="mailto:hello@tablica.work">hello@tablica.work</a>
+								<a href="#">Договор оферты юрлиц</a>
+								<a href="#">Договор оферты физлиц</a>
+							</div>
+						</footer>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="top_gallery_arrows">
+			<div class="top_gallery_arrow_left"></div>
+			<div class="top_gallery_arrow_right"></div>
+		</div>
+	</div>
+	<!-- <script type="text/javascript" src="js/jquery-ui.min.js"></script> -->
+	<script src="js/owlcarousel/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

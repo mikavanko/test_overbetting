@@ -1,0 +1,221 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Coworking</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="../js/jquery.ui.touch-punch.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body> -->
+
+	<script type="text/javascript">
+		$(function(){
+			$(document).ready(function(){
+				$('#face_carousel').owlCarousel({
+					lazyLoad: true,
+				    loop:true,
+				    margin:0,
+				    dots: false,
+				    nav: true,
+  					navText: ["<img src='left_arrow.svg'>","<img src='right_arrow.svg'>"],
+				    mouseDrag: false,
+					touchDrag: false,
+				    responsiveClass:true,
+				    responsive:{
+				        0:{
+				            items:1
+				        },
+				        400:{
+				            items:2
+				        },
+				        650:{
+				            items:3
+				        },
+				        1000:{
+				            items:4
+				        },
+				        1200:{
+				            items:5
+				        },
+				        1400:{
+				            items:6
+				        }
+					}
+				});
+			});
+		});
+	</script>
+	<div class="white_page overflow_auto dotted_bg footer_page">
+		<center>
+			<div class="faces_table">
+				<h2>Лица Таблицы</h2>
+				<div class="owl-carousel" id="face_carousel">
+					<div class="face_wrapper">
+						<div class="face_img">
+							<img src="img/01-faces-06/1.jpg">
+						</div>
+						<h3>Иван<br>Дружелюбов</h3>
+						<p class="faces_job">Yandex</p>
+						<div class="faces_soc">
+							<a href="#"><img src="img/01-faces-06/f.jpg"></a>
+							<a href="#"><img src="img/01-faces-06/inst.jpg"></a>
+							<a href="#"><img src="img/01-faces-06/tw.jpg"></a>
+						</div>
+					</div>
+					<div class="face_wrapper">
+						<div class="face_img">
+							<img src="img/01-faces-06/2.jpg">
+						</div>
+						<h3>Лариса<br>Хабибулина</h3>
+						<p class="faces_job">Сбербанк</p>
+						<div class="faces_soc">
+							<a href="#"><img src="img/01-faces-06/f.jpg"></a>
+							<a href="#"><img src="img/01-faces-06/inst.jpg"></a>
+						</div>
+					</div>
+					<div class="face_wrapper">
+						<div class="face_img">
+							<img src="img/01-faces-06/3.jpg">
+						</div>
+						<h3>Артём<br>Маслобойников</h3>
+						<p class="faces_job">Google</p>
+						<div class="faces_soc">
+							<a href="#"><img src="img/01-faces-06/f.jpg"></a>
+							<a href="#"><img src="img/01-faces-06/inst.jpg"></a>
+						</div>
+					</div>
+					<div class="face_wrapper">
+						<div class="face_img">
+							<img src="img/01-faces-06/4.jpg">
+						</div>
+						<h3>Михаил<br>Хабибулин</h3>
+						<p class="faces_job">Yandex</p>
+						<div class="faces_soc">
+							<a href="#"><img src="img/01-faces-06/f.jpg"></a>
+							<a href="#"><img src="img/01-faces-06/tw.jpg"></a>
+						</div>
+					</div>
+					<div class="face_wrapper">
+						<div class="face_img">
+							<img src="img/01-faces-06/1.jpg">
+						</div>
+						<h3>Георгий<br>Клуни</h3>
+						<p class="faces_job">Uber</p>
+						<div class="faces_soc">
+							<a href="#"><img src="img/01-faces-06/tw.jpg"></a>
+						</div>
+					</div>
+					<div class="face_wrapper">
+						<div class="face_img">
+							<img src="img/01-faces-06/2.jpg">
+						</div>
+						<h3>Маргарита<br>Кудряшкина</h3>
+						<p class="faces_job">Yandex</p>
+						<div class="faces_soc">
+							<a href="#"><img src="img/01-faces-06/f.jpg"></a>
+						</div>
+					</div>
+					<div class="face_wrapper">
+						<div class="face_img">
+							<img src="img/01-faces-06/1.jpg">
+						</div>
+						<h3>Иван<br>Дружелюбов</h3>
+						<p class="faces_job">Yandex</p>
+						<div class="faces_soc">
+							<a href="#"><img src="img/01-faces-06/f.jpg"></a>
+							<a href="#"><img src="img/01-faces-06/inst.jpg"></a>
+							<a href="#"><img src="img/01-faces-06/tw.jpg"></a>
+						</div>
+					</div>
+					<div class="face_wrapper">
+						<div class="face_img">
+							<img src="img/01-faces-06/2.jpg">
+						</div>
+						<h3>Лариса<br>Хабибулина</h3>
+						<p class="faces_job">Сбербанк</p>
+						<div class="faces_soc">
+							<a href="#"><img src="img/01-faces-06/f.jpg"></a>
+							<a href="#"><img src="img/01-faces-06/inst.jpg"></a>
+						</div>
+					</div>
+					<div class="face_wrapper">
+						<div class="face_img">
+							<img src="img/01-faces-06/3.jpg">
+						</div>
+						<h3>Артём<br>Маслобойников</h3>
+						<p class="faces_job">Google</p>
+						<div class="faces_soc">
+							<a href="#"><img src="img/01-faces-06/f.jpg"></a>
+							<a href="#"><img src="img/01-faces-06/inst.jpg"></a>
+						</div>
+					</div>
+					<div class="face_wrapper">
+						<div class="face_img">
+							<img src="img/01-faces-06/4.jpg">
+						</div>
+						<h3>Михаил<br>Хабибулин</h3>
+						<p class="faces_job">Yandex</p>
+						<div class="faces_soc">
+							<a href="#"><img src="img/01-faces-06/f.jpg"></a>
+							<a href="#"><img src="img/01-faces-06/tw.jpg"></a>
+						</div>
+					</div>
+					<div class="face_wrapper">
+						<div class="face_img">
+							<img src="img/01-faces-06/1.jpg">
+						</div>
+						<h3>Георгий<br>Клуни</h3>
+						<p class="faces_job">Uber</p>
+						<div class="faces_soc">
+							<a href="#"><img src="img/01-faces-06/tw.jpg"></a>
+						</div>
+					</div>
+					<div class="face_wrapper">
+						<div class="face_img">
+							<img src="img/01-faces-06/2.jpg">
+						</div>
+						<h3>Маргарита<br>Кудряшкина</h3>
+						<p class="faces_job">Yandex</p>
+						<div class="faces_soc">
+							<a href="#"><img src="img/01-faces-06/f.jpg"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="faces_partners">
+				<h2>Партнеры</h2>
+				<div class="faces_partners_table">
+						<a href="#"><img src="img/01-faces-06/5.jpg"></a>
+				</div>
+				<a href="#" class="more_space yellow"><div class="more_space_inner">стать партнёром</div><div class="more_space_arrow"></div></a>
+			</div>
+		</center>
+		<footer>
+			<div class="footer_col">
+				<form class="subscribe_footer_form">
+					<input type="text" name="text" placeholder="электронная почта">
+					<a href="#" class="more_space white"><div class="more_space_inner">подписаться</div><div class="more_space_arrow"></div></a>
+				</form>
+			</div>
+			<div class="footer_col">
+				<p class="footer_addr">110123, Москва,<br>ул. Новослободская, 16</p>
+				<div class="footer_soc">
+					<a href="#"><img src="img/01-contact-07/1.svg"></a>
+					<a href="#"><img src="img/01-contact-07/2.svg"></a>
+					<a href="#"><img src="img/01-contact-07/3.svg"></a>
+				</div>
+			</div>
+			<div class="footer_col">
+				<a href="tel:+74953243453">+7 495 324-34-53</a>
+				<a href="mailto:hello@tablica.work">hello@tablica.work</a>
+				<a href="#">Договор оферты юрлиц</a>
+				<a href="#">Договор оферты физлиц</a>
+			</div>
+		</footer>
+	</div>
+<!-- 	<script type="text/javascript" src="../js/main.js"></script>
+</body>
+</html> -->

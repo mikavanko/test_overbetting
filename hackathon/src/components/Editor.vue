@@ -21,8 +21,6 @@
         init_instance_callback: initInstanceCallback
       }"
       v-model="content"
-      model-events="click"
-      @click="keydown"
      />
      <br>
 
@@ -62,19 +60,16 @@ export default {
   mounted() {},
   methods: {
     initInstanceCallback: function(editor) {
-      editor.on('click', function (e) {
-        console.log('Element clicked:', e.target);
+      editor.on('click', function () {
+        // console.log('Element clicked:', e.target);
       });
-    },
-    keydown(e){
-      console.log(e)
     },
     downloadBlob(blob, name = 'file.docx') {
       // Convert your blob into a Blob URL (a special url that points to an object in the browser's memory)
       const blobUrl = URL.createObjectURL(blob);
 
       // Create a link element
-      const link = document.createElement("a");
+      const link = document.createElement('a');
 
       // Set link's href to point to the Blob URL
       link.href = blobUrl;
@@ -97,7 +92,7 @@ export default {
       document.body.removeChild(link);
     },
     async onClick() {
-      console.log(this.content)
+      // console.log(this.content)
       // const res = await HTMLtoDOCX(this.content)
       // console.log('res',res) 
       // this.downloadBlob(res)
@@ -105,6 +100,3 @@ export default {
   },
 }
 </script>
-
-<style>
-</style>

@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     listAdapter() {
-      return this.list.map(el => ({name: el.name}))
+      return this.list.map((el) => ({name: el.name}))
     },
   },
 }

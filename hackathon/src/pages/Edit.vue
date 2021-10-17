@@ -17,7 +17,6 @@ export default {
   mounted() {
     const id = this.$route.params.id
     this.content = this.$store.getters.getRecognizedItem(id)
-    console.log(this.content)
   },
 }
 </script>

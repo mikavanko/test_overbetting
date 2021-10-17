@@ -100,3 +100,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.tox-notifications-container {
+    display: none;
+}
+</style>

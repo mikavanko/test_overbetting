@@ -7,5 +7,5 @@ module.exports = {
     //     },
     //   }
     // },
-    publicPath: '/hackathon/dist/'
+    // publicPath: '/hackathon/dist/'
   }

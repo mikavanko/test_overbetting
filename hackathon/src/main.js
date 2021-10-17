@@ -15,7 +15,7 @@ const store = new Vuex.Store(storeRaw)
 
 const router = new VueRouter({
   routes,
-  mode: "history",
+  // mode: "history",
 })
 
 Vue.config.productionTip = false

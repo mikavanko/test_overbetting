@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/hackathon/dist/' : '/hackathon/dist/'
+  publicPath: process.env.NODE_ENV === 'production' ? '/hackathon/dist/' : '/'
 }

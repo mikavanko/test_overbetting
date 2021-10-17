@@ -7,5 +7,5 @@ module.exports = {
     //     },
     //   }
     // },
-    // publicPath: '/hackathon/dist/'
+    publicPath: process.env.NODE_ENV === 'production' ? '/hackathon/dist/' : '/'
   }

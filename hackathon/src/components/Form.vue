@@ -26,8 +26,8 @@ export default {
       e.preventDefault()
       
       let formData = new FormData()
-      formData.append('file', this.file)
       formData.append('key', this.file.name)
+      formData.append('file', this.file)
 
       this.$emit('submit', formData)
     }

@@ -1,25 +1,9 @@
 <template>
   <div class="editor">
     <editor
+      ref="editor"
       api-key="no-api-key"
-      :init="{
-        height: 500,
-        plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
-        'searchreplace wordcount visualblocks visualchars code fullscreen',
-        'insertdatetime media nonbreaking save table contextmenu directionality',
-        'emoticons template paste textcolor colorpicker textpattern imagetools'
-        ],
-        toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-        toolbar2: 'print preview media | forecolor backcolor emoticons',
-        image_advtab: true,
-        templates: [
-          { title: 'Test template 1', content: 'Test 1' },
-          { title: 'Test template 2', content: 'Test 2' },
-        ],
-        extended_valid_elements : 'word[time]',
-        custom_elements: '~word',
-        init_instance_callback: initInstanceCallback
-      }"
+      :init="options"
       v-model="content"
      />
      <br>
@@ -44,24 +28,84 @@ export default {
   },
   data() {
     return {
+      tinymce: null,
+      editor: null,
       content: '',
+      options: {
+        selector: 'textarea#contextmenu-section',
+        height: 500,
+        plugins: [
+        'my-example-plugin',
+        'contextmenu'
+        // 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+        // 'searchreplace wordcount visualblocks visualchars code fullscreen',
+        // 'insertdatetime media nonbreaking save table contextmenu directionality',
+        // 'emoticons template paste textcolor colorpicker textpattern imagetools',
+        ],
+        contextmenu: 'customItem1',
+        contextmenu_never_use_native: true,
+        // toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+        // toolbar2: 'print preview media | forecolor backcolor emoticons',
+        // image_advtab: true,
+        // templates: [
+        //   { title: 'Test template 1', content: 'Test 1' },
+        //   { title: 'Test template 2', content: 'Test 2' },
+        // ],
+        extended_valid_elements : 'word[time]',
+        custom_elements: '~word',
+        init_instance_callback: this.initInstanceCallback,
+        setup: this.init
+      }
     }
   },
   watch: {
     contentArr(val) {
       this.content = val.map(el => {
+        const seconds = +el.startTime.seconds || 0
+        const nanos = +el.startTime.nanos || 0
+        const time = seconds + nanos.toString()[0] / 10
+
         if(el.confidence < 0.6){
-          return `<span style="background-color: red;"><word time="${el.startTime}">${el.word}</word></span>`
+          return `<span style="background-color: red;"><word time="${time}">${el.word}</word></span>`
         }
-        return `<word time="${el.startTime}">${el.word}</word>`
+        return `<word time="${time}">${el.word}</word>`
       }).join(' ')
     }
   },
-  mounted() {},
+  mounted() {
+  },
   methods: {
-    initInstanceCallback: function(editor) {
-      editor.on('click', function () {
-        // console.log('Element clicked:', e.target);
+    updateContextMenu(editor) {
+      editor.ui.registry.addIcon('fuck', '<svg height="24" width="24"><path d="M12 0 L24 24 L0 24 Z" /></svg>' );
+
+      editor.ui.registry.addMenuItem('customItem1', {
+          icon: 'fuck',
+          text: 'Проиграть',
+          onAction: function () {
+            const htmlString = editor.selection.getContent()
+            const wrapper= document.createElement('div');
+            wrapper.innerHTML= htmlString
+
+            console.log('SELECTED', wrapper)
+          }
+      });
+    },
+    init: function (editor) { // wait till editor initialize
+      const _this = this
+      editor.on('init', function () {
+        _this.editor = editor
+        // eslint-disable-next-line
+        _this.tinymce = tinymce
+
+        _this.updateContextMenu(_this.editor)
+      });
+    },
+    initInstanceCallback: function (editor) {
+      editor.on('click', function (e) {
+        console.log('Element clicked:', e.target);
+      });
+      editor.on('ContextMenu', function (e) {
+        console.log('ContextMenu Element clicked:', e.target);
       });
     },
     downloadBlob(blob, name = 'file.docx') {
@@ -96,6 +140,9 @@ export default {
       // const res = await HTMLtoDOCX(this.content)
       // console.log('res',res) 
       // this.downloadBlob(res)
+
+
+      console.log(this.editor, this.tinymce)
     }
   },
 }

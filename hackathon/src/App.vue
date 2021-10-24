@@ -2,9 +2,9 @@
   <div id="app">
     <div class="header">
       <div class="wrapper">
-        <div class="header__logo">
+        <router-link to="/" class="header__logo">
           <img src="@/assets/img/logo.svg" alt="logo">
-        </div>
+        </router-link>
         <div class="header__title">Сервис распознавания аудио</div>
       </div>
     </div>

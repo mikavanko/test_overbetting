@@ -24,10 +24,14 @@ export default {
 </script>
 
 <style lang="scss">
+html, body{
+  height: 100%;
+}
 #app {
   background-color: $body-color;
   font: 400 14px/1.5 $font-family;
   color: $text-color;
+  height: 100%;
 }
 .header{
   height: 54px;

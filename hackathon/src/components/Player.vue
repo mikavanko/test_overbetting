@@ -1,10 +1,5 @@
 <template>
   <div class="player">
-    <!-- <mini-audio
-      ref="player"
-      :audio-source="url"
-      :seek="seek"
-  ></mini-audio> -->
     <audio
         ref="player"
         controls
@@ -12,8 +7,6 @@
             Your browser does not support the
             <code>audio</code> element.
     </audio>
-  <button @click="play">play</button>
-  <button @click="setSeek">seek</button>
   </div>
 </template>
 
@@ -25,14 +18,14 @@ export default {
       type: String,
       default: '',
     },
-    timeStart: {
-      type: Number,
-      default: 0,
-    },
-    timeEnd: {
-      type: Number,
-      default: 0,
-    },
+    // timeStart: {
+    //   type: Number,
+    //   default: 0,
+    // },
+    // timeEnd: {
+    //   type: Number,
+    //   default: 0,
+    // },
     isPlay: {
       type: Boolean,
       default: false,
@@ -40,16 +33,9 @@ export default {
   },
   data (){
     return {
-      seek: 0,
     }
   },
   methods: {
-    play() {
-      this.$refs.player.play()
-    },
-    setSeek() {
-      this.$refs.player.currentTime = 3
-    },
   },
 }
 </script>

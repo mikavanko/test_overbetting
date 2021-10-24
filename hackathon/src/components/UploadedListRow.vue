@@ -218,8 +218,14 @@ export default {
   &__item{
     text-align: left;
     padding: 15px 5px;
-    width: 25%;
     vertical-align: middle;
+
+    &.size{
+      width: 180px;
+    }
+    &.status{
+      width: 190px;
+    }
   }
 }
 .status{
@@ -259,6 +265,8 @@ export default {
 .result{
   white-space: nowrap;
   text-align: right;
+  width: 281px;
+  padding-right: 40px;
 
   &__btn{
     @include clear-btn();

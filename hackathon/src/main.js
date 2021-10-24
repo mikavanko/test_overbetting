@@ -19,7 +19,8 @@ const store = new Vuex.Store(storeRaw)
 
 const router = new VueRouter({
   routes,
-  // mode: "history",
+  mode: "history",
+  baseUrl: process.env.NODE_ENV === 'production' ? '/hackathon/dist/' : '/',
 })
 
 Vue.config.productionTip = false

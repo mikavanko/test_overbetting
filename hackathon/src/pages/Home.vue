@@ -4,15 +4,20 @@
       <img class="form__img" src="@/assets/img/voice.jpg" alt="voice">
       <Form @submit="submitForm" class="form" />
     </div>
-    <UploadedList v-if="files.length"
+    <UploadedList v-if="files.length || recData.length"
                   :files="files"
-                  @recognition-finished="recognitionFinished" />
+                  :storage-data="recData"
+                  @recognition-finished="recognitionFinished"
+                  @recognition-started="recognitionStarted"
+                  @remove-from-storage="removeFromStorage"
+                  @remove-from-files="removeFromFiles" />
   </div>
 </template>
 
 <script>
 import Form from '@/components/Form.vue'
 import UploadedList from '@/components/UploadedList.vue'
+import { checkProgress } from '@/assets/js/api/api'
 
 export default {
   name: 'Home',
@@ -23,40 +28,50 @@ export default {
   data() {
     return {
       files: [],
+      recData: []
     }
   },
   mounted() {
-    const file = this.getFile()
-    console.log(file)
+    // checkProgress()
+    this.recData = JSON.parse(localStorage.getItem('recData')) || [];
+
+    console.log(this.recData)
   },
   methods: {
+    removeFromStorage(operationId) {
+      const recData = JSON.parse(localStorage.getItem('recData'))
+      console.log(operationId)
+      console.log(recData)
+      if(recData && recData.length) {
+        const idx = recData.findIndex(el => el.operationId === operationId)
+        recData.splice(idx, 1)
+
+        // update 
+        this.recData = recData
+        localStorage.setItem('recData', JSON.stringify(recData))
+      }
+    },
+    removeFromFiles(operationId) {
+      if(this.files && this.files.length) {
+        const idx = this.files.findIndex(el => el.operationId === operationId)
+        this.files.splice(idx, 1)
+
+        this.removeFromStorage(operationId)
+      }
+    },
+    recognitionStarted(data) {
+      console.log('recognitionStarted',data)
+      const recData = JSON.parse(localStorage.getItem('recData')) || []
+      recData.push(data)
+      localStorage.setItem('recData', JSON.stringify(recData))
+    },
     recognitionFinished(recData) {
       console.log('recData',recData)
       this.$store.dispatch('setRecognizedList', recData)
     },
     async submitForm(files) {
-      console.log(files[0])
       this.files = [...this.files, ...files]
-      this.gotFile(files[0])
     },
-    gotFile(file) {
-      var reader = new FileReader()
-      reader.onload = function(base64) {
-          localStorage["file"] = base64;
-      }
-      reader.readAsDataURL(file);
-    },
-    getFile() {
-      let file = null
-      if(localStorage["file"]){
-        var base64 = localStorage["file"];
-        var base64Parts = base64.split(",");
-        var fileFormat = base64Parts[0].split(";")[1];
-        var fileContent = base64Parts[1];
-        file = new File([fileContent], "file name here", {type: fileFormat});
-      }
-      return file;
-    }
   },
 }
 </script>

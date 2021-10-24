@@ -7,10 +7,7 @@
       {{file.name}}
     </td>
     <td class="row__item status">
-      <template v-if="!isLoading && !isError">
-        <div class="status__loading">Загрузка...</div>
-      </template>
-      <template v-else-if="!isRecognized && !isError">
+      <template v-if="!isRecognized && !isError">
         <div class="progress">
           <div class="progress__text">
             Распознавание {{percent}}%
@@ -41,7 +38,7 @@
       </button>
       <button v-if="operationId"
               class="result__btn result__btn_remove"
-              @click="$emit('remove-from-files', operationId)">
+              @click="$emit('remove-from-storage', operationId)">
         Удалить
       </button>
     </td>
@@ -57,44 +54,24 @@ export default {
   name: 'UploadedList',
   props: {
     file: {
-      type: File,
-      default: null,
+      type: Object,
+      default: () => {},
     },
   },
   data() {
     return {
       isOpen: false,
-      isLoading: false,
       isRecognized: false,
       percent: 0,
       isError: false,
-      operationId: null,
     }
   },
   computed: {
-    // listAdapter() {
-    //   return this.list.map((el) => ({name: el.name}))
-    // },
+    operationId() {
+      return this.file.operationId
+    }
   },
   async mounted() {
-    const formData = new FormData()
-    formData.append('key', this.file.name)
-    formData.append('file',this.file)
-
-    await uploadToGoogle(this,{params: formData})
-      .catch(err => {
-        this.isError = true
-        console.log(err)
-      })
-    
-    await this.recognizeFile(formData)
-      .catch(err => {
-        this.isError = true
-        console.log(err)
-      })
-
-    this.isLoading = true
-    
     this.pollData(this.checkProgress, async (res) => {
       const recognitionData = await getRecognitionResult(this, { url: res.resultUrl})
         .catch(err => {
@@ -102,7 +79,7 @@ export default {
           console.log(err)
         })
       
-      this.$emit('recognition-finished', { name: formData.get('key'), data: recognitionData, operationId: this.operationId })
+      this.$emit('recognition-finished', { name: this.file.name, data: recognitionData, operationId: this.operationId })
 
       this.isRecognized = true
       this.isOpen = true
@@ -119,24 +96,6 @@ export default {
       if (bytes == 0) return '0 Byte'
       var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)))
       return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i]
-    },
-    recognizeFile(formData) {
-      const params = {
-        action: 'recognize',
-        file: formData.get('key')
-      }
-      
-      // check if file was loaded
-      return recognizeFile(this, { params })
-        .then(res=>{
-          this.operationId = res.operationId
-
-          this.$emit('recognition-started', { name: this.file.name, size: this.file.size, operationId: res.operationId })
-        })
-        .catch(err=>{
-          this.isError = true
-          console.log(err)
-        })
     },
     sleep: ms => new Promise(r => setTimeout(r, ms)),
     async pollData (f, callback) {

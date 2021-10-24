@@ -1,3 +1,5 @@
+import store from '@/store'
+
 const YANDEX_API_KEY = 'd4eridc8huj6c6crgnpu'
 
 export const uploadToGoogle = (ctx, {params}) => {
@@ -9,7 +11,10 @@ export const recognizeFile = (ctx, {params}) => {
 }
 
 export const checkProgress = (ctx, {params}) => {
-  return fetch(`https://functions.yandexcloud.net/${YANDEX_API_KEY}?action=${params.action}&operationId=${params.operationId}`, {method: 'get'}).then(res=>res.json())
+  return fetch(`https://functions.yandexcloud.net/${YANDEX_API_KEY}?action=${params.action}&operationId=${params.operationId}`, {
+    method: 'get', 
+  })
+  .then(res=>res.json())
 }
 
 export const getRecognitionResult = (ctx, {url}) => {

@@ -13,12 +13,9 @@ export default {
     }
   },
   getters: {
-    getRecognizedList(state) {
-      return state.recognizedList
-    },
+    getRecognizedList: state => state.recognizedList,
     getRecognizedItem: state => id => {
-      console.log('id', id)
       return state.recognizedList.find(el => el.name === id).data
-    }
+    },
   },
 }

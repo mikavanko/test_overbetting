@@ -1,6 +1,16 @@
 <template>
   <div id="app">
-    <router-view />
+    <div class="header">
+      <div class="wrapper">
+        <div class="header__logo">
+          <img src="@/assets/img/logo.svg" alt="logo">
+        </div>
+        <div class="header__title">Сервис распознавания аудио</div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -10,16 +20,43 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: $body-color;
+  font: 400 14px/1.5 $font-family;
+  color: $text-color;
+}
+.wrapper{
+  max-width: 1280px;
+  width: 100%;
+  padding: 0 15px;
+  margin:  0 auto;
+  position: relative;
+}
+.header{
+  height: 54px;
+  background-color: $main-color;
+  width: 100%;
+  position: relative;
+
+  & .wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__logo{
+    position: absolute;
+    left: 20px;
+    top: 6px;
+  }
+  
+  &__title{
+    font-family: $font-family;
+    color: $body-color;
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 </style>

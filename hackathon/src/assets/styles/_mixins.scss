@@ -1,0 +1,10 @@
+@mixin clear-btn{
+    display: inline-block;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+}

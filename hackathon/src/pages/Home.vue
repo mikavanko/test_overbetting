@@ -1,25 +1,18 @@
 <template>
-  <div>
-      <div>
-        {{progressText}}
-        <span v-if="isLoading">
-          : {{progress}}
-        </span>
-      </div>
-      <br>
-      <Form @submit="submitForm" />
-      <br>
-      <UploadedList :list="recognizedList" />
-
+  <div class="home">
+    <div class="form__wrapper">
+      <img class="form__img" src="@/assets/img/voice.jpg" alt="voice">
+      <Form @submit="submitForm" class="form" />
+    </div>
+    <UploadedList v-if="files.length"
+                  :files="files"
+                  @recognition-finished="recognitionFinished" />
   </div>
 </template>
 
 <script>
 import Form from '@/components/Form.vue'
 import UploadedList from '@/components/UploadedList.vue'
-import { uploadToGoogle, recognizeFile, checkProgress, getRecognitionResult } from '@/assets/js/api/api'
-
-const INTERVAL = 1000
 
 export default {
   name: 'Home',
@@ -29,82 +22,63 @@ export default {
   },
   data() {
     return {
-      polling: null,
-      percent: 0,
-      operationId: null,
-      isLoading: false,
-      progressText: ''
+      files: [],
     }
   },
-  computed: {
-    recognizedList() {
-      return this.$store.getters.getRecognizedList
-    },
-    progress() {
-      return `${this.percent}%`
-    },
+  mounted() {
+    const file = this.getFile()
+    console.log(file)
   },
   methods: {
-    pollData (f, callback) {
-      this.polling = setInterval(() => {
-        f()
-          .then(res=>{
-            this.percent = res.percent
-
-            if(res.done){
-              callback(res)
-              clearInterval(this.polling)
-            }
-          })
-      }, INTERVAL)
+    recognitionFinished(recData) {
+      console.log('recData',recData)
+      this.$store.dispatch('setRecognizedList', recData)
     },
-    recognizeFile(formData) {
-      const params = {
-        action: 'recognize',
-        file: formData.get('key')
+    async submitForm(files) {
+      console.log(files[0])
+      this.files = [...this.files, ...files]
+      this.gotFile(files[0])
+    },
+    gotFile(file) {
+      var reader = new FileReader()
+      reader.onload = function(base64) {
+          localStorage["file"] = base64;
       }
-      
-      // check if file was loaded
-      return recognizeFile(this, { params })
-        .then(res=>{
-          this.operationId = res.operationId
-        })
-        .catch(err=>{
-          console.log(err)
-        })
+      reader.readAsDataURL(file);
     },
-    checkProgress() {
-      const params = {
-        action: 'check',
-        operationId: this.operationId
+    getFile() {
+      let file = null
+      if(localStorage["file"]){
+        var base64 = localStorage["file"];
+        var base64Parts = base64.split(",");
+        var fileFormat = base64Parts[0].split(";")[1];
+        var fileContent = base64Parts[1];
+        file = new File([fileContent], "file name here", {type: fileFormat});
       }
-      
-      // check progress of recognition
-      return checkProgress(this, { params })
-        .catch(err=>{
-          console.log(err)
-        })
-    },
-    async submitForm(formData) {
-      this.progressText = 'Загрузка на сервер...'
-      await uploadToGoogle(this,{params: formData})
-      
-      await this.recognizeFile(formData)
-
-      this.progressText = 'Загрузка'
-      this.isLoading = true
-      
-      this.pollData(this.checkProgress, async (res) => {
-        const recognitionData = await getRecognitionResult(this, { url: res.resultUrl})
-        this.$store.dispatch('setRecognizedList', { name: formData.get('key'), data: recognitionData})
-      })
-    },
-  },
-  beforeDestroy() {
-    clearInterval(this.polling)
+      return file;
+    }
   },
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.home{
+  padding: 50px 40px;
+}
+.form{
+  z-index: 2;
+  position: relative;
+
+  &__wrapper{
+    position: relative;
+    margin-bottom: 50px;
+  }
+  &__img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+}
 </style>

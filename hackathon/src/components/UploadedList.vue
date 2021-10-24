@@ -1,44 +1,50 @@
 <template>
-  <div class="list">
-    Распознанные аудио:
+  <table class="list">
+    <tr>
+      <th>Размер файла</th>
+      <th>Названия файла</th>
+      <th>Статус</th>
+      <th>Результат</th>
+    </tr>
+    <UploadedListRow v-for="(file, idx) in files"
+                     :key="'row' + idx"
+                     :file="file"
+                     @recognition-finished="$emit('recognition-finished', $event)" />
 
-    <div v-for="(item,idx) in listAdapter"
-         :key="idx"
-         class="list-row">
-      <div class="list-row__name">
-        {{item.name}}
-      </div>
-      <router-link :to="`/${item.name}`"
-                   class="list-row__link">
-        Перейти
-      </router-link>
-
-    </div>
-  </div>
+  </table>
 </template>
 
 <script>
+import UploadedListRow from './UploadedListRow'
 export default {
   name: 'UploadedList',
   props: {
-    list: {
+    files: {
       type: Array,
       default: () => [],
     },
   },
   computed: {
-    listAdapter() {
-      return this.list.map((el) => ({name: el.name}))
-    },
+    // listAdapter() {
+    //   return this.list.map((el) => ({name: el.name}))
+    // },
   },
+  components: { UploadedListRow },
 }
 </script>
 
 <style lang="scss" scoped>
 .list{
-  &-row{
-    display: flex;
-    justify-content: space-between;
+  width: 100%;
+
+  th{
+    font-family: $font-family;
+    font-size: 12px;
+    line-height: 14px;
+    color: $text-color;
+    opacity: .3;
+    text-align: left;
+    padding: 7px 5px;
   }
 }
 </style>

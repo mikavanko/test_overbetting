@@ -70,6 +70,7 @@ export default {
       isError: false,
       operationId: null,
       flag: false,
+      docxUrl: '',
     }
   },
   computed: {
@@ -104,6 +105,7 @@ export default {
     this.isLoading = true
     
     this.pollData(this.checkProgress, async (res) => {
+      this.docxUrl = res.docxUrl
       const recognitionData = await getRecognitionResult(this, { url: res.resultUrl})
         .catch(err => {
           this.isError = true
@@ -127,7 +129,8 @@ export default {
     },
     open(){
       if(this.isOpen) {
-        window.open(`https://storage.googleapis.com/hakathon/${this.file.name.replace(/\.[^/.]+$/, '')}.docx`)
+        // window.open(`https://storage.googleapis.com/hakathon/${this.file.name.replace(/\.[^/.]+$/, '')}.docx`)
+        window.open(this.docxUrl)
         // this.$router.push(this.file.name)
       }
     },

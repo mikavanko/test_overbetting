@@ -79,46 +79,57 @@ export default {
     // },
   },
   async mounted() {
-    const formData = new FormData()
     this.operationId = this.file.operationId || null
-
-    if(!this.operationId){
-      this.isLoading = false
-
-      formData.append('key', this.file.name)
-      console.log('this.file',this.file)
-      formData.append('file',this.file.file)
-
-      await uploadToGoogle(this,{params: formData})
-        .catch(err => {
-          this.isError = true
-          console.log(err)
-        })
-      
-      await this.recognizeFile(formData)
-        .catch(err => {
-          this.isError = true
-          console.log(err)
-        })
-    }
-
-    this.isLoading = true
     
-    this.pollData(this.checkProgress, async (res) => {
-      this.docxUrl = res.docxUrl
-      const recognitionData = await getRecognitionResult(this, { url: res.resultUrl})
-        .catch(err => {
-          this.isError = true
-          console.log(err)
-        })
-      
-      const name = this.file.name
-      console.log('name',name)
-      this.$emit('recognition-finished', { name, data: recognitionData, operationId: this.operationId })
+    if(!this.file.finished){
+      const formData = new FormData()
 
+      if(!this.operationId){
+        this.isLoading = false
+
+        formData.append('key', this.file.name)
+        console.log('this.file',this.file)
+        formData.append('file',this.file.file)
+
+        await uploadToGoogle(this,{params: formData})
+          .catch(err => {
+            this.isError = true
+            console.log(err)
+          })
+        
+        await this.recognizeFile(formData)
+          .catch(err => {
+            this.isError = true
+            console.log(err)
+          })
+      }
+
+      this.isLoading = true
+      
+      this.pollData(this.checkProgress, async (res) => {
+        // Это нужно чтобы работал редактор
+
+        // const recognitionData = await getRecognitionResult(this, { url: res.resultUrl})
+        //   .catch(err => {
+        //     this.isError = true
+        //     console.log(err)
+        //   })
+        
+        // const name = this.file.name
+        // console.log('name',name)
+        // this.$emit('recognition-finished', { name, data: recognitionData, operationId: this.operationId })
+        this.$emit('update-storage', { docxUrl: res.docxUrl, operationId: this.operationId })
+
+        this.docxUrl = res.docxUrl
+        this.isRecognized = true
+        this.isOpen = true
+      })
+    } else {
+      this.isLoading = true
       this.isRecognized = true
       this.isOpen = true
-    })
+      this.docxUrl = this.file.docxUrl
+    }
   },
   methods: {
     remove(e){

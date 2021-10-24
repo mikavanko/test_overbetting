@@ -7,6 +7,7 @@
       </div>
       <UploadedList v-if="files.length"
                     :files="files"
+                    @update-storage="updateStorage"
                     @recognition-finished="recognitionFinished"
                     @recognition-started="recognitionStarted"
                     @remove-from-files="removeFromFiles" />
@@ -71,6 +72,17 @@ export default {
         recognizedItems.push(recData)
         localStorage.setItem('recognizedItems', JSON.stringify(recognizedItems))
       }
+    },
+    updateStorage(data){
+        const recData = JSON.parse(localStorage.getItem('recData')) || []
+        const idxItemToUpdate = recData.findIndex(el => el.operationId === data.operationId)
+
+        recData[idxItemToUpdate].finished = true
+        recData[idxItemToUpdate].docxUrl = data.docxUrl
+
+        console.log('updateStorage',recData)
+
+        localStorage.setItem('recData', JSON.stringify(recData))
     },
     async submitForm(filesRaw) {
       console.log('submitForm')

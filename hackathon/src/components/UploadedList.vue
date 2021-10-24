@@ -10,6 +10,7 @@
     <UploadedListRow v-for="(file, idx) in files"
                      :key="'row-' + idx"
                      :file="file"
+                     @update-storage="$emit('update-storage', $event)"
                      @recognition-finished="$emit('recognition-finished', $event)" 
                      @recognition-started="$emit('recognition-started', $event)"
                      @remove-from-files="$emit('remove-from-files', { idx, operationId: $event })" />

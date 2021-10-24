@@ -7,30 +7,33 @@
       {{file.name}}
     </td>
     <td class="row__item status">
-      <template v-if="!isLoading && !isError">
-        <div class="status__loading">Загрузка...</div>
-      </template>
-      <template v-else-if="!isRecognized && !isError">
-        <div class="progress">
-          <div class="progress__text">
-            Распознавание {{percent}}%
+      <template v-if="!isError">
+        <template v-if="!isLoading && !isError">
+          <div class="status__loading">Загрузка...</div>
+        </template>
+        <template v-else-if="!isRecognized && !isError">
+          <div class="progress">
+            <div class="progress__text">
+              Распознавание {{percent}}%
+            </div>
+            <div class="progress__bar">
+              <div class="progress__value"
+                  :style="`width: ${percent}%`"/>
+            </div>
           </div>
-          <div class="progress__bar">
-            <div class="progress__value"
-                 :style="`width: ${percent}%`"/>
+        </template>
+        <template v-else-if="!isError">
+          <div class="status__recognized">
+            <img src="@/assets/img/check.svg" alt="check" /> Распознано
           </div>
-        </div>
-      </template>
-      <template v-else-if="!isError">
-        <div class="status__recognized">
-          <img src="@/assets/img/check.svg" alt="check" /> Распознано
-        </div>
+        </template>
       </template>
       <template v-else>
         <div class="status__error">
           <img src="@/assets/img/error.svg" alt="error" /> Ошибка
         </div>
       </template>
+      
     </td>
     <td class="row__item result">
       <button v-if="!isError && operationId"
@@ -97,33 +100,35 @@ export default {
             console.log(err)
           })
         
-        await this.recognizeFile(formData)
+        const res = await this.recognizeFile(formData)
           .catch(err => {
             this.isError = true
             console.log(err)
           })
+        console.log('recognizeFile Error',res)
       }
 
       this.isLoading = true
-      
-      this.pollData(this.checkProgress, async (res) => {
-        // Это нужно чтобы работал редактор
+      if(!this.isError){
+        this.pollData(this.checkProgress, async (res) => {
+          // Это нужно чтобы работал редактор
 
-        // const recognitionData = await getRecognitionResult(this, { url: res.resultUrl})
-        //   .catch(err => {
-        //     this.isError = true
-        //     console.log(err)
-        //   })
-        
-        // const name = this.file.name
-        // console.log('name',name)
-        // this.$emit('recognition-finished', { name, data: recognitionData, operationId: this.operationId })
-        this.$emit('update-storage', { docxUrl: res.docxUrl, operationId: this.operationId })
+          // const recognitionData = await getRecognitionResult(this, { url: res.resultUrl})
+          //   .catch(err => {
+          //     this.isError = true
+          //     console.log(err)
+          //   })
+          
+          // const name = this.file.name
+          // console.log('name',name)
+          // this.$emit('recognition-finished', { name, data: recognitionData, operationId: this.operationId })
+          this.$emit('update-storage', { docxUrl: res.docxUrl, operationId: this.operationId })
 
-        this.docxUrl = res.docxUrl
-        this.isRecognized = true
-        this.isOpen = true
-      })
+          this.docxUrl = res.docxUrl
+          this.isRecognized = true
+          this.isOpen = true
+        })
+      }
     } else {
       this.isLoading = true
       this.isRecognized = true
@@ -161,8 +166,12 @@ export default {
       return recognizeFile(this, { params })
         .then(res=>{
           this.operationId = res.operationId
-
-          this.$emit('recognition-started', { name: this.file.name, size: this.file.size, operationId: res.operationId })
+          if(res.operationId){
+            this.$emit('recognition-started', { name: this.file.name, size: this.file.size, operationId: res.operationId })
+          }else{
+            this.isError = true
+            this.flag = false
+          }
         })
         .catch(err=>{
           this.isError = true
@@ -192,7 +201,9 @@ export default {
       // check progress of recognition
       return checkProgress(this, { params })
         .catch(err=>{
+          console.log('checkProgress Error')
           this.isError = true
+          this.flag = false
           console.log(err)
         })
     },

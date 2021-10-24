@@ -15,6 +15,11 @@
 <script>
 export default {
   name: 'App',
+  metaInfo: {
+    title: 'Default Title',
+    // all titles will be injected into this template
+    titleTemplate: '%s | My Awesome Webapp'
+  }
 }
 </script>
 

@@ -21,5 +21,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.edit-page{
+  padding: 0 100px;
+}
 </style>

@@ -32,14 +32,6 @@ export default {
       this.submit()
     },
     submit(){
-      // e.preventDefault()
-      // const formDataArr =  []
-      // for(const file of this.files) {
-      //   let formData = new FormData()
-      //   formData.append('key', file.name)
-      //   formData.append('file',file)
-      //   formDataArr.push(formData)
-      // }
       this.$emit('submit', this.files)
     }
   },

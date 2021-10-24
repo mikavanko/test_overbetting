@@ -4,12 +4,10 @@
       <img class="form__img" src="@/assets/img/voice.jpg" alt="voice">
       <Form @submit="submitForm" class="form" />
     </div>
-    <UploadedList v-if="files.length || recData.length"
+    <UploadedList v-if="files.length"
                   :files="files"
-                  :storage-data="recData"
                   @recognition-finished="recognitionFinished"
                   @recognition-started="recognitionStarted"
-                  @remove-from-storage="removeFromStorage"
                   @remove-from-files="removeFromFiles" />
   </div>
 </template>
@@ -28,14 +26,11 @@ export default {
   data() {
     return {
       files: [],
-      recData: []
     }
   },
   mounted() {
-    // checkProgress()
-    this.recData = JSON.parse(localStorage.getItem('recData')) || [];
-
-    console.log(this.recData)
+    this.files = JSON.parse(localStorage.getItem('recData')) || []
+    console.log(this.files)
   },
   methods: {
     removeFromStorage(operationId) {
@@ -51,9 +46,8 @@ export default {
         localStorage.setItem('recData', JSON.stringify(recData))
       }
     },
-    removeFromFiles(operationId) {
+    removeFromFiles({ idx, operationId }) {
       if(this.files && this.files.length) {
-        const idx = this.files.findIndex(el => el.operationId === operationId)
         this.files.splice(idx, 1)
 
         this.removeFromStorage(operationId)
@@ -69,7 +63,17 @@ export default {
       console.log('recData',recData)
       this.$store.dispatch('setRecognizedList', recData)
     },
-    async submitForm(files) {
+    async submitForm(filesRaw) {
+      console.log('submitForm')
+      const files = []
+      for(const file of filesRaw){
+        files.push({
+          name: file.name,
+          size: file.size,
+          file: file,
+          operationId: null,
+        })
+      }
       this.files = [...this.files, ...files]
     },
   },

@@ -33,7 +33,7 @@
       </template>
     </td>
     <td class="row__item result">
-      <button v-if="!isError"
+      <button v-if="!isError && operationId"
               class="result__btn result__btn_open"
               @click="open"
               :disabled="!isOpen">
@@ -57,8 +57,8 @@ export default {
   name: 'UploadedList',
   props: {
     file: {
-      type: File,
-      default: null,
+      type: Object,
+      default: () => {},
     },
   },
   data() {
@@ -78,20 +78,26 @@ export default {
   },
   async mounted() {
     const formData = new FormData()
-    formData.append('key', this.file.name)
-    formData.append('file',this.file)
+    this.operationId = this.file.operationId || null
 
-    await uploadToGoogle(this,{params: formData})
-      .catch(err => {
-        this.isError = true
-        console.log(err)
-      })
-    
-    await this.recognizeFile(formData)
-      .catch(err => {
-        this.isError = true
-        console.log(err)
-      })
+    if(!this.operationId){
+      this.isLoading = false
+
+      formData.append('key', this.file.name)
+      formData.append('file',this.file)
+
+      await uploadToGoogle(this,{params: formData})
+        .catch(err => {
+          this.isError = true
+          console.log(err)
+        })
+      
+      await this.recognizeFile(formData)
+        .catch(err => {
+          this.isError = true
+          console.log(err)
+        })
+    }
 
     this.isLoading = true
     
@@ -102,7 +108,9 @@ export default {
           console.log(err)
         })
       
-      this.$emit('recognition-finished', { name: formData.get('key'), data: recognitionData, operationId: this.operationId })
+      const name = this.operationId ? formData.get('key') : this.file.name
+
+      this.$emit('recognition-finished', { name, data: recognitionData, operationId: this.operationId })
 
       this.isRecognized = true
       this.isOpen = true

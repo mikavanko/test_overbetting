@@ -7,25 +7,18 @@
       <th>Результат</th>
     </tr>
 
-    <UploadedListRowStorage v-for="(file, idx) in storageData"
-                     :key="'row-storage-' + idx"
-                     :file="file"
-                     @recognition-finished="$emit('recognition-finished', $event)"
-                     @remove-from-storage="$emit('remove-from-storage', $event)" />
-
     <UploadedListRow v-for="(file, idx) in files"
                      :key="'row-' + idx"
                      :file="file"
                      @recognition-finished="$emit('recognition-finished', $event)" 
                      @recognition-started="$emit('recognition-started', $event)"
-                     @remove-from-files="$emit('remove-from-files', $event)" />
+                     @remove-from-files="$emit('remove-from-files', { idx, operationId: $event })" />
 
   </table>
 </template>
 
 <script>
 import UploadedListRow from './UploadedListRow'
-import UploadedListRowStorage from './UploadedListRowStorage'
 export default {
   name: 'UploadedList',
   props: {
@@ -33,17 +26,8 @@ export default {
       type: Array,
       default: () => [],
     },
-    storageData: {
-      type: Array,
-      default: () => [],
-    },
   },
-  computed: {
-    // listAdapter() {
-    //   return this.list.map((el) => ({name: el.name}))
-    // },
-  },
-  components: { UploadedListRow, UploadedListRowStorage },
+  components: { UploadedListRow },
 }
 </script>
 

@@ -1,6 +1,10 @@
+import axios from 'axios'
+
 export default {
   state: {
     recognizedList: [],
+    controller: new AbortController(),
+
   },
   mutations: {
     setRecognizedList(state, recognizedData){
@@ -15,7 +19,8 @@ export default {
   getters: {
     getRecognizedList: state => state.recognizedList,
     getRecognizedItem: state => id => {
-      return state.recognizedList.find(el => el.name === id).data
+      return state.recognizedList.find(el => el.name === id)
     },
+    getController: state => state.controller
   },
 }

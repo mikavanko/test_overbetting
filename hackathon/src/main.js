@@ -6,6 +6,10 @@ import axios from 'axios'
 import routes from '@/router'
 import storeRaw from '@/store'
 
+import VueAudio from 'vue-audio-better'
+
+Vue.use(VueAudio)
+
 Vue.prototype.$axios = axios
 
 Vue.use(Vuex)

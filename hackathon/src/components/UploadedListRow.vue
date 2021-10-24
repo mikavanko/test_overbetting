@@ -23,12 +23,12 @@
       </template>
       <template v-else-if="!isError">
         <div class="status__recognized">
-          <img src="@/assets/img/check.svg" alt="check"> Распознано
+          <img src="@/assets/img/check.svg" alt="check" /> Распознано
         </div>
       </template>
       <template v-else>
         <div class="status__error">
-          <img src="@/assets/img/err.svg" alt="error"> Ошибка
+          <img src="@/assets/img/error.svg" alt="error" /> Ошибка
         </div>
       </template>
     </td>
@@ -37,11 +37,11 @@
               class="result__btn result__btn_open"
               @click="open"
               :disabled="!isOpen">
-        Открыть
+        Скачать docx
       </button>
       <button v-if="operationId"
               class="result__btn result__btn_remove"
-              @click="$emit('remove-from-files', operationId)">
+              @click="remove">
         Удалить
       </button>
     </td>
@@ -54,7 +54,7 @@ import { uploadToGoogle, recognizeFile, checkProgress, getRecognitionResult } fr
 const INTERVAL = 1000
 
 export default {
-  name: 'UploadedList',
+  name: 'UploadedListRow',
   props: {
     file: {
       type: Object,
@@ -69,6 +69,7 @@ export default {
       percent: 0,
       isError: false,
       operationId: null,
+      flag: false,
     }
   },
   computed: {
@@ -84,7 +85,8 @@ export default {
       this.isLoading = false
 
       formData.append('key', this.file.name)
-      formData.append('file',this.file)
+      console.log('this.file',this.file)
+      formData.append('file',this.file.file)
 
       await uploadToGoogle(this,{params: formData})
         .catch(err => {
@@ -108,8 +110,8 @@ export default {
           console.log(err)
         })
       
-      const name = this.operationId ? formData.get('key') : this.file.name
-
+      const name = this.file.name
+      console.log('name',name)
       this.$emit('recognition-finished', { name, data: recognitionData, operationId: this.operationId })
 
       this.isRecognized = true
@@ -117,9 +119,16 @@ export default {
     })
   },
   methods: {
+    remove(e){
+      e.preventDefault()
+      this.$store.getters.getController.abort()
+      this.flag = false,
+      this.$emit('remove-from-files', this.operationId)
+    },
     open(){
       if(this.isOpen) {
-        this.$router.push(this.file.name)
+        window.open(`https://storage.googleapis.com/hakathon/${this.file.name.replace(/\.[^/.]+$/, '')}.docx`)
+        // this.$router.push(this.file.name)
       }
     },
     bytesToSize(bytes) {
@@ -148,13 +157,13 @@ export default {
     },
     sleep: ms => new Promise(r => setTimeout(r, ms)),
     async pollData (f, callback) {
-      let flag = true
-      while(flag){
+      this.flag = true
+      while(this.flag){
         const res = await f()
         this.percent = res.percent
 
         if(res.done){
-          flag = false
+          this.flag = false
           callback(res)
         }
         await this.sleep(INTERVAL)

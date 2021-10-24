@@ -8,9 +8,7 @@
         <div class="header__title">Сервис распознавания аудио</div>
       </div>
     </div>
-    <div class="wrapper">
-      <router-view />
-    </div>
+    <router-view />
   </div>
 </template>
 
@@ -25,13 +23,6 @@ export default {
   background-color: $body-color;
   font: 400 14px/1.5 $font-family;
   color: $text-color;
-}
-.wrapper{
-  max-width: 1280px;
-  width: 100%;
-  padding: 0 15px;
-  margin:  0 auto;
-  position: relative;
 }
 .header{
   height: 54px;

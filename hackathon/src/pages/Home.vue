@@ -1,14 +1,16 @@
 <template>
   <div class="home">
-    <div class="form__wrapper">
-      <img class="form__img" src="@/assets/img/voice.jpg" alt="voice">
-      <Form @submit="submitForm" class="form" />
+    <div class="wrapper">
+      <div class="form__wrapper">
+        <img class="form__img" src="@/assets/img/voice.jpg" alt="voice">
+        <Form @submit="submitForm" class="form" />
+      </div>
+      <UploadedList v-if="files.length"
+                    :files="files"
+                    @recognition-finished="recognitionFinished"
+                    @recognition-started="recognitionStarted"
+                    @remove-from-files="removeFromFiles" />
     </div>
-    <UploadedList v-if="files.length"
-                  :files="files"
-                  @recognition-finished="recognitionFinished"
-                  @recognition-started="recognitionStarted"
-                  @remove-from-files="removeFromFiles" />
   </div>
 </template>
 
@@ -33,24 +35,24 @@ export default {
     console.log(this.files)
   },
   methods: {
-    removeFromStorage(operationId) {
-      const recData = JSON.parse(localStorage.getItem('recData'))
-      console.log(operationId)
-      console.log(recData)
+    removeFromStorage(operationId, key) {
+      const recData = JSON.parse(localStorage.getItem(key))
+      
       if(recData && recData.length) {
         const idx = recData.findIndex(el => el.operationId === operationId)
         recData.splice(idx, 1)
 
         // update 
         this.recData = recData
-        localStorage.setItem('recData', JSON.stringify(recData))
+        localStorage.setItem(key, JSON.stringify(recData))
       }
     },
     removeFromFiles({ idx, operationId }) {
       if(this.files && this.files.length) {
         this.files.splice(idx, 1)
 
-        this.removeFromStorage(operationId)
+        this.removeFromStorage(operationId, 'recData')
+        this.removeFromStorage(operationId, 'recognizedItems')
       }
     },
     recognitionStarted(data) {
@@ -62,6 +64,13 @@ export default {
     recognitionFinished(recData) {
       console.log('recData',recData)
       this.$store.dispatch('setRecognizedList', recData)
+
+      const recognizedItems = JSON.parse(localStorage.getItem('recognizedItems')) || []
+      const isExist = recognizedItems.find(el => el.operationId === recData.operationId)
+      if(!isExist){
+        recognizedItems.push(recData)
+        localStorage.setItem('recognizedItems', JSON.stringify(recognizedItems))
+      }
     },
     async submitForm(filesRaw) {
       console.log('submitForm')

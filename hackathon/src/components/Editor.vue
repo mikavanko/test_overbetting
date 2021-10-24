@@ -31,11 +31,29 @@ export default {
       tinymce: null,
       editor: null,
       content: '',
-      options: {
+      contextMenuElemClicked: null,
+    }
+  },
+  watch: {
+    contentArr(val) {
+      this.content = val.map(el => {
+        const seconds = +el.startTime.seconds || 0
+        const nanos = +el.startTime.nanos || 0
+        const time = seconds + nanos.toString()[0] / 10
+
+        if(el.confidence < 0.6){
+          return `<span style="background-color: red;"><word time="${time}">${el.word}</word></span>`
+        }
+        return `<word time="${time}">${el.word}</word>`
+      }).join(' ')
+    }
+  },
+  computed: {
+    options() {
+      return {
         selector: 'textarea#contextmenu-section',
         height: 500,
         plugins: [
-        'my-example-plugin',
         'contextmenu'
         // 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
         // 'searchreplace wordcount visualblocks visualchars code fullscreen',
@@ -58,25 +76,14 @@ export default {
       }
     }
   },
-  watch: {
-    contentArr(val) {
-      this.content = val.map(el => {
-        const seconds = +el.startTime.seconds || 0
-        const nanos = +el.startTime.nanos || 0
-        const time = seconds + nanos.toString()[0] / 10
-
-        if(el.confidence < 0.6){
-          return `<span style="background-color: red;"><word time="${time}">${el.word}</word></span>`
-        }
-        return `<word time="${time}">${el.word}</word>`
-      }).join(' ')
-    }
-  },
-  mounted() {
-  },
   methods: {
-    updateContextMenu(editor) {
-      editor.ui.registry.addIcon('fuck', '<svg height="24" width="24"><path d="M12 0 L24 24 L0 24 Z" /></svg>' );
+    updateContextMenu(ctx,editor) {
+      const _this = this
+      editor.ui.registry.addIcon('fuck', `<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="7.5" cy="7.5" r="7.5" fill="#075050"/>
+                                            <path d="M9.75 7.06699C10.0833 7.25944 10.0833 7.74056 9.75 7.93301L6.75 9.66506C6.41667 9.85751 6 9.61695 6 9.23205V5.76795C6 5.38305 6.41667 5.14249 6.75 5.33494L9.75 7.06699Z" fill="white"/>
+                                            </svg>
+                                          `);
 
       editor.ui.registry.addMenuItem('customItem1', {
           icon: 'fuck',
@@ -85,26 +92,40 @@ export default {
             const htmlString = editor.selection.getContent()
             const wrapper= document.createElement('div');
             wrapper.innerHTML= htmlString
-
-            console.log('SELECTED', wrapper)
+            
+            console.log('SELECTED', wrapper.children)
+            console.log('vue',ctx)
+            if(wrapper.children.length){
+              ctx.$emit('play', {
+                timeStart: wrapper.children[0].getAttribute('time'),
+                timeEnd: wrapper.children[wrapper.children.length-1].getAttribute('time'),
+              })
+            }else{
+              ctx.$emit('play', {
+                timeStart: _this.contextMenuElemClicked,
+                timeEnd: _this.contextMenuElemClicked,
+              })
+            }
           }
       });
     },
     init: function (editor) { // wait till editor initialize
       const _this = this
       editor.on('init', function () {
-        _this.editor = editor
+        this.editor = editor
         // eslint-disable-next-line
-        _this.tinymce = tinymce
+        this.tinymce = tinymce
 
-        _this.updateContextMenu(_this.editor)
+        _this.updateContextMenu(_this, this.editor)
       });
     },
     initInstanceCallback: function (editor) {
+      const _this = this
       editor.on('click', function (e) {
         console.log('Element clicked:', e.target);
       });
       editor.on('ContextMenu', function (e) {
+        _this.contextMenuElemClicked = e.target
         console.log('ContextMenu Element clicked:', e.target);
       });
     },

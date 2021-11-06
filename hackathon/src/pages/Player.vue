@@ -131,6 +131,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.player{
+  background-color: $player-bg-color;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(37, 37, 37, 0.25);
+  height: 54px;
+
+  audio::-webkit-media-controls-panel{
+    background-color: $player-bg-color;
+    height: 54px;
+  }
+}
 .text-block{
   display: flex;
   justify-content: flex-start;
@@ -149,11 +160,12 @@ export default {
 
   height: 30px;
   border-radius: 5px;
-  background-color: $body-color;
+  background-color: $player-bg-color;
   color: $main-color;
   border: 1px solid $main-color;
   padding: 0 15px;
   margin-bottom: 15px;
+  box-shadow: 0px 0px 10px rgba(37, 37, 37, 0.25);
 
   &_copy{
     color: rgba(green, .5)
@@ -177,6 +189,8 @@ export default {
   border: none;
   border-radius: 10px;
   outline: none;
+  background-color: $player-bg-color;
+  box-shadow: 0px 0px 10px rgba(37, 37, 37, 0.25);
 }
 .player{
   audio{

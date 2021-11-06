@@ -80,7 +80,7 @@ export default {
 
       this.player = this.$refs.player
       this.player.currentTime = this.start
-      
+
       this.player.onplay = (event) => {
         this.isPlaying = true
         if(this.period > 0)
@@ -103,7 +103,7 @@ export default {
       this.player && this.player.pause()
     },
     copy() {
-      var copyTextarea = document.querySelector('.textarea')
+      const copyTextarea = document.querySelector('.textarea')
       copyTextarea.focus()
       copyTextarea.select()
 

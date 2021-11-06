@@ -91,7 +91,6 @@ export default {
         this.isLoading = false
 
         formData.append('key', this.file.name)
-        console.log('this.file',this.file)
         formData.append('file',this.file.file)
 
         await uploadToGoogle(this,{params: formData})
@@ -126,7 +125,7 @@ export default {
 
           this.docxUrl = res.docxUrl
           this.isRecognized = true
-          this.isOpen = true
+          this.isOpen = true 
         })
       }
     } else {
@@ -195,13 +194,13 @@ export default {
     checkProgress() {
       const params = {
         action: 'check',
-        operationId: this.operationId
+        operationId: this.operationId,
+        file: this.file.name
       }
       
       // check progress of recognition
       return checkProgress(this, { params })
         .catch(err=>{
-          console.log('checkProgress Error')
           this.isError = true
           this.flag = false
           console.log(err)

@@ -226,16 +226,6 @@ export default {
       width: 190px;
     }
 
-    @media (max-width: 767px){
-      padding: 5px;
-
-      &.size{
-        width: auto;
-      }
-      &.status{
-        width: auto;
-      }
-    }
     @media (max-width: 1024px){
       &.size{
         width: auto;
@@ -243,6 +233,9 @@ export default {
       &.status{
         width: auto;
       }
+    }
+    @media (max-width: 767px){
+      padding: 5px;
     }
   }
 }
@@ -290,6 +283,7 @@ export default {
     white-space: initial;
     padding-right: 0;
     width: 115px;
+    text-align: left;
   }
 
   &__btn{

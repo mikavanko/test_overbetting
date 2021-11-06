@@ -147,12 +147,27 @@ export default {
   justify-content: flex-start;
   align-items: flex-start;
 
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+
   &__item{
     margin-left: 15px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
+    @media (max-width: 767px) {
+      margin-left: 0;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+
+      & > .btn:first-child{
+        margin-right: 10px;
+      }
+    }
   }
 }
 .btn{
@@ -164,11 +179,12 @@ export default {
   color: $main-color;
   border: 1px solid $main-color;
   padding: 0 15px;
+  width: 150px;
   margin-bottom: 15px;
   box-shadow: 0px 0px 10px rgba(37, 37, 37, 0.25);
 
   &_copy{
-    color: rgba(green, .5)
+    color: rgba(green, .5);
   }
 
   &:not([disabled]):hover{
@@ -176,9 +192,6 @@ export default {
     color: $body-color;
     border-color: $hover-color;
   }
-}
-.edit-page{
-  font-family: $font-family;
 }
 .textarea{
   font-family: $font-family;
@@ -191,6 +204,11 @@ export default {
   outline: none;
   background-color: $player-bg-color;
   box-shadow: 0px 0px 10px rgba(37, 37, 37, 0.25);
+
+  @media (max-width: 767px) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 .player{
   audio{
@@ -203,6 +221,12 @@ export default {
   line-height: 29px;
   color: $body-color;
   margin-bottom: 13px;
+
+  @media (max-width: 767px) {
+    font-size: 21px;
+    line-height: 25px;
+    margin-bottom: 10px;
+  }
 }
 .h3{
   font-weight: 500;
@@ -210,16 +234,31 @@ export default {
   line-height: 21px;
   color: $body-color;
   margin-bottom: 13px;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 10px;
+  }
 }
 .player{
   width: 100%;
   margin-bottom: 18px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 20px;
+  }
 }
 .edit-page{
   padding: 30px 100px;
+  font-family: $font-family;
   background: linear-gradient(to bottom, $main-color 0, $main-color 345px, $body-color 345px);
   position: relative;
   height: 100%;
+
+  @media (max-width: 1024px) {
+    padding: 20px 0;
+  }
 
   &:before{
     content: '';

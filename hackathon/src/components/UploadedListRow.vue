@@ -225,6 +225,25 @@ export default {
     &.status{
       width: 190px;
     }
+
+    @media (max-width: 767px){
+      padding: 5px;
+
+      &.size{
+        width: auto;
+      }
+      &.status{
+        width: auto;
+      }
+    }
+    @media (max-width: 1024px){
+      &.size{
+        width: auto;
+      }
+      &.status{
+        width: auto;
+      }
+    }
   }
 }
 .status{
@@ -267,6 +286,12 @@ export default {
   width: 281px;
   padding-right: 40px;
 
+  @media (max-width: 767px){
+    white-space: initial;
+    padding-right: 0;
+    width: 115px;
+  }
+
   &__btn{
     @include clear-btn();
 
@@ -284,6 +309,11 @@ export default {
       background-color: $main-color;
       color: $body-color;
       margin-right: 20px;
+
+      @media (max-width: 767px){
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
 
       &[disabled]{
         background-color: $disable-color;
@@ -315,6 +345,10 @@ export default {
     height: 10px;
     box-shadow: inset 0px 0px 5px rgba(37, 37, 37, 0.1);
     border-radius: 20px;
+
+    @media (max-width: 767px) {
+      width: 90px;
+    }
   }
   &__value{
     border-radius: 20px;

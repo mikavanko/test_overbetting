@@ -104,6 +104,10 @@ export default {
 <style lang="scss" scoped>
 .home{
   padding: 50px 40px;
+
+  @media (max-width: 767px){
+    padding: 30px 0;
+  }
 }
 .form{
   z-index: 2;
@@ -112,6 +116,12 @@ export default {
   &__wrapper{
     position: relative;
     margin-bottom: 50px;
+
+    @media (max-width: 767px){
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
   }
   &__img{
     position: absolute;
@@ -119,6 +129,15 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+
+    @media (max-width: 1024px){
+      left: auto;
+      right: 15px;
+      transform: translate(0, -50%);
+    }
+    @media (max-width: 767px){
+      display: none;
+    }
   }
 }
 </style>

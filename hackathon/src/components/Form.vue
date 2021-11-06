@@ -10,7 +10,7 @@
              class="form__upload__hide"
              accept=".mp3"
              multiple/>
-      Загрузить файл в .mp3
+      Загрузить файлы в .mp3
     </label>
   </form>
 </template>

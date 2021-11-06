@@ -1,8 +1,8 @@
 <template>
   <table class="list">
     <tr>
-      <th>Размер файла</th>
-      <th>Названия файла</th>
+      <th>Размер <span>файла</span></th>
+      <th>Название <span>файла</span></th>
       <th>Статус</th>
       <th>Результат</th>
     </tr>
@@ -44,6 +44,12 @@ export default {
     opacity: .3;
     text-align: left;
     padding: 7px 5px;
+
+    @media (max-width: 767px){
+      span{
+        display: none;
+      }
+    }
   }
 }
 </style>

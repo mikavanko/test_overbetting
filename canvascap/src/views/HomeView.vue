@@ -130,6 +130,7 @@ export default {
 }
 .canvas {
   width: 500px;
-  height: 500px;
+  max-width: 100%;
+  height: auto;
 }
 </style>

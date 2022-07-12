@@ -57,7 +57,7 @@ export default {
             X + xOffset,
             y + yOffset,
             1,
-            400
+            270
           );
         }
       };
@@ -100,6 +100,10 @@ export default {
       ctx = canvas.getContext("2d");
 
       await drawCap();
+      // const img = new Image();
+      // img.src = 'http://res.cloudinary.com/pussyhunter/image/upload/v1488184107/500_F_97150423_M13q2FeAUZxxIx6CaPixHupprmyiVVli_skh6fe.jpg';
+
+      // drawPrint(img)
 
       fileInput.value.onchange = fileInputOnChange;
     });

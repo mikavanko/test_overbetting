@@ -5,10 +5,11 @@ import vue from "@vitejs/plugin-vue";
 
 import svgLoader from "vite-svg-loader";
 
-const API_URL = "https://staging.tricket.tech";
+const API_URL = "";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: process.env.NODE_ENV === 'production' ? '/canvascap/dist/' : '',
   plugins: [vue(), svgLoader({
     svgoConfig: {
       multipass: true,

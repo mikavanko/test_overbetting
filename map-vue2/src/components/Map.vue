@@ -27,9 +27,7 @@ export default {
       map: null,
       ymaps: null,
       geoObjectCollection: null,
-      districtsGeoObject: [],
       districtZones: null,
-      objectManager: null,
       coordsByRegions: new Array(moscowDistrictsJson.features.length),
       coordsByRegionsCount: {},
       activeRegions: [],
@@ -91,8 +89,6 @@ export default {
         });
 
         districtCollection.add(districtGeoObject);
-
-        state.districtsGeoObject.push(districtGeoObject);
       });
 
       return ymaps.geoQuery(districtCollection).addToMap(map);
@@ -146,7 +142,6 @@ export default {
       state.coordsByRegions = new Array(moscowDistrictsJson.features.length);
       state.coordsByRegionsCount = {};
       state.activeRegions = [];
-      state.activeRegion = null;
       state.geoObjectCollection.removeAll();
       state.geoObjectCollection = generateRandomGeoObjects(
         props.geoObjectsCount,
@@ -182,8 +177,8 @@ export default {
   },
 };
 </script>
-      
-<template>
+        
+  <template>
   <div class="map-wrapper flex">
     <div class="flex-child">
       <div id="map" class="map" />
@@ -201,8 +196,8 @@ export default {
     </div>
   </div>
 </template>
-    
-<style lang="scss">
+      
+  <style lang="scss">
 .map {
   height: 100%;
   width: 100%;

@@ -47,7 +47,7 @@ export default {
     new Promise((resolve) => {
       setTimeout(() => {
         resolve(cardsData);
-      }, 1000);
+      }, 300);
     }).then((res) => {
       this.$store.dispatch('loadCards', res);
     });

@@ -1,6 +1,7 @@
 <template>
   <div
     v-if="isModalVisible"
+    ref="modal"
     class="modal"
     :style="{
       '--left': modalCoords.x + 'px',
@@ -48,7 +49,7 @@ export default {
   watch: {
     isModalVisible(val) {
       if (val) {
-        document.addEventListener('click', this.hideModal, true);
+        document.addEventListener('click', this.hideModalTarget, true);
       }
     },
   },
@@ -59,11 +60,17 @@ export default {
     document.removeEventListener('click', this.setCoords);
   },
   methods: {
+    hideModalTarget(e) {
+      if (!this.$refs.modal.contains(e.target)) {
+        this.hideModal();
+      }
+      document.removeEventListener('click', this.hideModalTarget, true);
+    },
     hideModal() {
-      setTimeout(() => { this.isModalVisible = false; });
-      document.removeEventListener('click', this.hideModal, true);
+      this.isModalVisible = false;
     },
     remove() {
+      this.$nextTick(() => this.hideModal());
       this.$emit('remove');
     },
     setCoords(e) {

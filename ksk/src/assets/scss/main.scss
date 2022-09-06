@@ -1,0 +1,26 @@
+@import "roboto-font";
+@import "colors";
+@import "variables";
+@import "mixins";
+@import "reset";
+
+body {
+  min-height: 100vh;
+  color: $color-text-dark;
+  background: $color-bg-main;
+  font: 400 14px/1.5 $Roboto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container{
+  max-width: 1200px;
+  padding: 0 32px;
+  margin: 0 auto;
+}
+
+svg{
+  width: 1em;
+  height: 1em;
+}

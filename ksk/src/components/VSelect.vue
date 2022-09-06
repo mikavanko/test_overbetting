@@ -19,7 +19,7 @@
       </div>
       <arrow-down-icon
         v-if="!value?.icon"
-        class="select-selected__icon"
+        :class="['select-selected__icon', {open: show}]"
       />
     </div>
     <div
@@ -72,6 +72,10 @@ export default {
   },
   methods: {
     showDropdown() {
+      if (this.show) {
+        this.hideDropdown();
+        return;
+      }
       this.show = true;
       document.addEventListener('click', this.hideDropdown);
     },
@@ -122,6 +126,10 @@ export default {
     &__icon{
       font-size: 10px;
       color: $color-text-dark;
+
+      &.open{
+        transform: rotate(180deg);
+      }
     }
   }
 

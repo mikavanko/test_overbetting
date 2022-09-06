@@ -9,13 +9,13 @@
       </div>
       <div class="content-nav">
         <router-link
-          to="/table"
+          to="/cards"
           class="nav-link nav-link--table"
         >
           <cards-icon />
         </router-link>
         <router-link
-          to="/cards"
+          to="/table"
           class="nav-link nav-link--cards"
         >
           <table-icon />

@@ -85,6 +85,7 @@ export default {
 <style lang="scss">
 .table-wrapper{
   position: relative;
+  overflow: auto;
 }
 .table {
   width: 100%;

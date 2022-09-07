@@ -130,6 +130,7 @@ export default {
 
     &__title{
       min-width: 125px;
+      width: 125px;
       font-weight: 700;
       font-size: 14px;
       line-height: 16px;
@@ -157,6 +158,17 @@ export default {
   &:hover,
   &.active{
     color: $color-text-active;
+  }
+}
+
+@media all and (max-width: 1200px) and (min-width: 1025px){
+  .card{
+    &-body{
+      &__title{
+        min-width: 90px;
+        width: 90px;
+      }
+    }
   }
 }
 </style>

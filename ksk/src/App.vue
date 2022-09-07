@@ -26,4 +26,11 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 109px 0;
 }
+@media all and (max-width: 900px) {
+  .header {
+    padding: 16px 0;
+    font-size: 24px;
+    line-height: 1.5;
+  }
+}
 </style>

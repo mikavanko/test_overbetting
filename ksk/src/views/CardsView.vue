@@ -45,4 +45,14 @@ export default {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
 }
+@media all and (max-width: 1024px) {
+  .cards{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (max-width: 620px) {
+  .cards{
+    grid-template-columns: 1fr;
+  }
+}
 </style>

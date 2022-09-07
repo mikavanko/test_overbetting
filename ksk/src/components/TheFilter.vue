@@ -82,7 +82,7 @@ export default {
 
 <style lang="scss" scoped>
 .filter {
-  width: 280px;
+  min-width: 280px;
   background-color: $color-text-light;
   filter: drop-shadow(0px 4px 8px rgba(179, 178, 178, 0.25));
 

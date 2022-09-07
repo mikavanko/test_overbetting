@@ -70,6 +70,8 @@ export default {
   }
   .filter{
     grid-area: filter;
+    position: relative;
+    z-index: 2;
   }
   .content{
     grid-area: content;
@@ -111,6 +113,30 @@ export default {
 
     &.router-link-exact-active{
       background-color: $color-bg-active;
+    }
+  }
+  @media all and (max-width: 900px) {
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr 80px;
+      grid-template-rows: auto;
+      grid-template-areas:
+              "filter filter"
+              "content-header content-nav"
+              "content content";
+      gap: 16px;
+    }
+  }
+  @media all and (max-width: 600px) {
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr 80px;
+      grid-template-rows: auto;
+      grid-template-areas:
+              "filter filter"
+              "content-header content-nav"
+              "content content";
+      gap: 16px;
     }
   }
 </style>

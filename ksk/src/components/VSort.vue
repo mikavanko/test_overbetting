@@ -79,4 +79,10 @@ export default {
       }
     }
   }
+
+  @media all and (max-width: 600px) {
+    .select-sort{
+      width: 100%;
+    }
+  }
 </style>

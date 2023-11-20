@@ -13,4 +13,10 @@
       }
     }
   }
+
+  &__input {
+    @media all and (max-width: 767px) {
+      max-width: 160px;
+    }
+  }
 }

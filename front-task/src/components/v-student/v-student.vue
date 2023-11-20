@@ -1,8 +1,14 @@
 <template>
   <div :class="['v-student max-w-lg mx-auto py-20', { focused: isFocused }]">
     <div class="flex items-center gap-4">
-      <div class="v-student__image-wrapper bg-gray-30 rounded-full w-20 h-20 relative">
-        <img class="v-student__image pointer-events-none" :src="image" :alt="name" />
+      <div
+        class="v-student__image-wrapper bg-gray-30 rounded-full w-20 h-20 relative"
+      >
+        <img
+          class="v-student__image pointer-events-none"
+          :src="image"
+          :alt="name"
+        />
       </div>
       <div>
         <label

@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: 'front-task',
+  base: process.env.NODE_ENV === 'production' ? '/front-task/dist/' : '/front-task',
   plugins: [
     vue(),
   ],

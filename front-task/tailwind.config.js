@@ -6,10 +6,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primary": "var(--color-primary)",
-        "primary-light": "var(--color-primary-light)",
-        "dark": "var(--color-dark)",
-        "light-grey": "var(--color-light-grey)",
+        /** Можно использовать цвета из main.scss var(--some-color), но тогда не работает opacity через классы tailwind */
+        "primary": "#3d06d7",
+        "primary-light": "#906fee",
+        "dark": "#1e0e4c",
+        "light-grey": "#cfcadf",
       }
     },
     fontFamily: {

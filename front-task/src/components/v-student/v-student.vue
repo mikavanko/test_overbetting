@@ -24,7 +24,7 @@
             v-model="ageValue"
             name="hours-old"
             :id="uuid"
-            class="v-student__input border-light-grey focus:border-primary-light outline-none px-2 border rounded-md font-medium text-dark text-lg h-11"
+            class="v-student__input border-light-grey focus:border-primary-light outline-none px-2 border rounded-md font-medium text-dark/30 focus:text-dark text-lg h-11"
             :style="{
               width: `${inputWidth}px`,
             }"

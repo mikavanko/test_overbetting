@@ -1,0 +1,16 @@
+.v-input {
+  $p: &;
+
+  &.focused {
+    #{$p}__image {
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: -0.25rem;
+        border: 1px solid var(--color-primary);
+        border-radius: 50%;
+      }
+    }
+  }
+}

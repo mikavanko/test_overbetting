@@ -1,8 +1,8 @@
-.v-input {
+.v-student {
   $p: &;
 
   &.focused {
-    #{$p}__image {
+    #{$p}__image-wrapper {
       &::before {
         content: '';
         display: block;

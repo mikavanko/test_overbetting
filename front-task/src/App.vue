@@ -1,6 +1,6 @@
 <template>
   <div class="p-4">
-    <v-input
+    <v-student
       v-for="(student, idx) of students"
       :key="idx"
       :name="student.name"
@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import VInput, { type IStudent } from '@/components/v-input/v-input.vue'
+import VStudent, { type IStudent } from '@/components/v-student/v-student.vue'
 import { reactive } from 'vue'
 
 const students = reactive<IStudent[]>([

@@ -1,14 +1,14 @@
 <template>
-  <div :class="['v-input max-w-lg mx-auto py-20', { focused: isFocused }]">
+  <div :class="['v-student max-w-lg mx-auto py-20', { focused: isFocused }]">
     <div class="flex items-center gap-4">
-      <div :class="`v-input__image bg-gray-30 rounded-full w-20 h-20 relative`">
-        <img :src="image" :alt="name" />
+      <div class="v-student__image-wrapper bg-gray-30 rounded-full w-20 h-20 relative">
+        <img class="v-student__image pointer-events-none" :src="image" :alt="name" />
       </div>
       <div>
         <label
           :class="[
             isFocused ? 'text-primary' : 'text-dark',
-            'v-input__name block mb-3 text-base leading-none cursor-text font-koulen',
+            'v-student__name block mb-3 text-base leading-none cursor-text font-koulen',
           ]"
           :for="uuid"
           >{{ name }} is</label
@@ -18,7 +18,7 @@
             v-model="ageValue"
             name="hours-old"
             :id="uuid"
-            class="v-input__input border-light-grey focus:border-primary-light outline-none px-2 border rounded-md font-medium text-dark text-lg h-11"
+            class="v-student__input border-light-grey focus:border-primary-light outline-none px-2 border rounded-md font-medium text-dark text-lg h-11"
             :style="{
               width: `${inputWidth}px`,
             }"
@@ -27,11 +27,11 @@
             @focus="isFocused = true"
             @blur="isFocused = false"
           />
-          <div class="v-input__text text-dark text-lg flex items-center">
+          <div class="v-student__text text-dark text-lg flex items-center">
             hours old
           </div>
           <div
-            class="v-input__fake-input px-2 border font-medium text-lg absolute invisible opacity-0"
+            class="v-student__fake-input px-2 border font-medium text-lg absolute invisible opacity-0"
             ref="fakeInput"
           >
             {{ ageValue }}
@@ -112,4 +112,4 @@ const image = computed<string | undefined>(
 )
 </script>
 
-<style lang="scss" src="./v-input.scss" />
+<style lang="scss" src="./v-student.scss" />

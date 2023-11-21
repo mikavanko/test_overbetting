@@ -17,12 +17,12 @@ import { reactive } from 'vue'
 const students = reactive<IStudent[]>([
   {
     name: 'Hugh1',
-    age: 345,
+    age: '345',
     image: 'photo',
   },
   {
     name: 'Hugh2',
-    age: 1000000000,
+    age: '1000000000',
     image: 'photo',
   },
   {

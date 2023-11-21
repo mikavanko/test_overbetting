@@ -50,7 +50,7 @@
 <script lang="ts">
 export interface IStudent {
   name: string
-  age: number | null
+  age: string | null // могут быть значения больше чем 2^53, что больше, поэтому проще хранить в строке
   image?: string
 }
 </script>
@@ -97,10 +97,11 @@ const isNumber = (e: KeyboardEvent): void => {
 
 const ageValue = computed<string>({
   get(): string {
-    return props.age?.toLocaleString('ru-RU') || ''
+    const digits = BigInt(props.age ?? '' as string)?.toLocaleString('ru-RU')
+    return digits !== '0' ? digits : ''
   },
   set(newAge: string): void {
-    const age = +newAge.replace(/\s/g, '') || null
+    const age = newAge.replace(/\s/g, '') || null
     emit('update:age', age)
   },
 })

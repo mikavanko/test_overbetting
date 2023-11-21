@@ -97,7 +97,7 @@ const isNumber = (e: KeyboardEvent): void => {
 
 const ageValue = computed<string>({
   get(): string {
-    const digits = BigInt(props.age ?? '' as string)?.toLocaleString('ru-RU')
+    const digits = BigInt(props.age ?? ('' as string))?.toLocaleString('ru-RU')
     return digits !== '0' ? digits : ''
   },
   set(newAge: string): void {

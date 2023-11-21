@@ -56,7 +56,7 @@ export interface IStudent {
 </script>
 
 <script setup lang="ts">
-import { computed, ref, getCurrentInstance, onMounted } from 'vue'
+import { computed, ref, getCurrentInstance, onMounted, watch } from 'vue'
 
 const emit = defineEmits(['update:age'])
 
@@ -85,7 +85,7 @@ const getInputWidth = (): void => {
   }
 }
 
-onMounted(() => {
+watch(fakeInput, () => {
   if (fakeInput.value) {
     new ResizeObserver(getInputWidth).observe(fakeInput.value)
   }
